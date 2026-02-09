@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mecânica Prost - Especialistas em Manutenção Automotiva</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap');
+        
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: #0a0a0a;
+            color: #e5e5e5;
+        }
+        
+        .hero-gradient {
+            background: linear-gradient(135deg, rgba(10,10,10,0.9) 0%, rgba(30,30,30,0.8) 100%);
+        }
+        
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(229, 229, 229, 0.1);
+        }
+        
+        .nav-link {
+            position: relative;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -2px;
+            left: 0;
+            background-color: #f59e0b;
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+            transition: all 0.3s ease;
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(245, 158, 11, 0.3);
+        }
+        
+        .section-divider {
+            height: 1px;
+            background: linear-gradient(90deg, transparent 0%, rgba(229, 229, 229, 0.3) 50%, transparent 100%);
+        }
+    </style>
+</head>
+<body>
+ <header class="bg-black/80 backdrop-blur-md fixed w-full z-50 border-b border-gray-800">
+    <div class="max-w-7xl mx-auto px-4 py-3">
+        <div class="flex justify-between items-center">
+
+            <!-- Logo -->
+            <a href="#home" class="flex items-center gap-3">
+                <img src="prost-logo.jpg"
+                     alt="Prost Mecânica"
+                     class="h-10 md:h-12 object-contain">
+                <span class="text-white font-semibold text-lg tracking-wide hidden sm:block">
+                    Mecânica Prost
+                </span>
+            </a>
+
+            <!-- Desktop Navigation -->
+            <nav class="hidden md:flex space-x-8">
+                <a href="#home" class="nav-link">Início</a>
+                <a href="#services" class="nav-link">Serviços</a>
+                <a href="#about" class="nav-link">Sobre</a>
+                <a href="#testimonials" class="nav-link">Depoimentos</a>
+                <a href="#contact" class="nav-link">Contato</a>
+            </nav>
+
+            <!-- Mobile Menu Button -->
+            <button id="mobile-menu-button"
+                class="md:hidden text-gray-300 hover:text-white">
+                <i class="fas fa-bars text-2xl"></i>
+            </button>
+
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden mt-4 space-y-2">
+            <a href="#home" class="block nav-link">Início</a>
+            <a href="#services" class="block nav-link">Serviços</a>
+            <a href="#about" class="block nav-link">Sobre</a>
+            <a href="#testimonials" class="block nav-link">Depoimentos</a>
+            <a href="#contact" class="block nav-link">Contato</a>
+        </div>
+    </div>
+</header>
+
+
+    <!-- Hero Section -->
+    <section id="home" class="pt-32 pb-20 hero-gradient">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/2 mb-10 md:mb-0">
+                    <h1 class="text-4xl md:text-5xl font-bold mb-6 text-white">Excelência em <span class="text-amber-500">Mecânica Automotiva</span></h1>
+                    <p class="text-lg text-gray-300 mb-8">Na Mecânica Prost, oferecemos serviços de alta qualidade com tecnologia de ponta e profissionais altamente qualificados para cuidar do seu veículo.</p>
+                    <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
+                        <a href="#contact" class="btn-primary text-white font-semibold py-3 px-6 rounded-lg text-center">Agendar Serviço</a>
+                        <a href="#services" class="border border-amber-500 text-amber-500 font-semibold py-3 px-6 rounded-lg hover:bg-amber-500/10 transition text-center">Nossos Serviços</a>
+                    </div>
+                </div>
+                <div class="md:w-1/2 flex justify-center">
+                    <img src="https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1283&q=80" alt="Mecânica Automotiva" class="rounded-lg shadow-2xl max-w-full h-auto">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-20 bg-gray-900">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">Nossos <span class="text-amber-500">Serviços</span></h2>
+                <div class="section-divider w-32 mx-auto my-6"></div>
+                <p class="text-gray-400 max-w-2xl mx-auto">Oferecemos uma gama completa de serviços automotivos para manter seu veículo em perfeitas condições.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Service 1 -->
+                <div class="service-card bg-gray-800 rounded-lg p-6 transition duration-300 hover:shadow-lg">
+                    <div class="text-amber-500 text-4xl mb-4">
+                        <i class="fas fa-car-battery"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-white mb-3">Manutenção Preventiva</h3>
+                    <p class="text-gray-400">Serviços periódicos para evitar problemas futuros e garantir o melhor desempenho do seu veículo.</p>
+                </div>
+                
+                <!-- Service 2 -->
+                <div class="service-card bg-gray-800 rounded-lg p-6 transition duration-300 hover:shadow-lg">
+                    <div class="text-amber-500 text-4xl mb-4">
+                        <i class="fas fa-tools"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-white mb-3">Reparos Mecânicos</h3>
+                    <p class="text-gray-400">Soluções especializadas para todos os tipos de problemas mecânicos em seu automóvel.</p>
+                </div>
+                
+                <!-- Service 3 -->
+                <div class="service-card bg-gray-800 rounded-lg p-6 transition duration-300 hover:shadow-lg">
+                    <div class="text-amber-500 text-4xl mb-4">
+                        <i class="fas fa-oil-can"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-white mb-3">Troca de Óleo</h3>
+                    <p class="text-gray-400">Utilizamos os melhores lubrificantes do mercado para prolongar a vida útil do seu motor.</p>
+                </div>
+                
+                <!-- Service 4 -->
+                <div class="service-card bg-gray-800 rounded-lg p-6 transition duration-300 hover:shadow-lg">
+                    <div class="text-amber-500 text-4xl mb-4">
+                        <i class="fas fa-tire"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-white mb-3">Alinhamento e Balanceamento</h3>
+                    <p class="text-gray-400">Serviço essencial para garantir a estabilidade do veículo e prolongar a vida útil dos pneus.</p>
+                </div>
+                
+                <!-- Service 5 -->
+                <div class="service-card bg-gray-800 rounded-lg p-6 transition duration-300 hover:shadow-lg">
+                    <div class="text-amber-500 text-4xl mb-4">
+                        <i class="fas fa-car-crash"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-white mb-3">Suspensão</h3>
+                    <p class="text-gray-400">Diagnóstico e reparo completo do sistema de suspensão para maior conforto e segurança.</p>
+                </div>
+                
+                <!-- Service 6 -->
+                <div class="service-card bg-gray-800 rounded-lg p-6 transition duration-300 hover:shadow-lg">
+                    <div class="text-amber-500 text-4xl mb-4">
+                        <i class="fas fa-bolt"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-white mb-3">Sistema Elétrico</h3>
+                    <p class="text-gray-400">Reparos e manutenção no sistema elétrico e eletrônico do veículo com equipamentos modernos.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-black">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/2 mb-10 md:mb-0 md:pr-10">
+                    <img src="https://images.unsplash.com/photo-1600861195091-690c92f1d2cc?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1287&q=80" alt="Sobre a Mecânica Prost" class="rounded-lg shadow-xl w-full">
+                </div>
+                <div class="md:w-1/2">
+                    <h2 class="text-3xl md:text-4xl font-bold text-white mb-6">Sobre a <span class="text-amber-500">Mecânica Prost</span></h2>
+                    <div class="section-divider w-32 my-6"></div>
+                    <p class="text-gray-400 mb-6">Com mais de 15 anos de experiência no mercado automotivo, a Mecânica Prost se destaca pelo compromisso com a qualidade e satisfação dos clientes.</p>
+                    <p class="text-gray-400 mb-6">Nossa equipe é composta por profissionais altamente qualificados e constantemente treinados nas mais modernas tecnologias automotivas.</p>
+                    <p class="text-gray-400 mb-8">Investimos em equipamentos de última geração para garantir diagnósticos precisos e reparos eficientes, proporcionando a melhor relação custo-benefício para nossos clientes.</p>
+                    
+                    <div class="grid grid-cols-2 gap-6">
+                        <div class="flex items-start">
+                            <div class="text-amber-500 mr-4 mt-1">
+                                <i class="fas fa-check-circle text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-white font-semibold mb-1">Qualidade Garantida</h4>
+                                <p class="text-gray-400 text-sm">Peças originais e serviços com garantia</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="text-amber-500 mr-4 mt-1">
+                                <i class="fas fa-check-circle text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-white font-semibold mb-1">Atendimento Personalizado</h4>
+                                <p class="text-gray-400 text-sm">Soluções específicas para cada cliente</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="text-amber-500 mr-4 mt-1">
+                                <i class="fas fa-check-circle text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-white font-semibold mb-1">Transparência</h4>
+                                <p class="text-gray-400 text-sm">Orçamentos claros e sem surpresas</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="text-amber-500 mr-4 mt-1">
+                                <i class="fas fa-check-circle text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-white font-semibold mb-1">Agilidade</h4>
+                                <p class="text-gray-400 text-sm">Serviços rápidos sem perder a qualidade</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="py-20 bg-gray-900">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">Depoimentos de <span class="text-amber-500">Clientes</span></h2>
+                <div class="section-divider w-32 mx-auto my-6"></div>
+                <p class="text-gray-400 max-w-2xl mx-auto">Veja o que nossos clientes têm a dizer sobre a qualidade dos nossos serviços.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Testimonial 1 -->
+                <div class="bg-gray-800 rounded-lg p-6">
+                    <div class="flex items-center mb-4">
+                        <div class="text-amber-500 text-2xl mr-2">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                    <p class="text-gray-300 italic mb-6">"Levo meu carro na Mecânica Prost há anos e sempre fico impressionado com a qualidade do serviço. Profissionais extremamente competentes e honestos."</p>
+                    <div class="flex items-center">
+                        <div class="w-12 h-12 rounded-full bg-gray-700 flex items-center justify-center text-amber-500 font-bold mr-4">JP</div>
+                        <div>
+                            <h4 class="text-white font-semibold">João Pedro</h4>
+                            <p class="text-gray-400 text-sm">Cliente desde 2018</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Testimonial 2 -->
+                <div class="bg-gray-800 rounded-lg p-6">
+                    <div class="flex items-center mb-4">
+                        <div class="text-amber-500 text-2xl mr-2">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                    <p class="text-gray-300 italic mb-6">"Finalmente encontrei uma oficina que posso confiar. Explicam tudo com clareza, não inventam problemas e o preço é justo. Recomendo a todos!"</p>
+                    <div class="flex items-center">
+                        <div class="w-12 h-12 rounded-full bg-gray-700 flex items-center justify-center text-amber-500 font-bold mr-4">AM</div>
+                        <div>
+                            <h4 class="text-white font-semibold">Ana Maria</h4>
+                            <p class="text-gray-400 text-sm">Cliente desde 2020</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Testimonial 3 -->
+                <div class="bg-gray-800 rounded-lg p-6">
+                    <div class="flex items-center mb-4">
+                        <div class="text-amber-500 text-2xl mr-2">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                        </div>
+                    </div>
+                    <p class="text-gray-300 italic mb-6">"Meu carro estava com um problema difícil de diagnosticar. A Mecânica Prost identificou rapidamente e resolveu com competência. Excelente atendimento!"</p>
+                    <div class="flex items-center">
+                        <div class="w-12 h-12 rounded-full bg-gray-700 flex items-center justify-center text-amber-500 font-bold mr-4">CS</div>
+                        <div>
+                            <h4 class="text-white font-semibold">Carlos Silva</h4>
+                            <p class="text-gray-400 text-sm">Cliente desde 2021</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-black">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">Entre em <span class="text-amber-500">Contato</span></h2>
+                <div class="section-divider w-32 mx-auto my-6"></div>
+                <p class="text-gray-400 max-w-2xl mx-auto">Agende seu serviço ou tire suas dúvidas conosco. Estamos à disposição para melhor atendê-lo.</p>
+            </div>
+            
+            <div class="flex flex-col md:flex-row">
+                <div class="md:w-1/2 mb-10 md:mb-0 md:pr-10">
+                    <form class="space-y-6">
+                        <div>
+                            <label for="name" class="block text-gray-300 mb-2">Nome Completo</label>
+                            <input type="text" id="name" class="w-full bg-gray-800 border border-gray-700 rounded-lg py-3 px-4 text-white focus:outline-none focus:ring-2 focus:ring-amber-500">
+                        </div>
+                        <div>
+                            <label for="email" class="block text-gray-300 mb-2">E-mail</label>
+                            <input type="email" id="email" class="w-full bg-gray-800 border border-gray-700 rounded-lg py-3 px-4 text-white focus:outline-none focus:ring-2 focus:ring-amber-500">
+                        </div>
+                        <div>
+                            <label for="phone" class="block text-gray-300 mb-2">Telefone</label>
+                            <input type="tel" id="phone" class="w-full bg-gray-800 border border-gray-700 rounded-lg py-3 px-4 text-white focus:outline-none focus:ring-2 focus:ring-amber-500">
+                        </div>
+                        <div>
+                            <label for="service" class="block text-gray-300 mb-2">Serviço de Interesse</label>
+                            <select id="service" class="w-full bg-gray-800 border border-gray-700 rounded-lg py-3 px-4 text-white focus:outline-none focus:ring-2 focus:ring-amber-500">
+                                <option value="">Selecione um serviço</option>
+                                <option value="preventiva">Manutenção Preventiva</option>
+                                <option value="reparos">Reparos Mecânicos</option>
+                                <option value="oleo">Troca de Óleo</option>
+                                <option value="alinhamento">Alinhamento e Balanceamento</option>
+                                <option value="suspensao">Suspensão</option>
+                                <option value="eletrico">Sistema Elétrico</option>
+                                <option value="outro">Outro</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label for="message" class="block text-gray-300 mb-2">Mensagem</label>
+                            <textarea id="message" rows="4" class="w-full bg-gray-800 border border-gray-700 rounded-lg py-3 px-4 text-white focus:outline-none focus:ring-2 focus:ring-amber-500"></textarea>
+                        </div>
+                        <button type="submit" class="btn-primary w-full text-white font-semibold py-3 px-6 rounded-lg">Enviar Mensagem</button>
+                    </form>
+                </div>
+                
+                <div class="md:w-1/2 md:pl-10">
+                    <div class="bg-gray-800 rounded-lg p-8 h-full">
+                        <h3 class="text-2xl font-semibold text-white mb-6">Informações de Contato</h3>
+                        
+                        <div class="space-y-6">
+                            <div class="flex items-start">
+                                <div class="text-amber-500 text-xl mr-4 mt-1">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                </div>
+                                <div>
+                                    <h4 class="text-white font-medium mb-1">Endereço</h4>
+                                    <p class="text-gray-400">Rua Exemplo, 123 - Centro<br>São Paulo - SP</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start">
+                                <div class="text-amber-500 text-xl mr-4 mt-1">
+                                    <i class="fas fa-phone-alt"></i>
+                                </div>
+                                <div>
+                                    <h4 class="text-white font-medium mb-1">Telefone</h4>
+                                    <p class="text-gray-400">(11) 1234-5678<br>(11) 98765-4321 (WhatsApp)</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start">
+                                <div class="text-amber-500 text-xl mr-4 mt-1">
+                                    <i class="fas fa-envelope"></i>
+                                </div>
+                                <div>
+                                    <h4 class="text-white font-medium mb-1">E-mail</h4>
+                                    <p class="text-gray-400">contato@mecanicaprost.com.br</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start">
+                                <div class="text-amber-500 text-xl mr-4 mt-1">
+                                    <i class="fas fa-clock"></i>
+                                </div>
+                                <div>
+                                    <h4 class="text-white font-medium mb-1">Horário de Funcionamento</h4>
+                                    <p class="text-gray-400">Segunda a Sexta: 08:00 - 18:00<br>Sábado: 08:00 - 13:00</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="mt-8">
+                            <h4 class="text-white font-medium mb-4">Siga-nos nas Redes Sociais</h4>
+                            <div class="flex space-x-4">
+                                <a href="#" class="text-gray-400 hover:text-amber-500 transition text-2xl">
+                                    <i class="fab fa-facebook"></i>
+                                </a>
+                                <a href="#" class="text-gray-400 hover:text-amber-500 transition text-2xl">
+                                    <i class="fab fa-instagram"></i>
+                                </a>
+                                <a href="#" class="text-gray-400 hover:text-amber-500 transition text-2xl">
+                                    <i class="fab fa-whatsapp"></i>
+                                </a>
+                                <a href="#" class="text-gray-400 hover:text-amber-500 transition text-2xl">
+                                    <i class="fab fa-youtube"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Map Section -->
+    <div class="h-96 w-full bg-gray-800">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3657.0754267452926!2d-46.6534265844076!3d-23.56573436763838!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce59c8da0aa315%3A0xd59f9431f2c9776a!2sAv.%20Paulista%2C%20S%C3%A3o%20Paulo%20-%20SP!5e0!3m2!1spt-BR!2sbr!4v1623860000000!5m2!1spt-BR!2sbr" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 py-12">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-6 md:mb-0">
+                    <img src="https://www.mecanicaprost.com.br/wp-content/uploads/2021/05/logo-mecanica-prost.png" alt="Mecânica Prost" class="h-10">
+                </div>
+                
+                <div class="text-center md:text-right">
+                    <p class="text-gray-400 mb-2">© 2023 Mecânica Prost. Todos os direitos reservados.</p>
+                    <p class="text-gray-500 text-sm">Desenvolvido com <i class="fas fa-heart text-amber-500"></i> para amantes de carros</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button id="back-to-top" class="fixed bottom-8 right-8 bg-amber-500 text-white w-12 h-12 rounded-full flex items-center justify-center shadow-lg opacity-0 invisible transition-all duration-300">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+        
+        // Smooth Scrolling for Navigation Links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu if open
+                    if (!mobileMenu.classList.contains('hidden')) {
+                        mobileMenu.classList.add('hidden');
+                    }
+                }
+            });
+        });
+        
+        // Back to Top Button
+        const backToTopButton = document.getElementById('back-to-top');
+        
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                backToTopButton.classList.remove('opacity-0', 'invisible');
+                backToTopButton.classList.add('opacity-100', 'visible');
+            } else {
+                backToTopButton.classList.remove('opacity-100', 'visible');
+                backToTopButton.classList.add('opacity-0', 'invisible');
+            }
+        });
+        
+        backToTopButton.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+        
+        // Form Submission (example)
+        const form = document.querySelector('form');
+        if (form) {
+            form.addEventListener('submit', (e) => {
+                e.preventDefault();
+                alert('Obrigado por sua mensagem! Entraremos em contato em breve.');
+                form.reset();
+            });
+        }
+    </script>
+</body>
+</html>
