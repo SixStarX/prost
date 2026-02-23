@@ -3,523 +3,1774 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mecânica Prost - Especialistas em Manutenção Automotiva</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Grupo Automotivo Prost | Soluções Automotivas Completas</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:wght@300;400;500;600;700&family=Barlow+Condensed:wght@400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap');
-        
+        :root {
+            --gold: #c9a84c;
+            --gold-light: #e8c97a;
+            --gold-dark: #8a6b28;
+            --black: #050505;
+            --dark: #0e0e0e;
+            --dark2: #161616;
+            --dark3: #1f1f1f;
+            --gray: #888;
+            --light: #e8e8e8;
+            --white: #fff;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        html { scroll-behavior: smooth; }
+
         body {
-            font-family: 'Montserrat', sans-serif;
-            background-color: #0a0a0a;
-            color: #e5e5e5;
+            font-family: 'Barlow', sans-serif;
+            background: var(--black);
+            color: var(--light);
+            overflow-x: hidden;
         }
-        
-        .hero-gradient {
-            background: linear-gradient(135deg, rgba(10,10,10,0.9) 0%, rgba(30,30,30,0.8) 100%);
+
+        /* ─── NOISE TEXTURE OVERLAY ─── */
+        body::before {
+            content: '';
+            position: fixed;
+            inset: 0;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+            pointer-events: none;
+            z-index: 9999;
+            opacity: 0.4;
         }
-        
-        .service-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(229, 229, 229, 0.1);
+
+        /* ─── TYPOGRAPHY ─── */
+        .font-display { font-family: 'Bebas Neue', sans-serif; letter-spacing: 0.04em; }
+        .font-condensed { font-family: 'Barlow Condensed', sans-serif; }
+
+        /* ─── HEADER ─── */
+        header {
+            position: fixed;
+            top: 0; left: 0; right: 0;
+            z-index: 1000;
+            padding: 0 48px;
+            height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: rgba(5,5,5,0.92);
+            backdrop-filter: blur(16px);
+            border-bottom: 1px solid rgba(201,168,76,0.15);
+            transition: all 0.4s ease;
         }
-        
-        .nav-link {
+
+        header.scrolled {
+            height: 64px;
+            border-bottom-color: rgba(201,168,76,0.3);
+        }
+
+        .logo-area {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            text-decoration: none;
+        }
+
+        .logo-area img {
+            height: 40px;
+            object-fit: contain;
+            filter: brightness(0) invert(1);
+            opacity: 0.9;
+        }
+
+        nav { display: flex; align-items: center; gap: 40px; }
+
+        nav a {
+            font-family: 'Barlow Condensed', sans-serif;
+            font-size: 13px;
+            font-weight: 600;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--gray);
+            text-decoration: none;
             position: relative;
+            transition: color 0.3s;
         }
-        
-        .nav-link::after {
+
+        nav a::after {
             content: '';
             position: absolute;
-            width: 0;
-            height: 2px;
-            bottom: -2px;
-            left: 0;
-            background-color: #f59e0b;
+            bottom: -4px; left: 0;
+            width: 0; height: 1px;
+            background: var(--gold);
             transition: width 0.3s ease;
         }
-        
-        .nav-link:hover::after {
-            width: 100%;
+
+        nav a:hover { color: var(--white); }
+        nav a:hover::after { width: 100%; }
+
+        .nav-cta {
+            background: var(--gold);
+            color: var(--black) !important;
+            padding: 10px 24px;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            transition: all 0.3s ease !important;
         }
-        
+
+        .nav-cta::after { display: none !important; }
+
+        .nav-cta:hover {
+            background: var(--gold-light) !important;
+            transform: translateY(-1px);
+            box-shadow: 0 6px 20px rgba(201,168,76,0.35);
+        }
+
+        .mobile-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--light);
+            font-size: 22px;
+            cursor: pointer;
+        }
+
+        .mobile-nav {
+            display: none;
+            position: fixed;
+            top: 80px; left: 0; right: 0;
+            background: rgba(5,5,5,0.98);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(201,168,76,0.2);
+            padding: 24px 48px;
+            flex-direction: column;
+            gap: 20px;
+            z-index: 999;
+        }
+
+        .mobile-nav.open { display: flex; }
+
+        .mobile-nav a {
+            font-family: 'Barlow Condensed', sans-serif;
+            font-size: 16px;
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--gray);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .mobile-nav a:hover { color: var(--gold); }
+
+        /* ─── HERO ─── */
+        #hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+            padding: 120px 48px 80px;
+        }
+
+        .hero-bg {
+            position: absolute;
+            inset: 0;
+            background:
+                radial-gradient(ellipse 80% 60% at 70% 50%, rgba(201,168,76,0.06) 0%, transparent 70%),
+                linear-gradient(to bottom, var(--black) 0%, var(--dark) 100%);
+        }
+
+        .hero-lines {
+            position: absolute;
+            right: 0; top: 0;
+            width: 55%;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        .hero-lines::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg,
+                transparent 0%,
+                rgba(201,168,76,0.03) 30%,
+                rgba(201,168,76,0.06) 50%,
+                transparent 70%
+            );
+        }
+
+        .hero-car-img {
+            position: absolute;
+            right: -40px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 58%;
+            height: 80%;
+            object-fit: cover;
+            object-position: center;
+            mask-image: linear-gradient(to left, rgba(0,0,0,0.8) 40%, transparent 100%);
+            -webkit-mask-image: linear-gradient(to left, rgba(0,0,0,0.8) 40%, transparent 100%);
+            filter: grayscale(30%) contrast(1.1);
+            opacity: 0.7;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 600px;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-family: 'Barlow Condensed', sans-serif;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--gold);
+            border: 1px solid rgba(201,168,76,0.4);
+            padding: 6px 16px;
+            margin-bottom: 32px;
+            opacity: 0;
+            animation: fadeUp 0.8s 0.2s forwards;
+        }
+
+        .hero-badge span { width: 20px; height: 1px; background: var(--gold); }
+
+        .hero-title {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: clamp(64px, 9vw, 120px);
+            line-height: 0.9;
+            color: var(--white);
+            margin-bottom: 24px;
+            opacity: 0;
+            animation: fadeUp 0.8s 0.4s forwards;
+        }
+
+        .hero-title em {
+            font-style: normal;
+            color: var(--gold);
+            display: block;
+        }
+
+        .hero-subtitle {
+            font-size: 17px;
+            font-weight: 300;
+            color: var(--gray);
+            line-height: 1.7;
+            max-width: 460px;
+            margin-bottom: 48px;
+            opacity: 0;
+            animation: fadeUp 0.8s 0.6s forwards;
+        }
+
+        .hero-actions {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+            opacity: 0;
+            animation: fadeUp 0.8s 0.8s forwards;
+        }
+
         .btn-primary {
-            background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: var(--gold);
+            color: var(--black);
+            font-family: 'Barlow Condensed', sans-serif;
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            padding: 16px 36px;
+            text-decoration: none;
             transition: all 0.3s ease;
         }
-        
+
         .btn-primary:hover {
+            background: var(--gold-light);
             transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(245, 158, 11, 0.3);
+            box-shadow: 0 10px 30px rgba(201,168,76,0.3);
         }
-        
-        .section-divider {
-            height: 1px;
-            background: linear-gradient(90deg, transparent 0%, rgba(229, 229, 229, 0.3) 50%, transparent 100%);
+
+        .btn-outline {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            border: 1px solid rgba(255,255,255,0.2);
+            color: var(--light);
+            font-family: 'Barlow Condensed', sans-serif;
+            font-size: 13px;
+            font-weight: 600;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            padding: 16px 36px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .btn-outline:hover {
+            border-color: var(--gold);
+            color: var(--gold);
+            transform: translateY(-2px);
+        }
+
+        .hero-stats {
+            position: absolute;
+            bottom: 60px;
+            left: 48px;
+            display: flex;
+            gap: 60px;
+            opacity: 0;
+            animation: fadeUp 0.8s 1s forwards;
+        }
+
+        .stat-item {}
+
+        .stat-number {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 42px;
+            color: var(--white);
+            line-height: 1;
+        }
+
+        .stat-number span { color: var(--gold); }
+
+        .stat-label {
+            font-size: 11px;
+            font-weight: 500;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--gray);
+            margin-top: 4px;
+        }
+
+        /* ─── SECTION COMMON ─── */
+        section { padding: 120px 48px; }
+
+        .section-tag {
+            font-family: 'Barlow Condensed', sans-serif;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 0.25em;
+            text-transform: uppercase;
+            color: var(--gold);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 20px;
+        }
+
+        .section-tag::before {
+            content: '';
+            width: 32px; height: 1px;
+            background: var(--gold);
+        }
+
+        .section-title {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: clamp(40px, 6vw, 72px);
+            line-height: 0.95;
+            color: var(--white);
+            margin-bottom: 24px;
+        }
+
+        .section-title em {
+            font-style: normal;
+            color: var(--gold);
+        }
+
+        .gold-line {
+            width: 60px; height: 2px;
+            background: linear-gradient(90deg, var(--gold), transparent);
+            margin-bottom: 32px;
+        }
+
+        /* ─── ABOUT / MISSION STRIP ─── */
+        #about {
+            background: var(--dark2);
+            padding: 80px 48px;
+            border-top: 1px solid rgba(201,168,76,0.1);
+            border-bottom: 1px solid rgba(201,168,76,0.1);
+        }
+
+        .about-grid {
+            max-width: 1280px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+        }
+
+        .about-image-wrap {
+            position: relative;
+        }
+
+        .about-image-wrap img {
+            width: 100%;
+            height: 520px;
+            object-fit: cover;
+            filter: grayscale(20%);
+        }
+
+        .about-image-wrap::after {
+            content: '';
+            position: absolute;
+            bottom: -16px; right: -16px;
+            width: 60%;
+            height: 60%;
+            border: 2px solid var(--gold);
+            pointer-events: none;
+            opacity: 0.4;
+        }
+
+        .about-badge-img {
+            position: absolute;
+            top: -20px;
+            right: -20px;
+            width: 120px;
+            height: 120px;
+            background: var(--gold);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+        }
+
+        .about-badge-img span:first-child {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 38px;
+            color: var(--black);
+            line-height: 1;
+        }
+
+        .about-badge-img span:last-child {
+            font-family: 'Barlow Condensed', sans-serif;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            color: var(--black);
+            text-transform: uppercase;
+        }
+
+        .about-text p {
+            font-size: 16px;
+            font-weight: 300;
+            line-height: 1.8;
+            color: #aaa;
+            margin-bottom: 20px;
+        }
+
+        .about-text p strong {
+            color: var(--white);
+            font-weight: 600;
+        }
+
+        .about-highlights {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            margin-top: 40px;
+        }
+
+        .highlight-item {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .highlight-icon {
+            width: 40px; height: 40px;
+            background: rgba(201,168,76,0.1);
+            border: 1px solid rgba(201,168,76,0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--gold);
+            font-size: 14px;
+            flex-shrink: 0;
+        }
+
+        .highlight-item span {
+            font-family: 'Barlow Condensed', sans-serif;
+            font-size: 15px;
+            font-weight: 600;
+            letter-spacing: 0.05em;
+            color: var(--light);
+        }
+
+        /* ─── SERVICES ─── */
+        #services {
+            background: var(--black);
+            max-width: 100%;
+        }
+
+        .services-inner {
+            max-width: 1280px;
+            margin: 0 auto;
+        }
+
+        .services-header {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: end;
+            margin-bottom: 72px;
+        }
+
+        .services-header p {
+            font-size: 16px;
+            font-weight: 300;
+            color: #888;
+            line-height: 1.7;
+        }
+
+        /* Unit tabs */
+        .unit-tabs {
+            display: flex;
+            gap: 4px;
+            margin-bottom: 48px;
+        }
+
+        .unit-tab {
+            font-family: 'Barlow Condensed', sans-serif;
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            padding: 10px 24px;
+            border: 1px solid rgba(255,255,255,0.1);
+            color: var(--gray);
+            background: transparent;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .unit-tab.active, .unit-tab:hover {
+            background: var(--gold);
+            border-color: var(--gold);
+            color: var(--black);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2px;
+        }
+
+        .service-card {
+            background: var(--dark2);
+            padding: 40px 32px;
+            position: relative;
+            overflow: hidden;
+            cursor: default;
+            transition: all 0.4s ease;
+            border: 1px solid rgba(255,255,255,0.04);
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            bottom: 0; left: 0;
+            width: 0; height: 2px;
+            background: var(--gold);
+            transition: width 0.4s ease;
+        }
+
+        .service-card:hover {
+            background: var(--dark3);
+            transform: translateY(-4px);
+        }
+
+        .service-card:hover::before { width: 100%; }
+
+        .service-number {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 60px;
+            color: rgba(201,168,76,0.08);
+            line-height: 1;
+            position: absolute;
+            top: 16px; right: 24px;
+        }
+
+        .service-icon {
+            width: 52px; height: 52px;
+            border: 1px solid rgba(201,168,76,0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--gold);
+            font-size: 20px;
+            margin-bottom: 24px;
+            transition: all 0.3s;
+        }
+
+        .service-card:hover .service-icon {
+            background: var(--gold);
+            color: var(--black);
+        }
+
+        .service-card h3 {
+            font-family: 'Barlow Condensed', sans-serif;
+            font-size: 20px;
+            font-weight: 700;
+            letter-spacing: 0.05em;
+            color: var(--white);
+            text-transform: uppercase;
+            margin-bottom: 12px;
+        }
+
+        .service-card p {
+            font-size: 14px;
+            font-weight: 300;
+            color: #666;
+            line-height: 1.6;
+        }
+
+        .service-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-family: 'Barlow Condensed', sans-serif;
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--gold);
+            text-decoration: none;
+            margin-top: 20px;
+            transition: gap 0.3s;
+        }
+
+        .service-link:hover { gap: 14px; }
+
+        /* ─── SCHEDULING / UNITS ─── */
+        #schedule {
+            background: var(--dark2);
+            border-top: 1px solid rgba(201,168,76,0.1);
+        }
+
+        .schedule-inner {
+            max-width: 1280px;
+            margin: 0 auto;
+        }
+
+        .units-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2px;
+            margin-top: 60px;
+        }
+
+        .unit-card {
+            background: var(--dark3);
+            padding: 48px 36px;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.4s ease;
+        }
+
+        .unit-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0;
+            width: 3px; height: 0;
+            background: var(--gold);
+            transition: height 0.4s ease;
+        }
+
+        .unit-card:hover { background: rgba(201,168,76,0.04); }
+        .unit-card:hover::before { height: 100%; }
+
+        .unit-tag {
+            font-family: 'Barlow Condensed', sans-serif;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-bottom: 20px;
+        }
+
+        .unit-name {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 36px;
+            color: var(--white);
+            margin-bottom: 24px;
+        }
+
+        .unit-desc {
+            font-size: 14px;
+            font-weight: 300;
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 28px;
+        }
+
+        .unit-address {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            margin-bottom: 32px;
+        }
+
+        .unit-address span {
+            font-size: 13px;
+            color: #888;
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+        }
+
+        .unit-address i {
+            color: var(--gold);
+            margin-top: 2px;
+            flex-shrink: 0;
+        }
+
+        .unit-phone {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 22px;
+            color: var(--white);
+            text-decoration: none;
+            margin-bottom: 28px;
+            transition: color 0.3s;
+        }
+
+        .unit-phone i { color: var(--gold); font-size: 16px; }
+        .unit-phone:hover { color: var(--gold); }
+
+        .btn-schedule {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            border: 1px solid rgba(201,168,76,0.4);
+            color: var(--gold);
+            font-family: 'Barlow Condensed', sans-serif;
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            padding: 12px 28px;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+
+        .btn-schedule:hover {
+            background: var(--gold);
+            color: var(--black);
+        }
+
+        /* ─── TESTIMONIALS ─── */
+        #testimonials {
+            background: var(--black);
+        }
+
+        .testimonials-inner {
+            max-width: 1280px;
+            margin: 0 auto;
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2px;
+            margin-top: 60px;
+        }
+
+        .testimonial-card {
+            background: var(--dark2);
+            padding: 40px;
+            position: relative;
+            border: 1px solid rgba(255,255,255,0.04);
+            transition: border-color 0.3s;
+        }
+
+        .testimonial-card:hover {
+            border-color: rgba(201,168,76,0.2);
+        }
+
+        .quote-mark {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 80px;
+            color: rgba(201,168,76,0.12);
+            line-height: 0.6;
+            margin-bottom: 20px;
+        }
+
+        .testimonial-text {
+            font-size: 15px;
+            font-weight: 300;
+            color: #999;
+            line-height: 1.8;
+            margin-bottom: 28px;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            border-top: 1px solid rgba(255,255,255,0.06);
+            padding-top: 20px;
+        }
+
+        .author-avatar {
+            width: 44px; height: 44px;
+            background: var(--dark3);
+            border: 1px solid rgba(201,168,76,0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 18px;
+            color: var(--gold);
+        }
+
+        .author-name {
+            font-family: 'Barlow Condensed', sans-serif;
+            font-size: 15px;
+            font-weight: 700;
+            letter-spacing: 0.05em;
+            color: var(--white);
+        }
+
+        .author-car {
+            font-size: 12px;
+            color: var(--gray);
+        }
+
+        .stars { color: var(--gold); font-size: 12px; margin-bottom: 4px; }
+
+        /* ─── CONTACT ─── */
+        #contact {
+            background: var(--dark2);
+            border-top: 1px solid rgba(201,168,76,0.1);
+        }
+
+        .contact-inner {
+            max-width: 1280px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+        }
+
+        .contact-form-wrap {}
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            font-family: 'Barlow Condensed', sans-serif;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--gray);
+            margin-bottom: 8px;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            background: rgba(255,255,255,0.04);
+            border: 1px solid rgba(255,255,255,0.1);
+            color: var(--white);
+            font-family: 'Barlow', sans-serif;
+            font-size: 14px;
+            padding: 14px 18px;
+            transition: border-color 0.3s;
+            outline: none;
+            -webkit-appearance: none;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            border-color: var(--gold);
+        }
+
+        .form-group select option { background: var(--dark2); }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+        }
+
+        .contact-info-wrap {
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+        }
+
+        .contact-info-wrap p {
+            font-size: 15px;
+            font-weight: 300;
+            color: #888;
+            line-height: 1.7;
+        }
+
+        .contact-item {
+            display: flex;
+            gap: 16px;
+        }
+
+        .contact-item-icon {
+            width: 44px; height: 44px;
+            background: rgba(201,168,76,0.08);
+            border: 1px solid rgba(201,168,76,0.25);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--gold);
+            font-size: 16px;
+            flex-shrink: 0;
+        }
+
+        .contact-item-text {}
+
+        .contact-item-label {
+            font-family: 'Barlow Condensed', sans-serif;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-bottom: 6px;
+        }
+
+        .contact-item-value {
+            font-size: 14px;
+            color: #aaa;
+            line-height: 1.6;
+        }
+
+        .contact-item-value a {
+            color: #aaa;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .contact-item-value a:hover { color: var(--gold); }
+
+        .social-row {
+            display: flex;
+            gap: 12px;
+        }
+
+        .social-link {
+            width: 44px; height: 44px;
+            border: 1px solid rgba(255,255,255,0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--gray);
+            font-size: 16px;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+
+        .social-link:hover {
+            border-color: var(--gold);
+            color: var(--gold);
+            background: rgba(201,168,76,0.06);
+        }
+
+        /* ─── MAP ─── */
+        #map { height: 420px; }
+        #map iframe { width: 100%; height: 100%; border: 0; filter: grayscale(80%) contrast(1.1); }
+
+        /* ─── NEWSLETTER ─── */
+        #newsletter {
+            background: var(--gold);
+            padding: 80px 48px;
+        }
+
+        .newsletter-inner {
+            max-width: 1280px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 40px;
+        }
+
+        .newsletter-text .section-tag { color: rgba(0,0,0,0.5); }
+        .newsletter-text .section-tag::before { background: rgba(0,0,0,0.4); }
+
+        .newsletter-title {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 48px;
+            color: var(--black);
+            line-height: 1;
+        }
+
+        .newsletter-form {
+            display: flex;
+            gap: 0;
+            flex-shrink: 0;
+        }
+
+        .newsletter-form input {
+            background: rgba(0,0,0,0.15);
+            border: 1px solid rgba(0,0,0,0.2);
+            color: var(--black);
+            font-family: 'Barlow', sans-serif;
+            font-size: 14px;
+            padding: 16px 24px;
+            width: 280px;
+            outline: none;
+        }
+
+        .newsletter-form input::placeholder { color: rgba(0,0,0,0.4); }
+
+        .newsletter-form button {
+            background: var(--black);
+            color: var(--gold);
+            font-family: 'Barlow Condensed', sans-serif;
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            padding: 16px 28px;
+            border: none;
+            cursor: pointer;
+            white-space: nowrap;
+            transition: background 0.3s;
+        }
+
+        .newsletter-form button:hover { background: var(--dark); }
+
+        /* ─── FOOTER ─── */
+        footer {
+            background: var(--black);
+            padding: 80px 48px 40px;
+            border-top: 1px solid rgba(255,255,255,0.06);
+        }
+
+        .footer-grid {
+            max-width: 1280px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1.5fr 1fr 1fr 1fr;
+            gap: 60px;
+            padding-bottom: 60px;
+            border-bottom: 1px solid rgba(255,255,255,0.06);
+        }
+
+        .footer-brand img {
+            height: 36px;
+            filter: brightness(0) invert(1);
+            opacity: 0.6;
+            margin-bottom: 20px;
+        }
+
+        .footer-brand p {
+            font-size: 13px;
+            font-weight: 300;
+            color: #555;
+            line-height: 1.7;
+        }
+
+        .footer-col-title {
+            font-family: 'Barlow Condensed', sans-serif;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-bottom: 24px;
+        }
+
+        .footer-links {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .footer-links a {
+            font-size: 13px;
+            color: #555;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover { color: var(--gold); }
+
+        .footer-bottom {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding-top: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .footer-bottom p {
+            font-size: 12px;
+            color: #333;
+        }
+
+        /* ─── WHATSAPP FLOAT ─── */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 32px;
+            right: 32px;
+            width: 56px;
+            height: 56px;
+            background: #25D366;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            text-decoration: none;
+            box-shadow: 0 4px 20px rgba(37,211,102,0.4);
+            z-index: 998;
+            transition: all 0.3s;
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+            box-shadow: 0 8px 30px rgba(37,211,102,0.5);
+        }
+
+        /* ─── BACK TO TOP ─── */
+        #back-top {
+            position: fixed;
+            bottom: 100px;
+            right: 32px;
+            width: 44px;
+            height: 44px;
+            background: var(--dark2);
+            border: 1px solid rgba(201,168,76,0.3);
+            color: var(--gold);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            z-index: 997;
+            opacity: 0;
+            transform: translateY(10px);
+            transition: all 0.3s;
+        }
+
+        #back-top.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        #back-top:hover { background: var(--gold); color: var(--black); }
+
+        /* ─── ANIMATIONS ─── */
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.7s ease, transform 0.7s ease;
+        }
+
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* ─── RESPONSIVE ─── */
+        @media (max-width: 1024px) {
+            header { padding: 0 24px; }
+            nav { gap: 24px; }
+
+            .services-header { grid-template-columns: 1fr; gap: 20px; }
+            .services-grid { grid-template-columns: repeat(2, 1fr); }
+            .units-grid { grid-template-columns: 1fr; }
+            .testimonials-grid { grid-template-columns: repeat(2, 1fr); }
+            .footer-grid { grid-template-columns: 1fr 1fr; }
+        }
+
+        @media (max-width: 768px) {
+            header { padding: 0 20px; }
+            nav { display: none; }
+            .mobile-toggle { display: block; }
+            section { padding: 80px 20px; }
+            #hero { padding: 100px 20px 60px; }
+            .hero-title { font-size: 56px; }
+            .hero-car-img { display: none; }
+            .hero-stats { position: static; margin-top: 48px; gap: 32px; opacity: 1; animation: none; }
+            .about-grid { grid-template-columns: 1fr; gap: 40px; }
+            .about-image-wrap img { height: 300px; }
+            .about-badge-img { display: none; }
+            .services-grid { grid-template-columns: 1fr; }
+            .testimonials-grid { grid-template-columns: 1fr; }
+            .contact-inner { grid-template-columns: 1fr; gap: 40px; }
+            .form-row { grid-template-columns: 1fr; }
+            .newsletter-inner { flex-direction: column; }
+            .newsletter-form { width: 100%; }
+            .newsletter-form input { width: 100%; flex: 1; }
+            .footer-grid { grid-template-columns: 1fr; gap: 32px; }
+            #about { padding: 60px 20px; }
+            #newsletter { padding: 60px 20px; }
+            footer { padding: 60px 20px 32px; }
+            .footer-bottom { flex-direction: column; gap: 12px; text-align: center; }
         }
     </style>
 </head>
 <body>
- <header class="bg-black/80 backdrop-blur-md fixed w-full z-50 border-b border-gray-800">
-    <div class="max-w-7xl mx-auto px-4 py-3">
-        <div class="flex justify-between items-center">
 
-            <!-- Logo -->
-            <a href="#home" class="flex items-center gap-3">
-                <img src="image/prost-logo.jpg"
-                     alt="Prost Mecânica"
-                     class="h-10 md:h-12 object-contain">
-                <span class="text-white font-semibold text-lg tracking-wide hidden sm:block">
-                    Mecânica Prost
-                </span>
-            </a>
-
-            <!-- Desktop Navigation -->
-            <nav class="hidden md:flex space-x-8">
-                <a href="#home" class="nav-link">Início</a>
-                <a href="#services" class="nav-link">Serviços</a>
-                <a href="#about" class="nav-link">Sobre</a>
-                <a href="#testimonials" class="nav-link">Depoimentos</a>
-                <a href="#contact" class="nav-link">Contato</a>
-            </nav>
-
-            <!-- Mobile Menu Button -->
-            <button id="mobile-menu-button"
-                class="md:hidden text-gray-300 hover:text-white">
-                <i class="fas fa-bars text-2xl"></i>
-            </button>
-
-        </div>
-
-        <!-- Mobile Menu -->
-        <div id="mobile-menu" class="hidden md:hidden mt-4 space-y-2">
-            <a href="#home" class="block nav-link">Início</a>
-            <a href="#services" class="block nav-link">Serviços</a>
-            <a href="#about" class="block nav-link">Sobre</a>
-            <a href="#testimonials" class="block nav-link">Depoimentos</a>
-            <a href="#contact" class="block nav-link">Contato</a>
-        </div>
-    </div>
+<!-- ─── HEADER ─── -->
+<header id="site-header">
+    <a href="#hero" class="logo-area">
+        <img src="gap-logo.jpg" alt="Grupo Automotivo Prost">
+    </a>
+    <nav>
+        <a href="#hero">Início</a>
+        <a href="#services">Serviços</a>
+        <a href="#about">Sobre</a>
+        <a href="#schedule">Unidades</a>
+        <a href="#testimonials">Depoimentos</a>
+        <a href="#contact" class="nav-cta">Agendar</a>
+    </nav>
+    <button class="mobile-toggle" id="mobile-toggle" aria-label="Menu">
+        <i class="fas fa-bars"></i>
+    </button>
 </header>
 
+<div class="mobile-nav" id="mobile-nav">
+    <a href="#hero">Início</a>
+    <a href="#services">Serviços</a>
+    <a href="#about">Sobre</a>
+    <a href="#schedule">Unidades</a>
+    <a href="#testimonials">Depoimentos</a>
+    <a href="#contact">Agendar Serviço</a>
+</div>
 
-    <!-- Hero Section -->
-    <section id="home" class="pt-32 pb-20 hero-gradient">
-        <div class="container mx-auto px-4">
-            <div class="flex flex-col md:flex-row items-center">
-                <div class="md:w-1/2 mb-10 md:mb-0">
-                    <h1 class="text-4xl md:text-5xl font-bold mb-6 text-white">Excelência em <span class="text-amber-500">Mecânica Automotiva</span></h1>
-                    <p class="text-lg text-gray-300 mb-8">Na Mecânica Prost, oferecemos serviços de alta qualidade com tecnologia de ponta e profissionais altamente qualificados para cuidar do seu veículo.</p>
-                    <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
-                        <a href="#contact" class="btn-primary text-white font-semibold py-3 px-6 rounded-lg text-center">Agendar Serviço</a>
-                        <a href="#services" class="border border-amber-500 text-amber-500 font-semibold py-3 px-6 rounded-lg hover:bg-amber-500/10 transition text-center">Nossos Serviços</a>
-                    </div>
-                </div>
-                <div class="md:w-1/2 flex justify-center">
-                    <img src="https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1283&q=80" alt="Mecânica Automotiva" class="rounded-lg shadow-2xl max-w-full h-auto">
-                </div>
-            </div>
+<!-- ─── HERO ─── -->
+<section id="hero">
+    <div class="hero-bg"></div>
+    <img src="https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?auto=format&fit=crop&w=1400&q=80"
+         alt="Carro Prost" class="hero-car-img">
+    <div class="hero-content">
+        <div class="hero-badge"><span></span> Grupo Automotivo Prost</div>
+        <h1 class="hero-title">
+            Soluções<br>
+            <em>Automotivas</em><br>
+            Completas
+        </h1>
+        <p class="hero-subtitle">
+            Mecânica especializada, funilaria de alta precisão e blindagem premium. Cuidamos do seu veículo como se fosse nosso.
+        </p>
+        <div class="hero-actions">
+            <a href="#contact" class="btn-primary"><i class="fas fa-calendar-check"></i> Agendar Serviço</a>
+            <a href="#services" class="btn-outline"><i class="fas fa-chevron-right"></i> Nossos Serviços</a>
         </div>
-    </section>
-
-    <!-- Services Section -->
-    <section id="services" class="py-20 bg-gray-900">
-        <div class="container mx-auto px-4">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">Nossos <span class="text-amber-500">Serviços</span></h2>
-                <div class="section-divider w-32 mx-auto my-6"></div>
-                <p class="text-gray-400 max-w-2xl mx-auto">Oferecemos uma gama completa de serviços automotivos para manter seu veículo em perfeitas condições.</p>
-            </div>
-            
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Service 1 -->
-                <div class="service-card bg-gray-800 rounded-lg p-6 transition duration-300 hover:shadow-lg">
-                    <div class="text-amber-500 text-4xl mb-4">
-                        <i class="fas fa-car-battery"></i>
-                    </div>
-                    <h3 class="text-xl font-semibold text-white mb-3">Manutenção Preventiva</h3>
-                    <p class="text-gray-400">Serviços periódicos para evitar problemas futuros e garantir o melhor desempenho do seu veículo.</p>
-                </div>
-                
-                <!-- Service 2 -->
-                <div class="service-card bg-gray-800 rounded-lg p-6 transition duration-300 hover:shadow-lg">
-                    <div class="text-amber-500 text-4xl mb-4">
-                        <i class="fas fa-tools"></i>
-                    </div>
-                    <h3 class="text-xl font-semibold text-white mb-3">Reparos Mecânicos</h3>
-                    <p class="text-gray-400">Soluções especializadas para todos os tipos de problemas mecânicos em seu automóvel.</p>
-                </div>
-                
-                <!-- Service 3 -->
-                <div class="service-card bg-gray-800 rounded-lg p-6 transition duration-300 hover:shadow-lg">
-                    <div class="text-amber-500 text-4xl mb-4">
-                        <i class="fas fa-oil-can"></i>
-                    </div>
-                    <h3 class="text-xl font-semibold text-white mb-3">Troca de Óleo</h3>
-                    <p class="text-gray-400">Utilizamos os melhores lubrificantes do mercado para prolongar a vida útil do seu motor.</p>
-                </div>
-                
-                <!-- Service 4 -->
-                <div class="service-card bg-gray-800 rounded-lg p-6 transition duration-300 hover:shadow-lg">
-                    <div class="text-amber-500 text-4xl mb-4">
-                        <i class="fas fa-tire"></i>
-                    </div>
-                    <h3 class="text-xl font-semibold text-white mb-3">Alinhamento e Balanceamento</h3>
-                    <p class="text-gray-400">Serviço essencial para garantir a estabilidade do veículo e prolongar a vida útil dos pneus.</p>
-                </div>
-                
-                <!-- Service 5 -->
-                <div class="service-card bg-gray-800 rounded-lg p-6 transition duration-300 hover:shadow-lg">
-                    <div class="text-amber-500 text-4xl mb-4">
-                        <i class="fas fa-car-crash"></i>
-                    </div>
-                    <h3 class="text-xl font-semibold text-white mb-3">Suspensão</h3>
-                    <p class="text-gray-400">Diagnóstico e reparo completo do sistema de suspensão para maior conforto e segurança.</p>
-                </div>
-                
-                <!-- Service 6 -->
-                <div class="service-card bg-gray-800 rounded-lg p-6 transition duration-300 hover:shadow-lg">
-                    <div class="text-amber-500 text-4xl mb-4">
-                        <i class="fas fa-bolt"></i>
-                    </div>
-                    <h3 class="text-xl font-semibold text-white mb-3">Sistema Elétrico</h3>
-                    <p class="text-gray-400">Reparos e manutenção no sistema elétrico e eletrônico do veículo com equipamentos modernos.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- About Section -->
-    <section id="about" class="py-20 bg-black">
-        <div class="container mx-auto px-4">
-            <div class="flex flex-col md:flex-row items-center">
-                <div class="md:w-1/2 mb-10 md:mb-0 md:pr-10">
-                    <img src="https://images.unsplash.com/photo-1600861195091-690c92f1d2cc?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1287&q=80" alt="Sobre a Mecânica Prost" class="rounded-lg shadow-xl w-full">
-                </div>
-                <div class="md:w-1/2">
-                    <h2 class="text-3xl md:text-4xl font-bold text-white mb-6">Sobre a <span class="text-amber-500">Mecânica Prost</span></h2>
-                    <div class="section-divider w-32 my-6"></div>
-                    <p class="text-gray-400 mb-6">Com mais de 15 anos de experiência no mercado automotivo, a Mecânica Prost se destaca pelo compromisso com a qualidade e satisfação dos clientes.</p>
-                    <p class="text-gray-400 mb-6">Nossa equipe é composta por profissionais altamente qualificados e constantemente treinados nas mais modernas tecnologias automotivas.</p>
-                    <p class="text-gray-400 mb-8">Investimos em equipamentos de última geração para garantir diagnósticos precisos e reparos eficientes, proporcionando a melhor relação custo-benefício para nossos clientes.</p>
-                    
-                    <div class="grid grid-cols-2 gap-6">
-                        <div class="flex items-start">
-                            <div class="text-amber-500 mr-4 mt-1">
-                                <i class="fas fa-check-circle text-xl"></i>
-                            </div>
-                            <div>
-                                <h4 class="text-white font-semibold mb-1">Qualidade Garantida</h4>
-                                <p class="text-gray-400 text-sm">Peças originais e serviços com garantia</p>
-                            </div>
-                        </div>
-                        <div class="flex items-start">
-                            <div class="text-amber-500 mr-4 mt-1">
-                                <i class="fas fa-check-circle text-xl"></i>
-                            </div>
-                            <div>
-                                <h4 class="text-white font-semibold mb-1">Atendimento Personalizado</h4>
-                                <p class="text-gray-400 text-sm">Soluções específicas para cada cliente</p>
-                            </div>
-                        </div>
-                        <div class="flex items-start">
-                            <div class="text-amber-500 mr-4 mt-1">
-                                <i class="fas fa-check-circle text-xl"></i>
-                            </div>
-                            <div>
-                                <h4 class="text-white font-semibold mb-1">Transparência</h4>
-                                <p class="text-gray-400 text-sm">Orçamentos claros e sem surpresas</p>
-                            </div>
-                        </div>
-                        <div class="flex items-start">
-                            <div class="text-amber-500 mr-4 mt-1">
-                                <i class="fas fa-check-circle text-xl"></i>
-                            </div>
-                            <div>
-                                <h4 class="text-white font-semibold mb-1">Agilidade</h4>
-                                <p class="text-gray-400 text-sm">Serviços rápidos sem perder a qualidade</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Testimonials Section -->
-    <section id="testimonials" class="py-20 bg-gray-900">
-        <div class="container mx-auto px-4">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">Depoimentos de <span class="text-amber-500">Clientes</span></h2>
-                <div class="section-divider w-32 mx-auto my-6"></div>
-                <p class="text-gray-400 max-w-2xl mx-auto">Veja o que nossos clientes têm a dizer sobre a qualidade dos nossos serviços.</p>
-            </div>
-            
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <!-- Testimonial 1 -->
-                <div class="bg-gray-800 rounded-lg p-6">
-                    <div class="flex items-center mb-4">
-                        <div class="text-amber-500 text-2xl mr-2">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                        </div>
-                    </div>
-                    <p class="text-gray-300 italic mb-6">"Levo meu carro na Mecânica Prost há anos e sempre fico impressionado com a qualidade do serviço. Profissionais extremamente competentes e honestos."</p>
-                    <div class="flex items-center">
-                        <div class="w-12 h-12 rounded-full bg-gray-700 flex items-center justify-center text-amber-500 font-bold mr-4">JP</div>
-                        <div>
-                            <h4 class="text-white font-semibold">João Pedro</h4>
-                            <p class="text-gray-400 text-sm">Cliente desde 2018</p>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Testimonial 2 -->
-                <div class="bg-gray-800 rounded-lg p-6">
-                    <div class="flex items-center mb-4">
-                        <div class="text-amber-500 text-2xl mr-2">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                        </div>
-                    </div>
-                    <p class="text-gray-300 italic mb-6">"Finalmente encontrei uma oficina que posso confiar. Explicam tudo com clareza, não inventam problemas e o preço é justo. Recomendo a todos!"</p>
-                    <div class="flex items-center">
-                        <div class="w-12 h-12 rounded-full bg-gray-700 flex items-center justify-center text-amber-500 font-bold mr-4">AM</div>
-                        <div>
-                            <h4 class="text-white font-semibold">Ana Maria</h4>
-                            <p class="text-gray-400 text-sm">Cliente desde 2020</p>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Testimonial 3 -->
-                <div class="bg-gray-800 rounded-lg p-6">
-                    <div class="flex items-center mb-4">
-                        <div class="text-amber-500 text-2xl mr-2">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star-half-alt"></i>
-                        </div>
-                    </div>
-                    <p class="text-gray-300 italic mb-6">"Meu carro estava com um problema difícil de diagnosticar. A Mecânica Prost identificou rapidamente e resolveu com competência. Excelente atendimento!"</p>
-                    <div class="flex items-center">
-                        <div class="w-12 h-12 rounded-full bg-gray-700 flex items-center justify-center text-amber-500 font-bold mr-4">CS</div>
-                        <div>
-                            <h4 class="text-white font-semibold">Carlos Silva</h4>
-                            <p class="text-gray-400 text-sm">Cliente desde 2021</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contact" class="py-20 bg-black">
-        <div class="container mx-auto px-4">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">Entre em <span class="text-amber-500">Contato</span></h2>
-                <div class="section-divider w-32 mx-auto my-6"></div>
-                <p class="text-gray-400 max-w-2xl mx-auto">Agende seu serviço ou tire suas dúvidas conosco. Estamos à disposição para melhor atendê-lo.</p>
-            </div>
-            
-            <div class="flex flex-col md:flex-row">
-                <div class="md:w-1/2 mb-10 md:mb-0 md:pr-10">
-                    <form class="space-y-6">
-                        <div>
-                            <label for="name" class="block text-gray-300 mb-2">Nome Completo</label>
-                            <input type="text" id="name" class="w-full bg-gray-800 border border-gray-700 rounded-lg py-3 px-4 text-white focus:outline-none focus:ring-2 focus:ring-amber-500">
-                        </div>
-                        <div>
-                            <label for="email" class="block text-gray-300 mb-2">E-mail</label>
-                            <input type="email" id="email" class="w-full bg-gray-800 border border-gray-700 rounded-lg py-3 px-4 text-white focus:outline-none focus:ring-2 focus:ring-amber-500">
-                        </div>
-                        <div>
-                            <label for="phone" class="block text-gray-300 mb-2">Telefone</label>
-                            <input type="tel" id="phone" class="w-full bg-gray-800 border border-gray-700 rounded-lg py-3 px-4 text-white focus:outline-none focus:ring-2 focus:ring-amber-500">
-                        </div>
-                        <div>
-                            <label for="service" class="block text-gray-300 mb-2">Serviço de Interesse</label>
-                            <select id="service" class="w-full bg-gray-800 border border-gray-700 rounded-lg py-3 px-4 text-white focus:outline-none focus:ring-2 focus:ring-amber-500">
-                                <option value="">Selecione um serviço</option>
-                                <option value="preventiva">Manutenção Preventiva</option>
-                                <option value="reparos">Reparos Mecânicos</option>
-                                <option value="oleo">Troca de Óleo</option>
-                                <option value="alinhamento">Alinhamento e Balanceamento</option>
-                                <option value="suspensao">Suspensão</option>
-                                <option value="eletrico">Sistema Elétrico</option>
-                                <option value="outro">Outro</option>
-                            </select>
-                        </div>
-                        <div>
-                            <label for="message" class="block text-gray-300 mb-2">Mensagem</label>
-                            <textarea id="message" rows="4" class="w-full bg-gray-800 border border-gray-700 rounded-lg py-3 px-4 text-white focus:outline-none focus:ring-2 focus:ring-amber-500"></textarea>
-                        </div>
-                        <button type="submit" class="btn-primary w-full text-white font-semibold py-3 px-6 rounded-lg">Enviar Mensagem</button>
-                    </form>
-                </div>
-                
-                <div class="md:w-1/2 md:pl-10">
-                    <div class="bg-gray-800 rounded-lg p-8 h-full">
-                        <h3 class="text-2xl font-semibold text-white mb-6">Informações de Contato</h3>
-                        
-                        <div class="space-y-6">
-                            <div class="flex items-start">
-                                <div class="text-amber-500 text-xl mr-4 mt-1">
-                                    <i class="fas fa-map-marker-alt"></i>
-                                </div>
-                                <div>
-                                    <h4 class="text-white font-medium mb-1">Endereço</h4>
-                                    <p class="text-gray-400">Rua Exemplo, 123 - Centro<br>São Paulo - SP</p>
-                                </div>
-                            </div>
-                            
-                            <div class="flex items-start">
-                                <div class="text-amber-500 text-xl mr-4 mt-1">
-                                    <i class="fas fa-phone-alt"></i>
-                                </div>
-                                <div>
-                                    <h4 class="text-white font-medium mb-1">Telefone</h4>
-                                    <p class="text-gray-400">(11) 1234-5678<br>(11) 98765-4321 (WhatsApp)</p>
-                                </div>
-                            </div>
-                            
-                            <div class="flex items-start">
-                                <div class="text-amber-500 text-xl mr-4 mt-1">
-                                    <i class="fas fa-envelope"></i>
-                                </div>
-                                <div>
-                                    <h4 class="text-white font-medium mb-1">E-mail</h4>
-                                    <p class="text-gray-400">contato@mecanicaprost.com.br</p>
-                                </div>
-                            </div>
-                            
-                            <div class="flex items-start">
-                                <div class="text-amber-500 text-xl mr-4 mt-1">
-                                    <i class="fas fa-clock"></i>
-                                </div>
-                                <div>
-                                    <h4 class="text-white font-medium mb-1">Horário de Funcionamento</h4>
-                                    <p class="text-gray-400">Segunda a Sexta: 08:00 - 18:00<br>Sábado: 08:00 - 13:00</p>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="mt-8">
-                            <h4 class="text-white font-medium mb-4">Siga-nos nas Redes Sociais</h4>
-                            <div class="flex space-x-4">
-                                <a href="#" class="text-gray-400 hover:text-amber-500 transition text-2xl">
-                                    <i class="fab fa-facebook"></i>
-                                </a>
-                                <a href="#" class="text-gray-400 hover:text-amber-500 transition text-2xl">
-                                    <i class="fab fa-instagram"></i>
-                                </a>
-                                <a href="#" class="text-gray-400 hover:text-amber-500 transition text-2xl">
-                                    <i class="fab fa-whatsapp"></i>
-                                </a>
-                                <a href="#" class="text-gray-400 hover:text-amber-500 transition text-2xl">
-                                    <i class="fab fa-youtube"></i>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Map Section -->
-    <div class="h-96 w-full bg-gray-800">
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3657.0754267452926!2d-46.6534265844076!3d-23.56573436763838!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce59c8da0aa315%3A0xd59f9431f2c9776a!2sAv.%20Paulista%2C%20S%C3%A3o%20Paulo%20-%20SP!5e0!3m2!1spt-BR!2sbr!4v1623860000000!5m2!1spt-BR!2sbr" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
     </div>
-
-    <!-- Footer -->
-    <footer class="bg-gray-900 py-12">
-        <div class="container mx-auto px-4">
-            <div class="flex flex-col md:flex-row justify-between items-center">
-                <div class="mb-6 md:mb-0">
-                    <img src="image/prost-logo.jpg" alt="Mecânica Prost" class="h-10">
-                </div>
-                
-                <div class="text-center md:text-right">
-                    <p class="text-gray-400 mb-2">© 2023 Mecânica Prost. Todos os direitos reservados.</p>
-                </div>
+    <div class="hero-stats">
+        <div class="stat-item">
+            <div class="stat-number">30<span>+</span></div>
+            <div class="stat-label">Anos de Experiência</div>
         </div>
-    </footer>
+        <div class="stat-item">
+            <div class="stat-number">3</div>
+            <div class="stat-label">Unidades em SP</div>
+        </div>
+        <div class="stat-item">
+            <div class="stat-number">15k<span>+</span></div>
+            <div class="stat-label">Clientes Atendidos</div>
+        </div>
+    </div>
+</section>
 
-    <!-- Back to Top Button -->
-    <button id="back-to-top" class="fixed bottom-8 right-8 bg-amber-500 text-white w-12 h-12 rounded-full flex items-center justify-center shadow-lg opacity-0 invisible transition-all duration-300">
-        <i class="fas fa-arrow-up"></i>
-    </button>
+<!-- ─── ABOUT ─── -->
+<section id="about">
+    <div class="about-grid">
+        <div class="about-image-wrap reveal">
+            <img src="https://images.unsplash.com/photo-1625047509168-a7026f36de04?auto=format&fit=crop&w=800&q=80" alt="Oficina Prost">
+            <div class="about-badge-img">
+                <span>30</span>
+                <span>Anos</span>
+            </div>
+        </div>
+        <div class="about-text reveal">
+            <div class="section-tag">Sobre o Grupo</div>
+            <h2 class="section-title">Nossa<br><em>Missão</em></h2>
+            <div class="gold-line"></div>
+            <p>
+                O <strong>Grupo Automotivo Prost</strong> nasceu com uma missão clara: fornecer serviços completos de elevada qualidade em reparos automotivos na cidade de São Paulo.
+            </p>
+            <p>
+                De simples diagnósticos a trabalhos complexos, nossa equipe de profissionais revisará seu veículo a fim de identificar problemas e colocá-lo de volta em segurança na estrada.
+            </p>
+            <p>
+                Garantimos <strong>transparência durante todo o processo</strong> e fornecemos um trabalho de máxima otimização para solucionar e prevenir problemas sem abrir mão da economia.
+            </p>
+            <div class="about-highlights">
+                <div class="highlight-item">
+                    <div class="highlight-icon"><i class="fas fa-shield-alt"></i></div>
+                    <span>Garantia em todos os serviços</span>
+                </div>
+                <div class="highlight-item">
+                    <div class="highlight-icon"><i class="fas fa-eye"></i></div>
+                    <span>Transparência total no diagnóstico</span>
+                </div>
+                <div class="highlight-item">
+                    <div class="highlight-icon"><i class="fas fa-tools"></i></div>
+                    <span>Equipamentos de última geração</span>
+                </div>
+                <div class="highlight-item">
+                    <div class="highlight-icon"><i class="fas fa-user-tie"></i></div>
+                    <span>Técnicos certificados e especializados</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 
-    <script>
-        // Mobile Menu Toggle
-        const mobileMenuButton = document.getElementById('mobile-menu-button');
-        const mobileMenu = document.getElementById('mobile-menu');
-        
-        mobileMenuButton.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
+<!-- ─── SERVICES ─── -->
+<section id="services">
+    <div class="services-inner">
+        <div class="services-header reveal">
+            <div>
+                <div class="section-tag">O Que Fazemos</div>
+                <h2 class="section-title">Nossos<br><em>Serviços</em></h2>
+            </div>
+            <p>Oferecemos uma gama completa de serviços automotivos para manter seu veículo em perfeitas condições, com tecnologia de ponta e profissionais altamente qualificados.</p>
+        </div>
+
+        <div class="services-grid reveal">
+            <!-- Mecânica -->
+            <div class="service-card">
+                <div class="service-number">01</div>
+                <div class="service-icon"><i class="fas fa-cog"></i></div>
+                <h3>Motor</h3>
+                <p>Diagnóstico e reparos completos em motores a gasolina, diesel e flex. Retífica, revisão e manutenção preventiva.</p>
+                <a href="#contact" class="service-link">Agendar <i class="fas fa-arrow-right"></i></a>
+            </div>
+            <div class="service-card">
+                <div class="service-number">02</div>
+                <div class="service-icon"><i class="fas fa-car"></i></div>
+                <h3>Câmbio Automático</h3>
+                <p>Especialistas em câmbio automático e CVT. Revisão, troca de óleo e reparos para todas as marcas.</p>
+                <a href="#contact" class="service-link">Agendar <i class="fas fa-arrow-right"></i></a>
+            </div>
+            <div class="service-card">
+                <div class="service-number">03</div>
+                <div class="service-icon"><i class="fas fa-circle-notch"></i></div>
+                <h3>Suspensão</h3>
+                <p>Geometria, alinhamento, balanceamento e troca de componentes. Segurança e conforto garantidos.</p>
+                <a href="#contact" class="service-link">Agendar <i class="fas fa-arrow-right"></i></a>
+            </div>
+            <div class="service-card">
+                <div class="service-number">04</div>
+                <div class="service-icon"><i class="fas fa-stop-circle"></i></div>
+                <h3>Freios</h3>
+                <p>Inspeção, troca de pastilhas, discos e fluido de freio. Sistema ABS e freio de estacionamento.</p>
+                <a href="#contact" class="service-link">Agendar <i class="fas fa-arrow-right"></i></a>
+            </div>
+            <div class="service-card">
+                <div class="service-number">05</div>
+                <div class="service-icon"><i class="fas fa-wind"></i></div>
+                <h3>Escapamento</h3>
+                <p>Reparos e substituição completa do sistema de escapamento. Catalisador, silencioso e tubo.</p>
+                <a href="#contact" class="service-link">Agendar <i class="fas fa-arrow-right"></i></a>
+            </div>
+            <div class="service-card">
+                <div class="service-number">06</div>
+                <div class="service-icon"><i class="fas fa-paint-roller"></i></div>
+                <h3>Funilaria & Pintura</h3>
+                <p>Reparos de lataria, pintura automotiva de alta qualidade e restauração de veículos clássicos.</p>
+                <a href="#contact" class="service-link">Agendar <i class="fas fa-arrow-right"></i></a>
+            </div>
+            <div class="service-card">
+                <div class="service-number">07</div>
+                <div class="service-icon"><i class="fas fa-magic"></i></div>
+                <h3>Estética Automotiva</h3>
+                <p>Polimento, vitrificação, higienização interna e proteção de pintura com película PPF.</p>
+                <a href="#contact" class="service-link">Agendar <i class="fas fa-arrow-right"></i></a>
+            </div>
+            <div class="service-card">
+                <div class="service-number">08</div>
+                <div class="service-icon"><i class="fas fa-shield-alt"></i></div>
+                <h3>Blindagem</h3>
+                <p>Blindagem premium para veículos de passeio e utilitários. Nível III-A e superiores com acabamento original.</p>
+                <a href="#contact" class="service-link">Agendar <i class="fas fa-arrow-right"></i></a>
+            </div>
+            <div class="service-card">
+                <div class="service-number">09</div>
+                <div class="service-icon"><i class="fas fa-star"></i></div>
+                <h3>Restauração</h3>
+                <p>Restauração completa de veículos clássicos e antigos. Arte e técnica para devolver o brilho ao seu carro.</p>
+                <a href="#contact" class="service-link">Agendar <i class="fas fa-arrow-right"></i></a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ─── UNITS / SCHEDULE ─── -->
+<section id="schedule">
+    <div class="schedule-inner">
+        <div class="reveal">
+            <div class="section-tag">Nossas Unidades</div>
+            <h2 class="section-title">Onde<br><em>Estamos</em></h2>
+            <div class="gold-line"></div>
+        </div>
+
+        <div class="units-grid reveal">
+            <div class="unit-card">
+                <div class="unit-tag">Blindadora & Showroom</div>
+                <div class="unit-name">Prost Blindados</div>
+                <p class="unit-desc">Solução premium para sua segurança e de sua família. Blindagem certificada com acabamento de fábrica.</p>
+                <div class="unit-address">
+                    <span><i class="fas fa-map-marker-alt"></i> Rua Henrique Schaumann, 555<br>Pinheiros, São Paulo – SP 05413-100</span>
+                </div>
+                <a href="tel:+5511943478100" class="unit-phone"><i class="fab fa-whatsapp"></i>(11) 94347-8100</a>
+                <a href="https://api.whatsapp.com/send?phone=5511943478100" target="_blank" class="btn-schedule">
+                    <i class="fab fa-whatsapp"></i> Agendar via WhatsApp
+                </a>
+            </div>
+
+            <div class="unit-card">
+                <div class="unit-tag">Mecânica Geral</div>
+                <div class="unit-name">Prost Mecânica</div>
+                <p class="unit-desc">Solução completa em mecânica geral. Motor, câmbio, suspensão, freios e muito mais em um só lugar.</p>
+                <div class="unit-address">
+                    <span><i class="fas fa-map-marker-alt"></i> Av. Pacaembú, 1306<br>Pacaembú, São Paulo – SP 01234-000</span>
+                </div>
+                <a href="tel:+5511976410925" class="unit-phone"><i class="fab fa-whatsapp"></i>(11) 97641-0925</a>
+                <a href="https://api.whatsapp.com/send?phone=5511976410925" target="_blank" class="btn-schedule">
+                    <i class="fab fa-whatsapp"></i> Agendar via WhatsApp
+                </a>
+            </div>
+
+            <div class="unit-card">
+                <div class="unit-tag">Funilaria & Estética</div>
+                <div class="unit-name">Prost Funilaria</div>
+                <p class="unit-desc">Arte e técnica aplicados na recuperação e estética de seu veículo. Pintura, restauração e polimento.</p>
+                <div class="unit-address">
+                    <span><i class="fas fa-map-marker-alt"></i> Av. Dr. Abraão Ribeiro, 109<br>Bom Retiro, São Paulo – SP 01133-020</span>
+                </div>
+                <a href="tel:+5511977280908" class="unit-phone"><i class="fab fa-whatsapp"></i>(11) 97728-0908</a>
+                <a href="https://api.whatsapp.com/send?phone=5511977280908" target="_blank" class="btn-schedule">
+                    <i class="fab fa-whatsapp"></i> Agendar via WhatsApp
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ─── MAP ─── -->
+<div id="map">
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3657.0754267452926!2d-46.6534265844076!3d-23.56573436763838!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce59c8da0aa315%3A0xd59f9431f2c9776a!2sAv.%20Paulista%2C%20S%C3%A3o%20Paulo%20-%20SP!5e0!3m2!1spt-BR!2sbr!4v1623860000000!5m2!1spt-BR!2sbr" allowfullscreen="" loading="lazy"></iframe>
+</div>
+
+<!-- ─── TESTIMONIALS ─── -->
+<section id="testimonials">
+    <div class="testimonials-inner">
+        <div class="reveal" style="text-align:center;">
+            <div class="section-tag" style="justify-content:center;">O que dizem nossos clientes</div>
+            <h2 class="section-title">Depoimentos</h2>
+            <div class="gold-line" style="margin: 0 auto 0;"></div>
+        </div>
+
+        <div class="testimonials-grid reveal">
+            <div class="testimonial-card">
+                <div class="quote-mark">"</div>
+                <p class="testimonial-text">Levei meu Land Rover para a Prost Mecânica e fiquei impressionado com a qualidade do serviço. Diagnóstico preciso, orçamento transparente e entrega no prazo. Recomendo!</p>
+                <div class="testimonial-author">
+                    <div class="author-avatar">RC</div>
+                    <div>
+                        <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                        <div class="author-name">Ricardo C.</div>
+                        <div class="author-car">Land Rover Discovery</div>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial-card">
+                <div class="quote-mark">"</div>
+                <p class="testimonial-text">A funilaria da Prost é incrível. Meu carro sofreu uma batida e ficou como novo. A pintura ficou perfeita, não tem diferença da original. Equipe muito profissional.</p>
+                <div class="testimonial-author">
+                    <div class="author-avatar">AM</div>
+                    <div>
+                        <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                        <div class="author-name">Ana M.</div>
+                        <div class="author-car">Mercedes GLA 200</div>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial-card">
+                <div class="quote-mark">"</div>
+                <p class="testimonial-text">Blindei meu veículo na Prost e ficou impecável. Processo rápido, equipe extremamente qualificada e resultado final sem nenhuma diferença estética. Muito satisfeito!</p>
+                <div class="testimonial-author">
+                    <div class="author-avatar">FS</div>
+                    <div>
+                        <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                        <div class="author-name">Felipe S.</div>
+                        <div class="author-car">BMW X5</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ─── CONTACT ─── -->
+<section id="contact">
+    <div class="contact-inner">
+        <div class="contact-form-wrap reveal">
+            <div class="section-tag">Fale Conosco</div>
+            <h2 class="section-title">Agendar<br><em>Serviço</em></h2>
+            <div class="gold-line"></div>
+
+            <form id="contact-form" onsubmit="handleForm(event)">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Nome</label>
+                        <input type="text" placeholder="Seu nome completo">
+                    </div>
+                    <div class="form-group">
+                        <label>Telefone</label>
+                        <input type="tel" placeholder="(11) 99999-9999">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>E-mail</label>
+                    <input type="email" placeholder="seu@email.com">
+                </div>
+                <div class="form-group">
+                    <label>Unidade</label>
+                    <select>
+                        <option value="">Selecione a unidade</option>
+                        <option>Prost Blindados – Pinheiros</option>
+                        <option>Prost Mecânica – Pacaembú</option>
+                        <option>Prost Funilaria – Bom Retiro</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Serviço Desejado</label>
+                    <select>
+                        <option value="">Selecione o serviço</option>
+                        <option>Mecânica Geral</option>
+                        <option>Motor</option>
+                        <option>Câmbio Automático</option>
+                        <option>Suspensão</option>
+                        <option>Freios</option>
+                        <option>Escapamento</option>
+                        <option>Funilaria e Pintura</option>
+                        <option>Restauração</option>
+                        <option>Estética Automotiva</option>
+                        <option>Blindagem</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Mensagem</label>
+                    <textarea rows="4" placeholder="Descreva o problema ou serviço desejado..."></textarea>
+                </div>
+                <button type="submit" class="btn-primary" style="width:100%;justify-content:center;">
+                    <i class="fas fa-paper-plane"></i> Enviar Mensagem
+                </button>
+                <p id="form-success" style="display:none;color:var(--gold);margin-top:12px;font-size:14px;">✓ Mensagem enviada! Entraremos em contato em breve.</p>
+            </form>
+        </div>
+
+        <div class="contact-info-wrap reveal">
+            <div>
+                <h3 style="font-family:'Bebas Neue',sans-serif;font-size:28px;color:var(--white);margin-bottom:12px;">Informações de Contato</h3>
+                <p>Entre em contato pelo canal de sua preferência. Respondemos rapidamente pelo WhatsApp.</p>
+            </div>
+
+            <div class="contact-item">
+                <div class="contact-item-icon"><i class="fas fa-map-marker-alt"></i></div>
+                <div class="contact-item-text">
+                    <div class="contact-item-label">Blindadora / Showroom</div>
+                    <div class="contact-item-value">Rua Henrique Schaumann, 555<br>Pinheiros – SP 05413-100<br><a href="tel:+5511943478100">(11) 94347-8100</a></div>
+                </div>
+            </div>
+            <div class="contact-item">
+                <div class="contact-item-icon"><i class="fas fa-wrench"></i></div>
+                <div class="contact-item-text">
+                    <div class="contact-item-label">Mecânica</div>
+                    <div class="contact-item-value">Av. Pacaembú, 1306<br>Pacaembú – SP 01234-000<br><a href="tel:+5511976410925">(11) 97641-0925</a></div>
+                </div>
+            </div>
+            <div class="contact-item">
+                <div class="contact-item-icon"><i class="fas fa-paint-brush"></i></div>
+                <div class="contact-item-text">
+                    <div class="contact-item-label">Funilaria</div>
+                    <div class="contact-item-value">Av. Dr. Abraão Ribeiro, 109<br>Bom Retiro – SP 01133-020<br><a href="tel:+5511977280908">(11) 97728-0908</a></div>
+                </div>
+            </div>
+            <div class="contact-item">
+                <div class="contact-item-icon"><i class="fas fa-clock"></i></div>
+                <div class="contact-item-text">
+                    <div class="contact-item-label">Horário de Funcionamento</div>
+                    <div class="contact-item-value">Segunda a Sexta: 08:00 – 18:00<br>Sábado: 08:00 – 13:00</div>
+                </div>
+            </div>
+
+            <div>
+                <div class="contact-item-label" style="margin-bottom:16px;">Redes Sociais</div>
+                <div class="social-row">
+                    <a href="https://www.instagram.com/prost.autos/" target="_blank" class="social-link"><i class="fab fa-instagram"></i></a>
+                    <a href="https://api.whatsapp.com/send?phone=5511943478100" target="_blank" class="social-link"><i class="fab fa-whatsapp"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-facebook"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ─── NEWSLETTER ─── -->
+<section id="newsletter" style="padding:80px 48px;">
+    <div class="newsletter-inner reveal">
+        <div class="newsletter-text">
+            <div class="section-tag">Fique por Dentro</div>
+            <div class="newsletter-title">Receba Novidades<br>e Ofertas Exclusivas</div>
+        </div>
+        <form class="newsletter-form" onsubmit="handleNewsletter(event)">
+            <input type="email" placeholder="Seu melhor e-mail" required>
+            <button type="submit">Inscrever <i class="fas fa-arrow-right"></i></button>
+        </form>
+    </div>
+</section>
+
+<!-- ─── FOOTER ─── -->
+<footer>
+    <div class="footer-grid">
+        <div class="footer-brand">
+            <img src="gap-logo.jpg" alt="Grupo Automotivo Prost">
+            <p>O Grupo Automotivo Prost é referência em serviços automotivos na cidade de São Paulo. Mecânica, funilaria e blindagem com qualidade e transparência.</p>
+            <div class="social-row" style="margin-top:20px;">
+                <a href="https://www.instagram.com/prost.autos/" target="_blank" class="social-link"><i class="fab fa-instagram"></i></a>
+                <a href="https://api.whatsapp.com/send?phone=5511943478100" target="_blank" class="social-link"><i class="fab fa-whatsapp"></i></a>
+                <a href="#" class="social-link"><i class="fab fa-facebook"></i></a>
+            </div>
+        </div>
+        <div>
+            <div class="footer-col-title">Serviços</div>
+            <div class="footer-links">
+                <a href="#services">Motor</a>
+                <a href="#services">Câmbio Automático</a>
+                <a href="#services">Suspensão e Freios</a>
+                <a href="#services">Funilaria e Pintura</a>
+                <a href="#services">Blindagem</a>
+                <a href="#services">Estética Automotiva</a>
+            </div>
+        </div>
+        <div>
+            <div class="footer-col-title">Grupo Prost</div>
+            <div class="footer-links">
+                <a href="#about">História</a>
+                <a href="https://www.mecanicaprost.com.br/blog" target="_blank">Blog</a>
+                <a href="#schedule">Nossas Unidades</a>
+                <a href="#contact">Contato</a>
+            </div>
+        </div>
+        <div>
+            <div class="footer-col-title">Contato Rápido</div>
+            <div class="footer-links">
+                <a href="tel:+5511943478100">Blindados: (11) 94347-8100</a>
+                <a href="tel:+5511976410925">Mecânica: (11) 97641-0925</a>
+                <a href="tel:+5511977280908">Funilaria: (11) 97728-0908</a>
+                <a href="https://api.whatsapp.com/send?phone=5511943478100" target="_blank">WhatsApp</a>
+            </div>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>© 2025 Grupo Automotivo Prost. Todos os direitos reservados.</p>
+        <p>Desenvolvido com excelência para a Prost</p>
+    </div>
+</footer>
+
+<!-- ─── FLOAT BUTTONS ─── -->
+<a href="https://api.whatsapp.com/send?phone=5511943478100" target="_blank" class="whatsapp-float" aria-label="WhatsApp">
+    <i class="fab fa-whatsapp"></i>
+</a>
+
+<button id="back-top" aria-label="Voltar ao topo">
+    <i class="fas fa-chevron-up"></i>
+</button>
+
+<script>
+    // Header scroll
+    const header = document.getElementById('site-header');
+    window.addEventListener('scroll', () => {
+        header.classList.toggle('scrolled', window.scrollY > 60);
+        document.getElementById('back-top').classList.toggle('visible', window.scrollY > 400);
+    });
+
+    // Back to top
+    document.getElementById('back-top').addEventListener('click', () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+    // Mobile menu
+    const mobileToggle = document.getElementById('mobile-toggle');
+    const mobileNav = document.getElementById('mobile-nav');
+    mobileToggle.addEventListener('click', () => {
+        mobileNav.classList.toggle('open');
+        mobileToggle.querySelector('i').classList.toggle('fa-bars');
+        mobileToggle.querySelector('i').classList.toggle('fa-times');
+    });
+
+    mobileNav.querySelectorAll('a').forEach(a => {
+        a.addEventListener('click', () => {
+            mobileNav.classList.remove('open');
+            mobileToggle.querySelector('i').classList.add('fa-bars');
+            mobileToggle.querySelector('i').classList.remove('fa-times');
         });
-        
-        // Smooth Scrolling for Navigation Links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
+    });
+
+    // Smooth scroll
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+        a.addEventListener('click', e => {
+            const target = document.querySelector(a.getAttribute('href'));
+            if (target) {
                 e.preventDefault();
-                
-                const targetId = this.getAttribute('href');
-                const targetElement = document.querySelector(targetId);
-                
-                if (targetElement) {
-                    window.scrollTo({
-                        top: targetElement.offsetTop - 80,
-                        behavior: 'smooth'
-                    });
-                    
-                    // Close mobile menu if open
-                    if (!mobileMenu.classList.contains('hidden')) {
-                        mobileMenu.classList.add('hidden');
-                    }
-                }
-            });
-        });
-        
-        // Back to Top Button
-        const backToTopButton = document.getElementById('back-to-top');
-        
-        window.addEventListener('scroll', () => {
-            if (window.pageYOffset > 300) {
-                backToTopButton.classList.remove('opacity-0', 'invisible');
-                backToTopButton.classList.add('opacity-100', 'visible');
-            } else {
-                backToTopButton.classList.remove('opacity-100', 'visible');
-                backToTopButton.classList.add('opacity-0', 'invisible');
+                window.scrollTo({ top: target.offsetTop - 80, behavior: 'smooth' });
             }
         });
-        
-        backToTopButton.addEventListener('click', () => {
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
-            });
+    });
+
+    // Scroll reveal
+    const reveals = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach((e, i) => {
+            if (e.isIntersecting) {
+                setTimeout(() => e.target.classList.add('visible'), i * 80);
+                observer.unobserve(e.target);
+            }
         });
-        
-        // Form Submission (example)
-        const form = document.querySelector('form');
-        if (form) {
-            form.addEventListener('submit', (e) => {
-                e.preventDefault();
-                alert('Obrigado por sua mensagem! Entraremos em contato em breve.');
-                form.reset();
-            });
-        }
-    </script>
+    }, { threshold: 0.1 });
+    reveals.forEach(r => observer.observe(r));
+
+    // Form handlers
+    function handleForm(e) {
+        e.preventDefault();
+        document.getElementById('form-success').style.display = 'block';
+        e.target.reset();
+    }
+
+    function handleNewsletter(e) {
+        e.preventDefault();
+        alert('Obrigado por se inscrever! Em breve você receberá nossas novidades.');
+        e.target.reset();
+    }
+</script>
 </body>
 </html>
