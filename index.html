@@ -769,12 +769,14 @@
             margin-top: 60px;
         }
 
+        /* unit-card clicável via JS */
         .unit-card {
             background: var(--dark3);
             padding: 48px 36px;
             position: relative;
             overflow: hidden;
             transition: all 0.4s ease;
+            cursor: pointer;
         }
 
         .unit-card::before {
@@ -788,6 +790,97 @@
 
         .unit-card:hover { background: rgba(201,168,76,0.04); }
         .unit-card:hover::before { height: 100%; }
+
+        /* seta de "ir para o site" no canto superior direito */
+        .unit-card-arrow {
+            position: absolute;
+            top: 20px; right: 20px;
+            width: 32px; height: 32px;
+            border: 1px solid rgba(201,168,76,0.2);
+            display: flex; align-items: center; justify-content: center;
+            color: rgba(201,168,76,0.3);
+            font-size: 11px;
+            transition: all 0.3s;
+        }
+        .unit-card:hover .unit-card-arrow {
+            border-color: var(--gold);
+            color: var(--gold);
+            background: rgba(201,168,76,0.08);
+            transform: translate(2px, -2px);
+        }
+
+        /* ─── DROPDOWN UNIDADES ─── */
+        .nav-dropdown-wrap {
+            position: relative;
+        }
+
+        .nav-dropdown-wrap > a {
+            display: flex; align-items: center; gap: 5px;
+        }
+
+        .nav-dropdown-chevron {
+            font-size: 8px;
+            transition: transform 0.3s;
+        }
+
+        .nav-dropdown-wrap:hover .nav-dropdown-chevron {
+            transform: rotate(180deg);
+        }
+
+        .nav-dropdown {
+            position: absolute;
+            top: calc(100% + 16px);
+            left: 50%;
+            transform: translateX(-50%);
+            min-width: 240px;
+            background: rgba(8,8,8,0.98);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(201,168,76,0.2);
+            border-top: 2px solid var(--gold);
+            padding: 8px 0;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateX(-50%) translateY(-6px);
+            transition: all 0.25s ease;
+            z-index: 200;
+        }
+
+        .nav-dropdown-wrap:hover .nav-dropdown {
+            opacity: 1;
+            visibility: visible;
+            transform: translateX(-50%) translateY(0);
+        }
+
+        .nav-dropdown a {
+            display: flex; align-items: center; gap: 12px;
+            padding: 11px 20px;
+            font-family: 'Barlow Condensed', sans-serif;
+            font-size: 13px; font-weight: 600;
+            letter-spacing: 0.08em; text-transform: uppercase;
+            color: var(--gray); text-decoration: none;
+            transition: all 0.2s;
+            border-bottom: 1px solid rgba(255,255,255,0.04);
+        }
+        .nav-dropdown a:last-child { border-bottom: none; }
+
+        .nav-dropdown a:hover {
+            color: var(--gold);
+            background: rgba(201,168,76,0.06);
+            padding-left: 26px;
+        }
+
+        .nav-dropdown a::after { display: none !important; }
+
+        .nav-dropdown-icon {
+            width: 28px; height: 28px;
+            border: 1px solid rgba(201,168,76,0.2);
+            display: flex; align-items: center; justify-content: center;
+            color: var(--gold); font-size: 12px; flex-shrink: 0;
+        }
+
+        .nav-dropdown-info { flex: 1; }
+        .nav-dropdown-name { color: var(--white); font-size: 13px; font-weight: 700; }
+        .nav-dropdown-loc { color: #555; font-size: 11px; font-weight: 400; letter-spacing: 0.05em; margin-top: 1px; text-transform: none; }
 
         .unit-tag {
             font-family: 'Barlow Condensed', sans-serif;
@@ -1341,7 +1434,32 @@
         <a href="#hero">Início</a>
         <a href="#services">Serviços</a>
         <a href="#about">Sobre</a>
-        <a href="#schedule">Unidades</a>
+        <div class="nav-dropdown-wrap">
+            <a href="#schedule">Unidades <i class="fas fa-chevron-down nav-dropdown-chevron"></i></a>
+            <div class="nav-dropdown">
+                <a href="blindagem.html">
+                    <div class="nav-dropdown-icon"><i class="fas fa-shield-alt"></i></div>
+                    <div class="nav-dropdown-info">
+                        <div class="nav-dropdown-name">Prost Blindados</div>
+                        <div class="nav-dropdown-loc">Pinheiros, São Paulo</div>
+                    </div>
+                </a>
+                <a href="motor.html">
+                    <div class="nav-dropdown-icon"><i class="fas fa-wrench"></i></div>
+                    <div class="nav-dropdown-info">
+                        <div class="nav-dropdown-name">Prost Mecânica</div>
+                        <div class="nav-dropdown-loc">Pacaembú, São Paulo</div>
+                    </div>
+                </a>
+                <a href="funilaria.html">
+                    <div class="nav-dropdown-icon"><i class="fas fa-paint-roller"></i></div>
+                    <div class="nav-dropdown-info">
+                        <div class="nav-dropdown-name">Prost Funilaria</div>
+                        <div class="nav-dropdown-loc">Bom Retiro, São Paulo</div>
+                    </div>
+                </a>
+            </div>
+        </div>
         <a href="#testimonials">Depoimentos</a>
         <a href="#contact" class="nav-cta">Agendar</a>
     </nav>
@@ -1530,7 +1648,8 @@
         </div>
 
         <div class="units-grid reveal">
-            <div class="unit-card">
+            <div class="unit-card" data-href="blindagem.html">
+                <div class="unit-card-arrow"><i class="fas fa-arrow-up-right-from-square"></i></div>
                 <div class="unit-tag">Blindadora & Showroom</div>
                 <div class="unit-name">Prost Blindados</div>
                 <p class="unit-desc">Solução premium para sua segurança e de sua família. Blindagem certificada com acabamento de fábrica.</p>
@@ -1543,7 +1662,8 @@
                 </a>
             </div>
 
-            <div class="unit-card">
+            <div class="unit-card" data-href="motor.html">
+                <div class="unit-card-arrow"><i class="fas fa-arrow-up-right-from-square"></i></div>
                 <div class="unit-tag">Mecânica Geral</div>
                 <div class="unit-name">Prost Mecânica</div>
                 <p class="unit-desc">Solução completa em mecânica geral. Motor, câmbio, suspensão, freios e muito mais em um só lugar.</p>
@@ -1556,7 +1676,8 @@
                 </a>
             </div>
 
-            <div class="unit-card">
+            <div class="unit-card" data-href="funilaria.html">
+                <div class="unit-card-arrow"><i class="fas fa-arrow-up-right-from-square"></i></div>
                 <div class="unit-tag">Funilaria & Estética</div>
                 <div class="unit-name">Prost Funilaria</div>
                 <p class="unit-desc">Arte e técnica aplicados na recuperação e estética de seu veículo. Pintura, restauração e polimento.</p>
@@ -1766,21 +1887,18 @@
         <div>
             <div class="footer-col-title">Serviços</div>
             <div class="footer-links">
-                <a href="#services">Motor</a>
-                <a href="#services">Câmbio Automático</a>
-                <a href="#services">Suspensão e Freios</a>
-                <a href="#services">Funilaria e Pintura</a>
-                <a href="#services">Blindagem</a>
-                <a href="#services">Estética Automotiva</a>
+                <a href="motor.html">Mecânica Especializada</a>
+                <a href="funilaria.html">Funilaria e Pintura</a>
+                <a href="blindagem.html">Blindagem</a>
             </div>
         </div>
         <div>
-            <div class="footer-col-title">Grupo Prost</div>
+            <div class="footer-col-title">Prost</div>
             <div class="footer-links">
-                <a href="#about">História</a>
-                <a href="https://www.mecanicaprost.com.br/blog" target="_blank">Blog</a>
-                <a href="#schedule">Nossas Unidades</a>
-                <a href="#contact">Contato</a>
+                <a href="index.html#about">Nossa História</a>
+                <a href="index.html#schedule">Nossas Unidades</a>
+                <a href="contato.html#contato">Entre em Contato</a>
+                <a href="contato.html#trabalhe">Trabalhe Conosco</a>
             </div>
         </div>
         <div>
@@ -1835,6 +1953,16 @@
             mobileNav.classList.remove('open');
             mobileToggle.querySelector('i').classList.add('fa-bars');
             mobileToggle.querySelector('i').classList.remove('fa-times');
+        });
+    });
+
+    // Clique no unit-card navega para o site correspondente
+    document.querySelectorAll('.unit-card[data-href]').forEach(card => {
+        card.style.cursor = 'pointer';
+        card.addEventListener('click', e => {
+            // Ignora cliques nos links internos (tel, WhatsApp)
+            if (e.target.closest('.unit-phone, .btn-schedule')) return;
+            window.location.href = card.dataset.href;
         });
     });
 

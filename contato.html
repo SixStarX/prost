@@ -1,0 +1,1206 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contato & Trabalhe Conosco | Grupo Automotivo Prost</title>
+    <meta name="description" content="Entre em contato com o Grupo Automotivo Prost. Agendamento de serviços, orçamentos e vagas de emprego. 3 unidades em São Paulo.">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://www.grupoprost.com.br/contato">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:wght@300;400;500;600;700&family=Barlow+Condensed:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        :root {
+            --gold: #c9a84c;
+            --gold-light: #e8c97a;
+            --black: #050505;
+            --dark: #0e0e0e;
+            --dark2: #161616;
+            --dark3: #1f1f1f;
+            --gray: #888;
+            --light: #e8e8e8;
+            --white: #fff;
+            --max-w: 1280px;
+            --pad-x: 48px;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Barlow', sans-serif;
+            background: var(--black);
+            color: var(--light);
+            overflow-x: hidden;
+        }
+
+        body::before {
+            content: '';
+            position: fixed; inset: 0;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+            pointer-events: none; z-index: 9999; opacity: 0.35;
+        }
+
+        /* ═══ HEADER ═══ */
+        header {
+            position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+            height: 80px; padding: 0 var(--pad-x);
+            display: flex; align-items: center; justify-content: space-between;
+            background: rgba(5,5,5,0.92);
+            backdrop-filter: blur(16px);
+            border-bottom: 1px solid rgba(201,168,76,0.15);
+            transition: all 0.4s ease;
+        }
+        header.scrolled { height: 64px; border-bottom-color: rgba(201,168,76,0.3); }
+
+        .logo-area { display: flex; align-items: center; gap: 16px; text-decoration: none; }
+        .logo-area img { height: 52px; object-fit: contain; filter: brightness(0) invert(1); opacity: 1; }
+
+        nav { display: flex; align-items: center; gap: 40px; }
+        nav a {
+            font-family: 'Barlow Condensed', sans-serif;
+            font-size: 13px; font-weight: 600;
+            letter-spacing: 0.12em; text-transform: uppercase;
+            color: var(--gray); text-decoration: none;
+            position: relative; transition: color 0.3s;
+        }
+        nav a::after {
+            content: ''; position: absolute; bottom: -4px; left: 0;
+            width: 0; height: 1px; background: var(--gold); transition: width 0.3s;
+        }
+        nav a:hover { color: var(--white); }
+        nav a:hover::after { width: 100%; }
+
+        .nav-cta {
+            background: var(--gold); color: var(--black) !important;
+            padding: 10px 24px; font-weight: 700; letter-spacing: 0.1em;
+            transition: all 0.3s ease !important;
+        }
+        .nav-cta::after { display: none !important; }
+        .nav-cta:hover { background: var(--gold-light) !important; transform: translateY(-1px); box-shadow: 0 6px 20px rgba(201,168,76,0.35); }
+
+        .mobile-toggle { display: none; background: none; border: none; color: var(--light); font-size: 22px; cursor: pointer; }
+
+        .mobile-nav {
+            display: none; position: fixed; top: 80px; left: 0; right: 0;
+            background: rgba(5,5,5,0.98); backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(201,168,76,0.2);
+            padding: 24px 48px; flex-direction: column; gap: 20px; z-index: 999;
+        }
+        .mobile-nav.open { display: flex; }
+        .mobile-nav a {
+            font-family: 'Barlow Condensed', sans-serif; font-size: 16px; font-weight: 600;
+            letter-spacing: 0.1em; text-transform: uppercase; color: var(--gray); text-decoration: none; transition: color 0.3s;
+        }
+        .mobile-nav a:hover { color: var(--gold); }
+
+        /* ═══ PAGE HERO ═══ */
+        #page-hero {
+            min-height: 44vh; padding: 160px var(--pad-x) 80px;
+            position: relative; overflow: hidden;
+            display: flex; align-items: center;
+        }
+
+        .page-hero-bg {
+            position: absolute; inset: 0;
+            background:
+                radial-gradient(ellipse 60% 80% at 65% 50%, rgba(201,168,76,0.05) 0%, transparent 65%),
+                linear-gradient(to right, var(--black) 40%, rgba(5,5,5,0.6) 100%);
+        }
+
+        .page-hero-img {
+            position: absolute; right: 0; top: 0;
+            width: 50%; height: 100%;
+            object-fit: cover; object-position: center;
+            mask-image: linear-gradient(to left, rgba(0,0,0,0.5) 20%, transparent 75%);
+            -webkit-mask-image: linear-gradient(to left, rgba(0,0,0,0.5) 20%, transparent 75%);
+            filter: grayscale(50%) brightness(0.6);
+        }
+
+        .page-hero-content { position: relative; z-index: 2; max-width: 580px; }
+
+        .page-hero-tag {
+            display: inline-flex; align-items: center; gap: 10px;
+            font-family: 'Barlow Condensed', sans-serif;
+            font-size: 11px; font-weight: 700; letter-spacing: 0.25em;
+            text-transform: uppercase; color: var(--gold); margin-bottom: 20px;
+            opacity: 0; animation: fadeUp 0.7s 0.2s forwards;
+        }
+        .page-hero-tag::before { content: ''; width: 28px; height: 1px; background: var(--gold); }
+
+        .page-hero-title {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: clamp(52px, 7vw, 88px);
+            line-height: 0.92; color: var(--white); margin-bottom: 20px;
+            opacity: 0; animation: fadeUp 0.7s 0.35s forwards;
+        }
+        .page-hero-title em { font-style: normal; color: var(--gold); display: block; }
+
+        .page-hero-sub {
+            font-size: 16px; font-weight: 300; color: var(--gray); line-height: 1.7;
+            opacity: 0; animation: fadeUp 0.7s 0.5s forwards;
+        }
+
+        /* Tabs de navegação entre seções */
+        .page-tabs {
+            position: relative; z-index: 2;
+            display: flex; gap: 4px; margin-top: 40px;
+            opacity: 0; animation: fadeUp 0.7s 0.65s forwards;
+        }
+
+        .page-tab {
+            font-family: 'Barlow Condensed', sans-serif;
+            font-size: 12px; font-weight: 700; letter-spacing: 0.15em;
+            text-transform: uppercase; padding: 10px 24px;
+            border: 1px solid rgba(255,255,255,0.12);
+            color: var(--gray); background: transparent;
+            cursor: pointer; text-decoration: none; transition: all 0.3s;
+        }
+        .page-tab:hover, .page-tab.active {
+            background: var(--gold); border-color: var(--gold); color: var(--black);
+        }
+
+        /* ═══ TOKENS ═══ */
+        .section-tag {
+            font-family: 'Barlow Condensed', sans-serif;
+            font-size: 11px; font-weight: 700; letter-spacing: 0.25em;
+            text-transform: uppercase; color: var(--gold);
+            display: flex; align-items: center; gap: 10px; margin-bottom: 16px;
+        }
+        .section-tag::before { content: ''; width: 28px; height: 1px; background: var(--gold); }
+
+        .section-title {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: clamp(36px, 5vw, 60px); line-height: 0.92;
+            color: var(--white); margin-bottom: 20px;
+        }
+        .section-title em { font-style: normal; color: var(--gold); display: block; }
+
+        .gold-line { width: 52px; height: 2px; background: linear-gradient(90deg, var(--gold), transparent); margin-bottom: 32px; }
+
+        /* ═══ ENTRE EM CONTATO ═══ */
+        #contato {
+            background: var(--dark2);
+            border-top: 1px solid rgba(201,168,76,0.1);
+            padding: 100px var(--pad-x);
+        }
+
+        .contato-inner {
+            max-width: var(--max-w); margin: 0 auto;
+            display: grid; grid-template-columns: 1fr 1fr;
+            gap: 80px;
+        }
+
+        /* Formulário */
+        .form-group { margin-bottom: 20px; }
+
+        .form-group label {
+            display: block;
+            font-family: 'Barlow Condensed', sans-serif;
+            font-size: 11px; font-weight: 700;
+            letter-spacing: 0.2em; text-transform: uppercase;
+            color: var(--gray); margin-bottom: 8px;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            background: rgba(255,255,255,0.04);
+            border: 1px solid rgba(255,255,255,0.1);
+            color: var(--white);
+            font-family: 'Barlow', sans-serif; font-size: 14px;
+            padding: 14px 18px; outline: none;
+            transition: border-color 0.3s;
+            -webkit-appearance: none; appearance: none;
+        }
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus { border-color: var(--gold); }
+        .form-group select option { background: var(--dark2); }
+        .form-group textarea { resize: vertical; min-height: 120px; }
+
+        .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+
+        .btn-gold-full {
+            display: flex; align-items: center; justify-content: center; gap: 10px;
+            width: 100%; background: var(--gold); color: var(--black);
+            font-family: 'Barlow Condensed', sans-serif;
+            font-size: 13px; font-weight: 700; letter-spacing: 0.15em;
+            text-transform: uppercase; padding: 16px 32px;
+            border: none; cursor: pointer; transition: all 0.3s;
+        }
+        .btn-gold-full:hover { background: var(--gold-light); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(201,168,76,0.3); }
+
+        .form-success {
+            display: none; color: var(--gold);
+            font-size: 14px; margin-top: 12px;
+            padding: 12px 16px;
+            border: 1px solid rgba(201,168,76,0.3);
+            background: rgba(201,168,76,0.06);
+        }
+
+        /* Info lateral */
+        .contato-info { display: flex; flex-direction: column; gap: 0; }
+
+        .contato-info-intro {
+            font-size: 15px; font-weight: 300; color: #888; line-height: 1.7;
+            margin-bottom: 36px;
+        }
+
+        .contact-item {
+            display: flex; gap: 16px; align-items: flex-start;
+            padding: 20px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+        .contact-item:last-of-type { border-bottom: none; }
+
+        .contact-item-icon {
+            width: 44px; height: 44px; flex-shrink: 0;
+            background: rgba(201,168,76,0.08);
+            border: 1px solid rgba(201,168,76,0.25);
+            display: flex; align-items: center; justify-content: center;
+            color: var(--gold); font-size: 16px;
+        }
+
+        .contact-item-label {
+            font-family: 'Barlow Condensed', sans-serif;
+            font-size: 11px; font-weight: 700; letter-spacing: 0.15em;
+            text-transform: uppercase; color: var(--gold); margin-bottom: 5px;
+        }
+
+        .contact-item-value {
+            font-size: 14px; color: #aaa; line-height: 1.6;
+        }
+        .contact-item-value a { color: #aaa; text-decoration: none; transition: color 0.2s; }
+        .contact-item-value a:hover { color: var(--gold); }
+
+        /* Cards de unidade WhatsApp */
+        .unidades-wa {
+            display: flex; flex-direction: column; gap: 8px; margin-top: 28px;
+        }
+
+        .unidade-wa-btn {
+            display: flex; align-items: center; gap: 12px;
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(255,255,255,0.07);
+            padding: 14px 18px; text-decoration: none;
+            transition: all 0.3s;
+        }
+        .unidade-wa-btn:hover {
+            border-color: rgba(201,168,76,0.4);
+            background: rgba(201,168,76,0.05);
+        }
+        .unidade-wa-icon {
+            width: 36px; height: 36px; background: #25D366;
+            border-radius: 50%; display: flex; align-items: center;
+            justify-content: center; color: white; font-size: 16px; flex-shrink: 0;
+        }
+        .unidade-wa-text { flex: 1; }
+        .unidade-wa-nome {
+            font-family: 'Barlow Condensed', sans-serif;
+            font-size: 13px; font-weight: 700; letter-spacing: 0.06em;
+            text-transform: uppercase; color: var(--white);
+        }
+        .unidade-wa-num { font-size: 12px; color: #555; }
+        .unidade-wa-arrow { color: rgba(201,168,76,0.4); font-size: 12px; transition: all 0.3s; }
+        .unidade-wa-btn:hover .unidade-wa-arrow { color: var(--gold); transform: translateX(4px); }
+
+        /* ═══ MAPA DAS UNIDADES ═══ */
+        #mapa {
+            background: var(--black);
+            padding: 80px var(--pad-x);
+            border-top: 1px solid rgba(201,168,76,0.08);
+        }
+
+        .mapa-inner { max-width: var(--max-w); margin: 0 auto; }
+
+        .mapa-cards {
+            display: grid; grid-template-columns: repeat(3, 1fr);
+            gap: 2px; margin-bottom: 40px;
+        }
+
+        .mapa-card {
+            background: var(--dark2); padding: 28px 28px 24px;
+            border: 1px solid rgba(255,255,255,0.04);
+            position: relative; overflow: hidden;
+            transition: border-color 0.3s;
+        }
+        .mapa-card:hover { border-color: rgba(201,168,76,0.2); }
+        .mapa-card::before {
+            content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px;
+            background: transparent; transition: background 0.3s;
+        }
+        .mapa-card:hover::before { background: var(--gold); }
+
+        .mapa-card-tag {
+            font-family: 'Barlow Condensed', sans-serif;
+            font-size: 10px; font-weight: 700; letter-spacing: 0.2em;
+            text-transform: uppercase; color: var(--gold); margin-bottom: 8px;
+        }
+        .mapa-card-nome {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 26px; color: var(--white); margin-bottom: 14px;
+        }
+        .mapa-card-addr {
+            font-size: 13px; font-weight: 300; color: #666; line-height: 1.6; margin-bottom: 14px;
+        }
+        .mapa-card-tel {
+            display: flex; align-items: center; gap: 8px;
+            font-family: 'Bebas Neue', sans-serif; font-size: 20px;
+            color: var(--white); text-decoration: none; transition: color 0.2s;
+        }
+        .mapa-card-tel i { color: var(--gold); font-size: 14px; }
+        .mapa-card-tel:hover { color: var(--gold); }
+
+        .mapa-embed {
+            width: 100%; height: 360px; border: 0;
+            filter: grayscale(80%) contrast(1.1);
+        }
+
+        /* ═══ TRABALHE CONOSCO ═══ */
+        #trabalhe {
+            background: var(--dark2);
+            border-top: 1px solid rgba(201,168,76,0.1);
+            padding: 100px var(--pad-x);
+        }
+
+        .trabalhe-inner {
+            max-width: var(--max-w); margin: 0 auto;
+            display: grid; grid-template-columns: 1fr 1fr;
+            gap: 80px;
+        }
+
+        .trabalhe-info {}
+
+        .trabalhe-intro {
+            font-size: 15px; font-weight: 300; color: #888; line-height: 1.7; margin-bottom: 36px;
+        }
+
+        /* Cards de vagas */
+        .vagas-grid {
+            display: flex; flex-direction: column; gap: 8px;
+        }
+
+        .vaga-card {
+            background: var(--dark3);
+            border: 1px solid rgba(255,255,255,0.05);
+            padding: 20px 24px;
+            display: flex; align-items: center; gap: 16px;
+            transition: all 0.3s; cursor: default;
+        }
+        .vaga-card:hover {
+            border-color: rgba(201,168,76,0.3);
+            background: rgba(201,168,76,0.04);
+        }
+
+        .vaga-icon {
+            width: 44px; height: 44px; flex-shrink: 0;
+            background: rgba(201,168,76,0.08);
+            border: 1px solid rgba(201,168,76,0.2);
+            display: flex; align-items: center; justify-content: center;
+            color: var(--gold); font-size: 16px; transition: all 0.3s;
+        }
+        .vaga-card:hover .vaga-icon { background: var(--gold); color: var(--black); }
+
+        .vaga-info { flex: 1; }
+        .vaga-titulo {
+            font-family: 'Barlow Condensed', sans-serif;
+            font-size: 16px; font-weight: 700; letter-spacing: 0.05em;
+            text-transform: uppercase; color: var(--white); margin-bottom: 3px;
+        }
+        .vaga-depto { font-size: 12px; color: var(--gray); }
+
+        .vaga-badge {
+            font-family: 'Barlow Condensed', sans-serif;
+            font-size: 10px; font-weight: 700; letter-spacing: 0.12em;
+            text-transform: uppercase; padding: 4px 10px;
+            background: rgba(201,168,76,0.12);
+            color: var(--gold);
+            border: 1px solid rgba(201,168,76,0.25);
+        }
+        .vaga-badge.aberta { background: rgba(34,197,94,0.1); color: #22c55e; border-color: rgba(34,197,94,0.25); }
+
+        .trabalhe-divider {
+            height: 1px;
+            background: linear-gradient(90deg, rgba(201,168,76,0.3), transparent);
+            margin: 32px 0;
+        }
+
+        .trabalhe-note {
+            font-size: 14px; font-weight: 300; color: #555; line-height: 1.7;
+        }
+
+        /* Formulário de candidatura */
+        .trabalhe-form-wrap {}
+
+        .trabalhe-form-title {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 28px; color: var(--white); margin-bottom: 8px;
+        }
+
+        .trabalhe-form-sub {
+            font-size: 14px; font-weight: 300; color: #666; line-height: 1.6; margin-bottom: 28px;
+        }
+
+        /* Upload de CV */
+        .file-upload-wrap {
+            position: relative; margin-bottom: 20px;
+        }
+
+        .file-upload-label {
+            display: flex; align-items: center; gap: 12px;
+            border: 1px dashed rgba(201,168,76,0.3);
+            padding: 18px 20px; cursor: pointer;
+            background: rgba(201,168,76,0.03);
+            transition: all 0.3s;
+        }
+        .file-upload-label:hover { border-color: var(--gold); background: rgba(201,168,76,0.06); }
+        .file-upload-label i { color: var(--gold); font-size: 22px; }
+        .file-upload-text { flex: 1; }
+        .file-upload-main {
+            font-family: 'Barlow Condensed', sans-serif;
+            font-size: 13px; font-weight: 700; letter-spacing: 0.08em;
+            text-transform: uppercase; color: var(--light);
+        }
+        .file-upload-sub { font-size: 12px; color: #444; margin-top: 2px; }
+
+        .file-upload-input {
+            position: absolute; inset: 0; opacity: 0; cursor: pointer; width: 100%;
+        }
+
+        /* ═══ NEWSLETTER ═══ */
+        #newsletter {
+            background: var(--gold); padding: 72px var(--pad-x);
+        }
+        .newsletter-inner {
+            max-width: var(--max-w); margin: 0 auto;
+            display: flex; align-items: center; justify-content: space-between; gap: 40px;
+        }
+        .newsletter-tag {
+            font-family: 'Barlow Condensed', sans-serif;
+            font-size: 11px; font-weight: 700; letter-spacing: 0.2em;
+            text-transform: uppercase; color: rgba(0,0,0,0.45);
+            display: flex; align-items: center; gap: 10px; margin-bottom: 8px;
+        }
+        .newsletter-tag::before { content: ''; width: 24px; height: 1px; background: rgba(0,0,0,0.3); }
+        .newsletter-title {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 44px; color: var(--black); line-height: 1;
+        }
+        .newsletter-form { display: flex; flex-shrink: 0; }
+        .newsletter-form input {
+            background: rgba(0,0,0,0.12); border: 1px solid rgba(0,0,0,0.15);
+            color: var(--black); font-family: 'Barlow', sans-serif; font-size: 14px;
+            padding: 15px 22px; width: 280px; outline: none;
+        }
+        .newsletter-form input::placeholder { color: rgba(0,0,0,0.4); }
+        .newsletter-form button {
+            background: var(--black); color: var(--gold);
+            font-family: 'Barlow Condensed', sans-serif;
+            font-size: 12px; font-weight: 700; letter-spacing: 0.15em;
+            text-transform: uppercase; padding: 15px 26px;
+            border: none; cursor: pointer; white-space: nowrap; transition: background 0.3s;
+        }
+        .newsletter-form button:hover { background: var(--dark3); }
+
+        /* ═══ FOOTER ═══ */
+        footer {
+            background: var(--black); padding: 80px var(--pad-x) 40px;
+            border-top: 1px solid rgba(255,255,255,0.06);
+        }
+        .footer-grid {
+            max-width: var(--max-w); margin: 0 auto;
+            display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr;
+            gap: 60px; padding-bottom: 60px;
+            border-bottom: 1px solid rgba(255,255,255,0.06);
+        }
+        .footer-brand img { height: 36px; filter: brightness(0) invert(1); opacity: 0.7; margin-bottom: 18px; }
+        .footer-brand p { font-size: 13px; font-weight: 300; color: #444; line-height: 1.7; }
+        .social-row { display: flex; gap: 10px; margin-top: 20px; }
+        .social-link {
+            width: 40px; height: 40px; border: 1px solid rgba(255,255,255,0.08);
+            display: flex; align-items: center; justify-content: center;
+            color: #555; font-size: 15px; text-decoration: none; transition: all 0.3s;
+        }
+        .social-link:hover { border-color: var(--gold); color: var(--gold); }
+        .footer-col-title {
+            font-family: 'Barlow Condensed', sans-serif;
+            font-size: 11px; font-weight: 700; letter-spacing: 0.2em;
+            text-transform: uppercase; color: var(--gold); margin-bottom: 20px;
+        }
+        .footer-links { display: flex; flex-direction: column; gap: 10px; }
+        .footer-links a { font-size: 13px; color: #444; text-decoration: none; transition: color 0.3s; }
+        .footer-links a:hover { color: var(--gold); }
+        .footer-bottom {
+            max-width: var(--max-w); margin: 0 auto; padding-top: 28px;
+            display: flex; justify-content: space-between; align-items: center;
+        }
+        .footer-bottom p { font-size: 12px; color: #2a2a2a; }
+
+        /* Float */
+        .whatsapp-float {
+            position: fixed; bottom: 28px; right: 28px;
+            width: 54px; height: 54px; background: #25D366; color: white;
+            border-radius: 50%; display: flex; align-items: center;
+            justify-content: center; font-size: 22px; text-decoration: none;
+            z-index: 998; box-shadow: 0 4px 20px rgba(37,211,102,0.4); transition: all 0.3s;
+        }
+        .whatsapp-float:hover { transform: scale(1.12); }
+
+        #back-top {
+            position: fixed; bottom: 92px; right: 28px;
+            width: 42px; height: 42px; background: var(--dark2);
+            border: 1px solid rgba(201,168,76,0.3); color: var(--gold);
+            display: flex; align-items: center; justify-content: center;
+            cursor: pointer; z-index: 997;
+            opacity: 0; transform: translateY(8px); transition: all 0.3s;
+        }
+        #back-top.visible { opacity: 1; transform: translateY(0); }
+        #back-top:hover { background: var(--gold); color: var(--black); }
+
+        /* Animations */
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(24px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+        .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.6s ease, transform 0.6s ease; }
+        .reveal.visible { opacity: 1; transform: translateY(0); }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            :root { --pad-x: 28px; }
+            nav { gap: 20px; }
+            .contato-inner { grid-template-columns: 1fr; gap: 56px; }
+            .trabalhe-inner { grid-template-columns: 1fr; gap: 56px; }
+            .mapa-cards { grid-template-columns: 1fr; }
+            .footer-grid { grid-template-columns: 1fr 1fr; gap: 36px; }
+        }
+
+        @media (max-width: 768px) {
+            :root { --pad-x: 20px; }
+            nav { display: none; }
+            .mobile-toggle { display: block; }
+            #page-hero { padding: 140px 20px 60px; min-height: auto; }
+            .page-hero-img { display: none; }
+            .form-row { grid-template-columns: 1fr; }
+            .newsletter-inner { flex-direction: column; }
+            .newsletter-form { width: 100%; }
+            .newsletter-form input { flex: 1; width: 100%; }
+            .footer-grid { grid-template-columns: 1fr; gap: 28px; }
+            .footer-bottom { flex-direction: column; gap: 8px; text-align: center; }
+            footer { padding: 60px 20px 32px; }
+        }
+
+        /* ─── DROPDOWN UNIDADES NAV ─── */
+        .nav-dropdown-wrap { position: relative; }
+        .nav-dropdown-wrap > a { display: flex; align-items: center; gap: 5px; }
+        .nav-dropdown-chevron { font-size: 8px; transition: transform 0.3s; }
+        .nav-dropdown-wrap:hover .nav-dropdown-chevron { transform: rotate(180deg); }
+
+        .nav-dropdown {
+            position: absolute;
+            top: calc(100% + 16px); left: 50%;
+            transform: translateX(-50%) translateY(-6px);
+            min-width: 240px;
+            background: rgba(8,8,8,0.98);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(201,168,76,0.2);
+            border-top: 2px solid var(--gold);
+            padding: 8px 0;
+            opacity: 0; visibility: hidden;
+            transition: all 0.25s ease;
+            z-index: 200;
+        }
+        .nav-dropdown-wrap:hover .nav-dropdown {
+            opacity: 1; visibility: visible;
+            transform: translateX(-50%) translateY(0);
+        }
+        .nav-dropdown a {
+            display: flex; align-items: center; gap: 12px;
+            padding: 11px 20px;
+            font-family: 'Barlow Condensed', sans-serif;
+            font-size: 13px; font-weight: 600;
+            letter-spacing: 0.08em; text-transform: uppercase;
+            color: var(--gray); text-decoration: none;
+            transition: all 0.2s;
+            border-bottom: 1px solid rgba(255,255,255,0.04);
+        }
+        .nav-dropdown a:last-child { border-bottom: none; }
+        .nav-dropdown a:hover { color: var(--gold); background: rgba(201,168,76,0.06); padding-left: 26px; }
+        .nav-dropdown a::after { display: none !important; }
+        .nav-dropdown-icon {
+            width: 28px; height: 28px;
+            border: 1px solid rgba(201,168,76,0.2);
+            display: flex; align-items: center; justify-content: center;
+            color: var(--gold); font-size: 12px; flex-shrink: 0;
+        }
+        .nav-dropdown-info { flex: 1; }
+        .nav-dropdown-name { color: var(--white); font-size: 13px; font-weight: 700; }
+        .nav-dropdown-loc { color: #555; font-size: 11px; font-weight: 400; letter-spacing: 0.05em; margin-top: 1px; text-transform: none; }
+    </style>
+</head>
+<body>
+
+<!-- ═══ HEADER ═══ -->
+<header id="site-header">
+    <a href="index.html" class="logo-area">
+        <img src="prost-logo-removebg-preview.png" alt="Grupo Automotivo Prost">
+    </a>
+    <nav>
+        <a href="index.html">Início</a>
+        <a href="index.html#services">Serviços</a>
+        <a href="index.html#about">Sobre</a>
+        <div class="nav-dropdown-wrap">
+            <a href="index.html#schedule">Unidades <i class="fas fa-chevron-down nav-dropdown-chevron"></i></a>
+            <div class="nav-dropdown">
+                <a href="blindagem.html">
+                    <div class="nav-dropdown-icon"><i class="fas fa-shield-alt"></i></div>
+                    <div class="nav-dropdown-info">
+                        <div class="nav-dropdown-name">Prost Blindados</div>
+                        <div class="nav-dropdown-loc">Pinheiros, São Paulo</div>
+                    </div>
+                </a>
+                <a href="motor.html">
+                    <div class="nav-dropdown-icon"><i class="fas fa-wrench"></i></div>
+                    <div class="nav-dropdown-info">
+                        <div class="nav-dropdown-name">Prost Mecânica</div>
+                        <div class="nav-dropdown-loc">Pacaembú, São Paulo</div>
+                    </div>
+                </a>
+                <a href="funilaria.html">
+                    <div class="nav-dropdown-icon"><i class="fas fa-paint-roller"></i></div>
+                    <div class="nav-dropdown-info">
+                        <div class="nav-dropdown-name">Prost Funilaria</div>
+                        <div class="nav-dropdown-loc">Bom Retiro, São Paulo</div>
+                    </div>
+                </a>
+            </div>
+        </div>
+        <a href="index.html#testimonials">Depoimentos</a>
+        <a href="contato.html" class="nav-cta">Agendar</a>
+    </nav>
+    <button class="mobile-toggle" id="mobile-toggle" aria-label="Menu">
+        <i class="fas fa-bars"></i>
+    </button>
+</header>
+
+<div class="mobile-nav" id="mobile-nav">
+    <a href="index.html">Início</a>
+    <a href="index.html#services">Serviços</a>
+    <a href="index.html#about">Sobre</a>
+    <a href="index.html#schedule">Unidades</a>
+    <a href="index.html#testimonials">Depoimentos</a>
+    <a href="contato.html">Agendar Serviço</a>
+</div>
+
+<!-- ═══ PAGE HERO ═══ -->
+<section id="page-hero">
+    <div class="page-hero-bg"></div>
+    <img
+        src="https://images.unsplash.com/photo-1568605117036-5fe5e7bab0b7?auto=format&fit=crop&w=1400&q=80"
+        alt="Grupo Automotivo Prost — Contato"
+        class="page-hero-img"
+        loading="eager"
+    >
+    <div class="page-hero-content">
+        <div class="page-hero-tag">Grupo Automotivo Prost</div>
+        <h1 class="page-hero-title">
+            Fale com<br>
+            <em>a Prost</em>
+        </h1>
+        <p class="page-hero-sub">
+            Atendimento ágil pelo WhatsApp, formulário de contato e oportunidades de carreira. Estamos prontos para atender você.
+        </p>
+        <div class="page-tabs">
+            <a href="#contato" class="page-tab active">Entre em Contato</a>
+            <a href="#trabalhe" class="page-tab">Trabalhe Conosco</a>
+        </div>
+    </div>
+</section>
+
+<!-- ═══ ENTRE EM CONTATO ═══ -->
+<section id="contato">
+    <div class="contato-inner">
+
+        <!-- Formulário -->
+        <div class="reveal">
+            <div class="section-tag">Envie sua Mensagem</div>
+            <h2 class="section-title">Entre em<br><em>Contato</em></h2>
+            <div class="gold-line"></div>
+
+            <form id="contact-form" onsubmit="handleContact(event)">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Nome Completo</label>
+                        <input type="text" placeholder="Seu nome" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Telefone / WhatsApp</label>
+                        <input type="tel" placeholder="(11) 99999-9999" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>E-mail</label>
+                    <input type="email" placeholder="seu@email.com" required>
+                </div>
+                <div class="form-group">
+                    <label>Unidade de Interesse</label>
+                    <select>
+                        <option value="">Selecione a unidade</option>
+                        <option>Prost Blindados — Pinheiros</option>
+                        <option>Prost Mecânica — Pacaembú</option>
+                        <option>Prost Funilaria — Bom Retiro</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Serviço Desejado</label>
+                    <select>
+                        <option value="">Selecione o serviço</option>
+                        <optgroup label="Mecânica">
+                            <option>Motor</option>
+                            <option>Câmbio Automático</option>
+                            <option>Suspensão</option>
+                            <option>Freios</option>
+                            <option>Escapamento</option>
+                        </optgroup>
+                        <optgroup label="Funilaria">
+                            <option>Funilaria e Pintura</option>
+                            <option>Restauração de Veículos</option>
+                            <option>Estética Automotiva</option>
+                        </optgroup>
+                        <optgroup label="Blindagem">
+                            <option>Blindagem Nível III-A</option>
+                            <option>Blindagem Nível III</option>
+                            <option>Blindagem Nível IV</option>
+                            <option>Blindagem VIP / Customizada</option>
+                        </optgroup>
+                        <option>Outro / Dúvida Geral</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Mensagem</label>
+                    <textarea placeholder="Descreva o que você precisa..."></textarea>
+                </div>
+                <button type="submit" class="btn-gold-full">
+                    <i class="fas fa-paper-plane"></i> Enviar Mensagem
+                </button>
+                <div class="form-success" id="contact-success">
+                    <i class="fas fa-check-circle"></i> Mensagem enviada com sucesso! Entraremos em contato em breve.
+                </div>
+            </form>
+        </div>
+
+        <!-- Info de contato -->
+        <div class="contato-info reveal">
+            <div class="section-tag">Informações</div>
+            <h2 class="section-title">Nossas<br><em>Unidades</em></h2>
+            <div class="gold-line"></div>
+
+            <p class="contato-info-intro">
+                Responda mais rápido pelo WhatsApp. Escolha a unidade mais próxima de você e fale diretamente com nossa equipe.
+            </p>
+
+            <div class="contact-item">
+                <div class="contact-item-icon"><i class="fas fa-shield-alt"></i></div>
+                <div>
+                    <div class="contact-item-label">Blindados & Showroom</div>
+                    <div class="contact-item-value">
+                        Rua Henrique Schaumann, 555<br>
+                        Pinheiros – SP · 05413-100<br>
+                        <a href="tel:+5511943478100">(11) 94347-8100</a>
+                    </div>
+                </div>
+            </div>
+            <div class="contact-item">
+                <div class="contact-item-icon"><i class="fas fa-wrench"></i></div>
+                <div>
+                    <div class="contact-item-label">Mecânica</div>
+                    <div class="contact-item-value">
+                        Av. Pacaembú, 1306<br>
+                        Pacaembú – SP · 01234-000<br>
+                        <a href="tel:+5511976410925">(11) 97641-0925</a>
+                    </div>
+                </div>
+            </div>
+            <div class="contact-item">
+                <div class="contact-item-icon"><i class="fas fa-paint-roller"></i></div>
+                <div>
+                    <div class="contact-item-label">Funilaria</div>
+                    <div class="contact-item-value">
+                        Av. Dr. Abraão Ribeiro, 109<br>
+                        Bom Retiro – SP · 01133-020<br>
+                        <a href="tel:+5511977280908">(11) 97728-0908</a>
+                    </div>
+                </div>
+            </div>
+            <div class="contact-item">
+                <div class="contact-item-icon"><i class="fas fa-clock"></i></div>
+                <div>
+                    <div class="contact-item-label">Horário de Funcionamento</div>
+                    <div class="contact-item-value">
+                        Segunda a Sexta: 08:00 – 18:00<br>
+                        Sábado: 08:00 – 13:00
+                    </div>
+                </div>
+            </div>
+
+            <!-- Botões WhatsApp por unidade -->
+            <div class="unidades-wa">
+                <a href="https://api.whatsapp.com/send?phone=5511943478100&text=Olá!%20Gostaria%20de%20falar%20com%20a%20Prost%20Blindados." target="_blank" class="unidade-wa-btn">
+                    <div class="unidade-wa-icon"><i class="fab fa-whatsapp"></i></div>
+                    <div class="unidade-wa-text">
+                        <div class="unidade-wa-nome">Prost Blindados</div>
+                        <div class="unidade-wa-num">(11) 94347-8100</div>
+                    </div>
+                    <i class="fas fa-arrow-right unidade-wa-arrow"></i>
+                </a>
+                <a href="https://api.whatsapp.com/send?phone=5511976410925&text=Olá!%20Gostaria%20de%20falar%20com%20a%20Prost%20Mecânica." target="_blank" class="unidade-wa-btn">
+                    <div class="unidade-wa-icon"><i class="fab fa-whatsapp"></i></div>
+                    <div class="unidade-wa-text">
+                        <div class="unidade-wa-nome">Prost Mecânica</div>
+                        <div class="unidade-wa-num">(11) 97641-0925</div>
+                    </div>
+                    <i class="fas fa-arrow-right unidade-wa-arrow"></i>
+                </a>
+                <a href="https://api.whatsapp.com/send?phone=5511977280908&text=Olá!%20Gostaria%20de%20falar%20com%20a%20Prost%20Funilaria." target="_blank" class="unidade-wa-btn">
+                    <div class="unidade-wa-icon"><i class="fab fa-whatsapp"></i></div>
+                    <div class="unidade-wa-text">
+                        <div class="unidade-wa-nome">Prost Funilaria</div>
+                        <div class="unidade-wa-num">(11) 97728-0908</div>
+                    </div>
+                    <i class="fas fa-arrow-right unidade-wa-arrow"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ═══ MAPA ═══ -->
+<section id="mapa">
+    <div class="mapa-inner">
+        <div class="reveal">
+            <div class="section-tag">Localização</div>
+            <h2 class="section-title" style="margin-bottom:40px;">Onde<br><em>Estamos</em></h2>
+        </div>
+        <div class="mapa-cards reveal">
+            <div class="mapa-card">
+                <div class="mapa-card-tag">Blindados & Showroom</div>
+                <div class="mapa-card-nome">Pinheiros</div>
+                <div class="mapa-card-addr">Rua Henrique Schaumann, 555<br>São Paulo – SP · 05413-100</div>
+                <a href="tel:+5511943478100" class="mapa-card-tel"><i class="fab fa-whatsapp"></i>(11) 94347-8100</a>
+            </div>
+            <div class="mapa-card">
+                <div class="mapa-card-tag">Mecânica Especializada</div>
+                <div class="mapa-card-nome">Pacaembú</div>
+                <div class="mapa-card-addr">Av. Pacaembú, 1306<br>São Paulo – SP · 01234-000</div>
+                <a href="tel:+5511976410925" class="mapa-card-tel"><i class="fab fa-whatsapp"></i>(11) 97641-0925</a>
+            </div>
+            <div class="mapa-card">
+                <div class="mapa-card-tag">Funilaria & Estética</div>
+                <div class="mapa-card-nome">Bom Retiro</div>
+                <div class="mapa-card-addr">Av. Dr. Abraão Ribeiro, 109<br>São Paulo – SP · 01133-020</div>
+                <a href="tel:+5511977280908" class="mapa-card-tel"><i class="fab fa-whatsapp"></i>(11) 97728-0908</a>
+            </div>
+        </div>
+        <iframe
+            class="mapa-embed reveal"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3657.0754267452926!2d-46.6534265844076!3d-23.56573436763838!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce59c8da0aa315%3A0xd59f9431f2c9776a!2sAv.%20Paulista%2C%20S%C3%A3o%20Paulo%20-%20SP!5e0!3m2!1spt-BR!2sbr!4v1623860000000!5m2!1spt-BR!2sbr"
+            allowfullscreen loading="lazy">
+        </iframe>
+    </div>
+</section>
+
+<!-- ═══ TRABALHE CONOSCO ═══ -->
+<section id="trabalhe">
+    <div class="trabalhe-inner">
+
+        <!-- Vagas abertas -->
+        <div class="reveal">
+            <div class="section-tag">Faça Parte do Time</div>
+            <h2 class="section-title">Trabalhe<br><em>Conosco</em></h2>
+            <div class="gold-line"></div>
+
+            <p class="trabalhe-intro">
+                O Grupo Automotivo Prost está sempre em busca de profissionais apaixonados por automóveis e comprometidos com a excelência. Se você tem talento e quer crescer em uma das maiores referências automotivas de São Paulo, queremos conhecer você.
+            </p>
+
+            <div class="vagas-grid">
+                <div class="vaga-card">
+                    <div class="vaga-icon"><i class="fas fa-shield-alt"></i></div>
+                    <div class="vaga-info">
+                        <div class="vaga-titulo">Técnico em Blindagem</div>
+                        <div class="vaga-depto">Prost Blindados · Pinheiros</div>
+                    </div>
+                    <span class="vaga-badge aberta">Aberta</span>
+                </div>
+                <div class="vaga-card">
+                    <div class="vaga-icon"><i class="fas fa-cog"></i></div>
+                    <div class="vaga-info">
+                        <div class="vaga-titulo">Mecânico de Automóveis</div>
+                        <div class="vaga-depto">Prost Mecânica · Pacaembú</div>
+                    </div>
+                    <span class="vaga-badge aberta">Aberta</span>
+                </div>
+                <div class="vaga-card">
+                    <div class="vaga-icon"><i class="fas fa-paint-roller"></i></div>
+                    <div class="vaga-info">
+                        <div class="vaga-titulo">Funileiro / Pintor Automotivo</div>
+                        <div class="vaga-depto">Prost Funilaria · Bom Retiro</div>
+                    </div>
+                    <span class="vaga-badge aberta">Aberta</span>
+                </div>
+                <div class="vaga-card">
+                    <div class="vaga-icon"><i class="fas fa-laptop-code"></i></div>
+                    <div class="vaga-info">
+                        <div class="vaga-titulo">Técnico em Diagnóstico</div>
+                        <div class="vaga-depto">Prost Mecânica · Pacaembú</div>
+                    </div>
+                    <span class="vaga-badge">Banco de Talentos</span>
+                </div>
+                <div class="vaga-card">
+                    <div class="vaga-icon"><i class="fas fa-headset"></i></div>
+                    <div class="vaga-info">
+                        <div class="vaga-titulo">Consultor de Atendimento</div>
+                        <div class="vaga-depto">Todas as Unidades</div>
+                    </div>
+                    <span class="vaga-badge">Banco de Talentos</span>
+                </div>
+            </div>
+
+            <div class="trabalhe-divider"></div>
+            <p class="trabalhe-note">
+                Não encontrou a vaga ideal? Envie seu currículo pelo formulário ao lado e entraremos em contato quando uma oportunidade surgir.
+            </p>
+        </div>
+
+        <!-- Formulário de candidatura -->
+        <div class="trabalhe-form-wrap reveal">
+            <div class="section-tag">Envie seu Currículo</div>
+            <div class="trabalhe-form-title">Candidate-se Agora</div>
+            <p class="trabalhe-form-sub">Preencha o formulário abaixo e nossa equipe de RH entrará em contato.</p>
+
+            <form id="trabalhe-form" onsubmit="handleTrabalhe(event)">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Nome Completo</label>
+                        <input type="text" placeholder="Seu nome" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Telefone</label>
+                        <input type="tel" placeholder="(11) 99999-9999" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>E-mail</label>
+                    <input type="email" placeholder="seu@email.com" required>
+                </div>
+                <div class="form-group">
+                    <label>Cargo de Interesse</label>
+                    <select required>
+                        <option value="">Selecione o cargo</option>
+                        <option>Técnico em Blindagem</option>
+                        <option>Mecânico de Automóveis</option>
+                        <option>Funileiro / Pintor Automotivo</option>
+                        <option>Técnico em Diagnóstico Eletrônico</option>
+                        <option>Consultor de Atendimento</option>
+                        <option>Outro</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Unidade de Preferência</label>
+                    <select>
+                        <option value="">Sem preferência</option>
+                        <option>Prost Blindados — Pinheiros</option>
+                        <option>Prost Mecânica — Pacaembú</option>
+                        <option>Prost Funilaria — Bom Retiro</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Experiência Profissional</label>
+                    <textarea placeholder="Descreva brevemente sua experiência na área automotiva..."></textarea>
+                </div>
+                <div class="form-group file-upload-wrap">
+                    <label>Currículo (PDF)</label>
+                    <label class="file-upload-label" id="file-label">
+                        <i class="fas fa-file-pdf"></i>
+                        <div class="file-upload-text">
+                            <div class="file-upload-main">Anexar Currículo</div>
+                            <div class="file-upload-sub">PDF, DOC ou DOCX · máx. 5MB</div>
+                        </div>
+                        <input type="file" class="file-upload-input" id="cv-file" accept=".pdf,.doc,.docx" onchange="updateFileName(this)">
+                    </label>
+                </div>
+                <button type="submit" class="btn-gold-full">
+                    <i class="fas fa-paper-plane"></i> Enviar Candidatura
+                </button>
+                <div class="form-success" id="trabalhe-success">
+                    <i class="fas fa-check-circle"></i> Candidatura recebida! Entraremos em contato em breve.
+                </div>
+            </form>
+        </div>
+    </div>
+</section>
+
+<!-- ═══ NEWSLETTER ═══ -->
+<section id="newsletter">
+    <div class="newsletter-inner reveal">
+        <div>
+            <div class="newsletter-tag">Fique por Dentro</div>
+            <div class="newsletter-title">Receba Novidades<br>e Ofertas Exclusivas</div>
+        </div>
+        <form class="newsletter-form" onsubmit="handleNewsletter(event)">
+            <input type="email" placeholder="Seu melhor e-mail" required>
+            <button type="submit">Inscrever <i class="fas fa-arrow-right"></i></button>
+        </form>
+    </div>
+</section>
+
+<!-- ═══ FOOTER ═══ -->
+<footer>
+    <div class="footer-grid">
+        <div class="footer-brand">
+            <img src="prost-logo-removebg-preview.png" alt="Grupo Automotivo Prost">
+            <p>O Grupo Automotivo Prost é referência em serviços automotivos na cidade de São Paulo. Mecânica, funilaria e blindagem com qualidade e transparência.</p>
+            <div class="social-row">
+                <a href="https://www.instagram.com/prost.autos/" target="_blank" class="social-link"><i class="fab fa-instagram"></i></a>
+                <a href="https://api.whatsapp.com/send?phone=5511943478100" target="_blank" class="social-link"><i class="fab fa-whatsapp"></i></a>
+                <a href="#" class="social-link"><i class="fab fa-facebook"></i></a>
+            </div>
+        </div>
+        <div>
+            <div class="footer-col-title">Serviços</div>
+            <div class="footer-links">
+                <a href="motor.html">Mecânica Especializada</a>
+                <a href="funilaria.html">Funilaria e Pintura</a>
+                <a href="blindagem.html">Blindagem</a>
+            </div>
+        </div>
+        <div>
+            <div class="footer-col-title">Prost</div>
+            <div class="footer-links">
+                <a href="index.html#about">Nossa História</a>
+                <a href="index.html#schedule">Nossas Unidades</a>
+                <a href="contato.html#contato">Entre em Contato</a>
+                <a href="contato.html#trabalhe">Trabalhe Conosco</a>
+            </div>
+        </div>
+        <div>
+            <div class="footer-col-title">Contato Rápido</div>
+            <div class="footer-links">
+                <a href="tel:+5511943478100">Blindados: (11) 94347-8100</a>
+                <a href="tel:+5511976410925">Mecânica: (11) 97641-0925</a>
+                <a href="tel:+5511977280908">Funilaria: (11) 97728-0908</a>
+                <a href="https://api.whatsapp.com/send?phone=5511943478100" target="_blank">WhatsApp</a>
+            </div>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>© 2025 Grupo Automotivo Prost. Todos os direitos reservados.</p>
+        <p style="color:#1e1e1e;">grupoprost.com.br</p>
+    </div>
+</footer>
+
+<a href="https://api.whatsapp.com/send?phone=5511943478100" target="_blank" class="whatsapp-float" aria-label="WhatsApp">
+    <i class="fab fa-whatsapp"></i>
+</a>
+<button id="back-top" aria-label="Voltar ao topo"><i class="fas fa-chevron-up"></i></button>
+
+<script>
+    // Header scroll
+    const header = document.getElementById('site-header');
+    window.addEventListener('scroll', () => {
+        header.classList.toggle('scrolled', window.scrollY > 60);
+        document.getElementById('back-top').classList.toggle('visible', window.scrollY > 400);
+    }, { passive: true });
+
+    document.getElementById('back-top').addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
+    // Mobile menu
+    const mobileToggle = document.getElementById('mobile-toggle');
+    const mobileNav    = document.getElementById('mobile-nav');
+    mobileToggle.addEventListener('click', () => {
+        const open = mobileNav.classList.toggle('open');
+        mobileToggle.querySelector('i').className = open ? 'fas fa-times' : 'fas fa-bars';
+    });
+    mobileNav.querySelectorAll('a').forEach(a => {
+        a.addEventListener('click', () => {
+            mobileNav.classList.remove('open');
+            mobileToggle.querySelector('i').className = 'fas fa-bars';
+        });
+    });
+
+    // Tabs highlight ao scroll
+    const tabs = document.querySelectorAll('.page-tab');
+    const sections = ['#contato', '#trabalhe'];
+    window.addEventListener('scroll', () => {
+        let current = '';
+        sections.forEach(id => {
+            const el = document.querySelector(id);
+            if (el && window.scrollY >= el.offsetTop - 120) current = id;
+        });
+        tabs.forEach(t => {
+            t.classList.toggle('active', t.getAttribute('href') === current);
+        });
+    }, { passive: true });
+
+    // Smooth scroll
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+        a.addEventListener('click', e => {
+            const target = document.querySelector(a.getAttribute('href'));
+            if (target) {
+                e.preventDefault();
+                window.scrollTo({ top: target.offsetTop - 80, behavior: 'smooth' });
+            }
+        });
+    });
+
+    // Scroll reveal
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry, i) => {
+            if (entry.isIntersecting) {
+                setTimeout(() => entry.target.classList.add('visible'), i * 90);
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.08 });
+    document.querySelectorAll('.reveal').forEach(r => observer.observe(r));
+
+    // File upload label
+    function updateFileName(input) {
+        const label = document.getElementById('file-label');
+        const sub = label.querySelector('.file-upload-sub');
+        const main = label.querySelector('.file-upload-main');
+        if (input.files && input.files[0]) {
+            main.textContent = input.files[0].name;
+            sub.textContent = (input.files[0].size / 1024 / 1024).toFixed(2) + ' MB';
+        }
+    }
+
+    // Forms
+    function handleContact(e) {
+        e.preventDefault();
+        document.getElementById('contact-success').style.display = 'block';
+        e.target.reset();
+    }
+
+    function handleTrabalhe(e) {
+        e.preventDefault();
+        document.getElementById('trabalhe-success').style.display = 'block';
+        const label = document.getElementById('file-label');
+        label.querySelector('.file-upload-main').textContent = 'Anexar Currículo';
+        label.querySelector('.file-upload-sub').textContent = 'PDF, DOC ou DOCX · máx. 5MB';
+        e.target.reset();
+    }
+
+    function handleNewsletter(e) {
+        e.preventDefault();
+        alert('Obrigado por se inscrever! Em breve você receberá nossas novidades.');
+        e.target.reset();
+    }
+</script>
+</body>
+</html>
