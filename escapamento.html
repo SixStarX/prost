@@ -3,49 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <!-- ─── SEO ─── -->
-    <title>Motor | Mecânica Especializada em Motores | Grupo Automotivo Prost</title>
-    <meta name="description" content="Revisão, diagnóstico, troca de óleo e reparos de motor em São Paulo. Equipe especializada, equipamentos de última geração. Oficina Prost no Pacaembú.">
+    <title>Escapamento | Reparo e Substituição | Grupo Automotivo Prost</title>
+    <meta name="description" content="Reparo e substituição do sistema de escapamento em São Paulo: catalisador, silencioso e downpipe. Prost Mecânica no Pacaembú.">
     <meta name="robots" content="index, follow">
-    <link rel="canonical" href="https://www.grupoprost.com.br/mecanica/motor">
-
-    <!-- ─── OPEN GRAPH ─── -->
+    <link rel="canonical" href="https://www.grupoprost.com.br/mecanica/escapamento">
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://www.grupoprost.com.br/mecanica/motor">
-    <meta property="og:title" content="Serviços de Motor | Grupo Automotivo Prost">
-    <meta property="og:description" content="Revisão, diagnóstico eletrônico, troca de óleo e reparos completos de motor em São Paulo. 30+ anos de experiência.">
+    <meta property="og:url" content="https://www.grupoprost.com.br/mecanica/escapamento">
+    <meta property="og:title" content="Escapamento Automotivo | Grupo Automotivo Prost">
+    <meta property="og:description" content="Reparo e substituição do sistema de escapamento em São Paulo: catalisador, silencioso e downpipe. Prost Mecânica no Pacaembú.">
     <meta property="og:locale" content="pt_BR">
-
-    <!-- ─── SCHEMA: Service + BreadcrumbList ─── -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@graph": [
         {
           "@type": "Service",
-          "name": "Serviços de Motor Automotivo",
-          "description": "Revisão de motor, troca de óleo e filtros, diagnóstico eletrônico, inspeção do sistema de arrefecimento e injeção eletrônica.",
-          "provider": { "@type": "AutoRepair", "name": "Grupo Automotivo Prost – Mecânica", "url": "https://www.grupoprost.com.br" },
-          "areaServed": { "@type": "City", "name": "São Paulo" },
-          "serviceType": "Mecânica Automotiva – Motor"
-        },
-        {
-          "@type": "BreadcrumbList",
-          "itemListElement": [
-            { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.grupoprost.com.br/" },
-            { "@type": "ListItem", "position": 2, "name": "Mecânica", "item": "https://www.grupoprost.com.br/mecanica" },
-            { "@type": "ListItem", "position": 3, "name": "Motor", "item": "https://www.grupoprost.com.br/mecanica/motor" }
-          ]
+          "name": "Serviços de Escapamento Automotivo",
+          "description": "Diagnóstico, reparo e substituição completa do sistema de escapamento: coletor, catalisador, silencioso e downpipe para todas as marcas.",
+          "provider": {"@type": "AutoRepair", "name": "Grupo Automotivo Prost – Mecânica", "url": "https://www.grupoprost.com.br"},
+          "areaServed": {"@type": "City", "name": "São Paulo"},
+          "serviceType": "Mecânica Automotiva"
         }
       ]
     }
     </script>
-
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:wght@300;400;500;600;700&family=Barlow+Condensed:wght@400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
     <style>
         /* ─── DESIGN SYSTEM (compartilhado com index.html) ─── */
         :root {
@@ -824,19 +808,20 @@
     </style>
 </head>
 <body>
+<body>
 
 <!-- ════════════════════════════════════════════════════════
      HEADER (componente reutilizável)
 ════════════════════════════════════════════════════════ -->
 <header id="site-header">
-    <a href="/" class="logo-area">
-        <img src="../../prost-logo-removebg-preview.png" alt="Grupo Automotivo Prost">
+    <a href="index.html" class="logo-area">
+        <img src="prost-logo-removebg-preview.png" alt="Grupo Automotivo Prost">
     </a>
 
     <nav>
-        <a href="/">Início</a>
-        <a href="/#services">Serviços</a>
-        <a href="/#about">Sobre</a>
+        <a href="index.html">Início</a>
+        <a href="index.html#services">Serviços</a>
+        <a href="index.html#about">Sobre</a>
         <div class="nav-dropdown-wrap">
             <a href="index.html#schedule">Unidades <i class="fas fa-chevron-down nav-dropdown-chevron"></i></a>
             <div class="nav-dropdown">
@@ -863,8 +848,8 @@
                 </a>
             </div>
         </div>
-        <a href="/#testimonials">Depoimentos</a>
-        <a href="/contato" class="nav-cta">Agendar</a>
+        <a href="index.html#testimonials">Depoimentos</a>
+        <a href="contato.html" class="nav-cta">Agendar</a>
     </nav>
 
     <button class="mobile-toggle" id="mobile-toggle" aria-label="Menu">
@@ -873,36 +858,28 @@
 </header>
 
 <div class="mobile-nav" id="mobile-nav">
-    <a href="/">Início</a>
-    <a href="/#services">Serviços</a>
-    <a href="/#about">Sobre</a>
-    <a href="/#schedule">Unidades</a>
-    <a href="/#testimonials">Depoimentos</a>
-    <a href="/contato">Agendar Serviço</a>
+    <a href="index.html">Início</a>
+    <a href="index.html#services">Serviços</a>
+    <a href="index.html#about">Sobre</a>
+    <a href="index.html#schedule">Unidades</a>
+    <a href="index.html#testimonials">Depoimentos</a>
+    <a href="contato.html">Agendar Serviço</a>
 </div>
 
-<!-- ════════════════════════════════════════════════════════
-     PAGE HERO
-════════════════════════════════════════════════════════ -->
+
+<!-- PAGE HERO -->
 <section id="page-hero">
     <div class="page-hero-bg"></div>
-    <img
-        src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=1400&q=80"
-        alt="Motor automotivo de alta performance"
-        class="page-hero-img"
-        loading="eager"
-    >
+    <img src="https://images.pexels.com/photos/1149137/pexels-photo-1149137.jpeg?auto=compress&cs=tinysrgb&w=1400" alt="Volvo XC60 escapamento performance — Prost Mecânica" class="page-hero-img" loading="eager">
     <div class="page-hero-content">
         <div class="page-hero-tag">Mecânica Especializada</div>
         <h1 class="page-hero-title">
-            Serviços de<br>
-            <em>Motor</em>
+            Sistema de<br>
+            <em>Escapamento</em>
         </h1>
-        <p class="page-hero-sub">
-            Revisão, diagnóstico eletrônico, troca de óleo e reparos completos. Equipe especializada e equipamentos de última geração no Pacaembú.
-        </p>
+        <p class="page-hero-sub">Diagnóstico, reparo e substituição do sistema de escapamento completo. Catalisador, silencioso e downpipe — no Pacaembú.</p>
         <div class="page-hero-actions">
-            <a href="https://api.whatsapp.com/send?phone=5511976410925&text=Olá!%20Gostaria%20de%20agendar%20um%20serviço%20de%20motor."
+            <a href="https://api.whatsapp.com/send?phone=5511976410925&text=Olá!%20Gostaria%20de%20agendar%20um%20serviço%20de%20escapamento."
                target="_blank" class="btn-whatsapp">
                 <i class="fab fa-whatsapp"></i> Agendar pelo WhatsApp
             </a>
@@ -913,157 +890,124 @@
     </div>
 </section>
 
-<!-- ════════════════════════════════════════════════════════
-     INTRO
-════════════════════════════════════════════════════════ -->
+<!-- INTRO -->
 <section id="intro">
     <div class="intro-inner">
         <div class="intro-left reveal">
-            <div class="section-tag">Mecânica Prost</div>
+            <div class="section-tag">Prost Mecânica</div>
             <h2 class="section-title">
-                Especialistas<br><em>em Motor</em>
+                Especialistas<br><em>em Escapamento</em>
             </h2>
             <div class="gold-line" style="margin-top:20px;"></div>
         </div>
         <div class="intro-right reveal">
-            <p>
-                Na <strong>Mecânica Prost</strong>, a inspeção, revisão e reparo de motores é conduzida por uma equipe altamente qualificada, com equipamentos de última geração e uma <strong>localização privilegiada no Pacaembú</strong>.
-            </p>
-            <p>
-                Atendemos veículos nacionais e importados de todas as marcas, com foco especial em automóveis diferenciados. Do simples diagnóstico ao reparo complexo, garantimos <strong>transparência total no processo</strong> e um trabalho de máxima qualidade.
-            </p>
+            <p>O sistema de escapamento influencia diretamente o desempenho, o consumo e os gases emitidos pelo veículo. Na <strong>Mecânica Prost</strong>, realizamos diagnóstico completo antes de qualquer substituição.</p>
+            <p>Atendemos desde simples reparos em silencioso até a substituição completa do sistema, incluindo catalisador, coletor e downpipe — com peças de <strong>qualidade original ou equivalente premium</strong>.</p>
             <div class="intro-badges">
+                <span class="intro-badge"><i class="fas fa-wind"></i> Sistema Completo</span>
                 <span class="intro-badge"><i class="fas fa-check-circle"></i> Garantia no Serviço</span>
-                <span class="intro-badge"><i class="fas fa-laptop-code"></i> Diagnóstico Digital</span>
+                <span class="intro-badge"><i class="fas fa-leaf"></i> Emissões Controladas</span>
                 <span class="intro-badge"><i class="fas fa-car"></i> Todas as Marcas</span>
-                <span class="intro-badge"><i class="fas fa-clock"></i> Prazo Cumprido</span>
             </div>
         </div>
     </div>
 </section>
 
-<!-- ════════════════════════════════════════════════════════
-     SUB-SERVIÇOS
-════════════════════════════════════════════════════════ -->
+<!-- SUB-SERVIÇOS -->
 <section id="sub-services">
     <div class="sub-services-inner">
 
-        <!-- 01 Revisão de Motor -->
+        <!-- 01 Diagnóstico do Sistema -->
         <div class="sub-service reveal">
             <div class="sub-service-img">
-                <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=800&q=80"
-                     alt="Revisão de motor — Mecânica Prost" loading="lazy">
+                <img src="https://images.pexels.com/photos/3807517/pexels-photo-3807517.jpeg?auto=compress&cs=tinysrgb&w=800"
+                     alt="Inspeção sistema de escapamento — Prost Mecânica" loading="lazy">
                 <div class="sub-service-img-overlay"></div>
             </div>
             <div class="sub-service-content">
                 <div class="sub-number">01</div>
-                <div class="sub-service-tag">Manutenção Preventiva</div>
-                <h2>Revisão de Motor</h2>
-                <p>Check-list completo e rigoroso para manter seu veículo em dia, sem surpresas. Ideal para quem valoriza segurança e não quer imprevistos no dia a dia.</p>
+                <div class="sub-service-tag">Diagnóstico e Inspeção</div>
+                <h2>Diagnóstico do Sistema</h2>
+                <p>Antes de qualquer reparo, realizamos uma inspeção completa do sistema de escapamento — do coletor ao silencioso — identificando com precisão cada ponto de vazamento, corrosão ou desgaste estrutural.</p>
                 <ul class="sub-service-items">
-                    <li>Verificação do nível e qualidade do óleo do motor</li>
-                    <li>Inspeção de velas de ignição e cabos de ignição</li>
-                    <li>Verificação de mangueiras, correias e tensores</li>
-                    <li>Inspeção de sensores e atuadores eletrônicos</li>
-                    <li>Verificação de bateria e sistema de carga</li>
-                    <li>Filtro de ar e filtro de combustível</li>
+                    <li>Inspeção visual completa do trajeto do escapamento</li>
+                    <li>Detecção de vazamentos com aparelhos de pressão</li>
+                    <li>Leitura de falhas no catalisador via scanner (O2, sonda lambda)</li>
+                    <li>Verificação de ruídos estruturais e soltas de fixação</li>
+                    <li>Análise do estado das borrachas e suportes de escapamento</li>
                 </ul>
             </div>
         </div>
 
-        <!-- 02 Troca de Óleo -->
+        <!-- 02 Reparo e Troca de Silencioso -->
         <div class="sub-service reverse reveal">
             <div class="sub-service-img">
-                <img src="https://images.unsplash.com/photo-1621274790572-7c32596bc67f?auto=format&fit=crop&w=800&q=80"
-                     alt="Troca de óleo e filtros — Mecânica Prost" loading="lazy">
+                <img src="https://images.pexels.com/photos/3785932/pexels-photo-3785932.jpeg?auto=compress&cs=tinysrgb&w=800"
+                     alt="Reparo de silencioso Land Rover — Prost" loading="lazy">
                 <div class="sub-service-img-overlay"></div>
             </div>
             <div class="sub-service-content">
                 <div class="sub-number">02</div>
-                <div class="sub-service-tag">Lubrificação</div>
-                <h2>Troca de Óleo e Filtros</h2>
-                <p>O óleo de motor possui importância vital para o correto funcionamento e a longevidade do motor. Utilizamos os melhores lubrificantes do mercado, rigorosamente dentro das especificações do fabricante.</p>
+                <div class="sub-service-tag">Silencioso e Tubulação</div>
+                <h2>Reparo e Troca de Silencioso</h2>
+                <p>O silencioso (mofle) é um dos componentes mais vulneráveis à corrosão. Realizamos reparos pontuais quando o estado geral permite, ou substituição completa com peças de aço inox ou aluminizado de alta durabilidade.</p>
                 <ul class="sub-service-items">
-                    <li>Óleos sintéticos, semissintéticos e minerais das melhores marcas</li>
-                    <li>Filtro de óleo original ou equivalente premium</li>
-                    <li>Filtro de ar e filtro de combustível</li>
-                    <li>Verificação do sistema de lubrificação completo</li>
+                    <li>Solda TIG em pontos de vazamento localizados</li>
+                    <li>Substituição de silencioso dianteiro, central e traseiro</li>
+                    <li>Troca de downpipe e tubo de conexão</li>
+                    <li>Substituição de borrachas, ganchos e abraçadeiras</li>
+                    <li>Instalação de silenciosos esportivos e de performance</li>
                 </ul>
             </div>
         </div>
 
-        <!-- 03 Diagnóstico Eletrônico -->
+        <!-- 03 Catalisador e Sonda Lambda -->
         <div class="sub-service reveal">
             <div class="sub-service-img">
-                <img src="https://images.unsplash.com/photo-1530046339160-ce3e530c7d2f?auto=format&fit=crop&w=800&q=80"
-                     alt="Diagnóstico eletrônico de motor — Mecânica Prost" loading="lazy">
+                <img src="https://images.pexels.com/photos/4116218/pexels-photo-4116218.jpeg?auto=compress&cs=tinysrgb&w=800"
+                     alt="Catalisador diagnóstico — Prost Mecânica" loading="lazy">
                 <div class="sub-service-img-overlay"></div>
             </div>
             <div class="sub-service-content">
                 <div class="sub-number">03</div>
-                <div class="sub-service-tag">Tecnologia Embarcada</div>
-                <h2>Diagnóstico e Reparo Eletrônico</h2>
-                <p>Equipamentos eletrônicos de última geração e softwares especializados permitem identificar com precisão qualquer problema no motor — antes mesmo que você perceba.</p>
+                <div class="sub-service-tag">Catalisador e Emissões</div>
+                <h2>Catalisador e Sonda Lambda</h2>
+                <p>Um catalisador defeituoso gera aumento de consumo, falhas de desempenho e reprovação no teste de emissões. Diagnosticamos com precisão se o catalisador pode ser recuperado ou necessita de substituição.</p>
                 <ul class="sub-service-items">
-                    <li>Scanner multimarcas com leitura de todas as ECUs</li>
-                    <li>Análise de falhas intermitentes e permanentes</li>
-                    <li>Reprogramação e calibração de módulos eletrônicos</li>
-                    <li>Diagnóstico de sistemas CAN Bus e OBD-II</li>
-                    <li>Relatório detalhado com fotos do diagnóstico</li>
+                    <li>Análise de eficiência do catalisador via scanner de O2</li>
+                    <li>Verificação de quebra interna do substrato cerâmico</li>
+                    <li>Substituição de catalisador original ou equivalente certificado</li>
+                    <li>Troca de sondas lambda dianteiras e traseiras</li>
+                    <li>Reprogramação da ECU após substituição quando necessário</li>
                 </ul>
             </div>
         </div>
 
-        <!-- 04 Arrefecimento -->
+        <!-- 04 Coletor de Escapamento e Turbo -->
         <div class="sub-service reverse reveal">
             <div class="sub-service-img">
-                <img src="https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?auto=format&fit=crop&w=800&q=80"
-                     alt="Sistema de arrefecimento do motor — Mecânica Prost" loading="lazy">
+                <img src="https://images.pexels.com/photos/1545743/pexels-photo-1545743.jpeg?auto=compress&cs=tinysrgb&w=800"
+                     alt="Coletor escapamento turbo BMW — Prost" loading="lazy">
                 <div class="sub-service-img-overlay"></div>
             </div>
             <div class="sub-service-content">
                 <div class="sub-number">04</div>
-                <div class="sub-service-tag">Temperatura e Segurança</div>
-                <h2>Sistema de Arrefecimento</h2>
-                <p>Tudo passa por rigorosos processos de verificação por aparelhos calibrados. O superaquecimento é uma das principais causas de danos graves ao motor — prevenimos antes que aconteça.</p>
+                <div class="sub-service-tag">Coletor e Turbo</div>
+                <h2>Coletor de Escapamento e Turbo</h2>
+                <p>Rachaduras no coletor de escapamento geram perda de potência, barulho e risco de incêndio. Em veículos turbinados, o escapamento é ainda mais crítico — realizamos inspeção e reparo com soldagem especializada.</p>
                 <ul class="sub-service-items">
-                    <li>Verificação da pressão do sistema de arrefecimento</li>
-                    <li>Teste do líquido de arrefecimento (concentração e pH)</li>
-                    <li>Inspeção de radiador, mangueiras e termostato</li>
-                    <li>Verificação da bomba d'água e eletroventilador</li>
-                    <li>Troca do fluido de arrefecimento conforme fabricante</li>
+                    <li>Inspeção e reparo de trincas no coletor de escapamento</li>
+                    <li>Verificação de juntas e vedadores do coletor</li>
+                    <li>Reparo e substituição de componentes do downpipe turbo</li>
+                    <li>Inspeção de retorno de óleo e fluido no turbocompressor</li>
+                    <li>Compatível com motores a gasolina, diesel e turbo</li>
                 </ul>
             </div>
         </div>
-
-        <!-- 05 Injeção Eletrônica -->
-        <div class="sub-service reveal">
-            <div class="sub-service-img">
-                <img src="https://images.unsplash.com/photo-1517524206127-48bbd363f3d7?auto=format&fit=crop&w=800&q=80"
-                     alt="Regulagem de injeção eletrônica — Mecânica Prost" loading="lazy">
-                <div class="sub-service-img-overlay"></div>
-            </div>
-            <div class="sub-service-content">
-                <div class="sub-number">05</div>
-                <div class="sub-service-tag">Performance e Economia</div>
-                <h2>Injeção Eletrônica de Combustível</h2>
-                <p>Quando o assunto é eletrônica embarcada, a Mecânica Prost entrega o melhor em tecnologia e equipe qualificada. Nossos profissionais são constantemente atualizados para acompanhar a evolução dos sistemas modernos.</p>
-                <ul class="sub-service-items">
-                    <li>Limpeza e regulagem dos bicos injetores</li>
-                    <li>Teste de pressão do sistema de combustível</li>
-                    <li>Verificação da bomba de combustível e regulador</li>
-                    <li>Diagnóstico de sondas lambda e catalisador</li>
-                    <li>Calibração da borboleta eletrônica (TPS/ETC)</li>
-                </ul>
-            </div>
-        </div>
-
     </div>
 </section>
 
-<!-- ════════════════════════════════════════════════════════
-     DIFERENCIAIS
-════════════════════════════════════════════════════════ -->
+<!-- DIFERENCIAIS -->
 <section id="diferenciais">
     <div class="diferenciais-inner">
         <div class="diferenciais-header reveal">
@@ -1072,54 +1016,50 @@
         </div>
         <div class="diferenciais-grid reveal">
             <div class="diferencial-card">
-                <div class="diferencial-icon"><i class="fas fa-laptop-code"></i></div>
-                <h3>Diagnóstico Digital</h3>
-                <p>Equipamentos de última geração para identificação precisa de qualquer falha no sistema do seu veículo.</p>
+                <div class="diferencial-icon"><i class="fas fa-wind"></i></div>
+                <h3>Sistema Completo</h3>
+                <p>Do coletor ao silencioso — cobrimos todo o sistema de escapamento com diagnóstico preciso e peças de qualidade.</p>
             </div>
             <div class="diferencial-card">
                 <div class="diferencial-icon"><i class="fas fa-shield-alt"></i></div>
                 <h3>Garantia no Serviço</h3>
-                <p>Todos os serviços realizados têm garantia. Trabalhamos com peças de primeira linha e mão de obra certificada.</p>
+                <p>Todos os reparos e peças substituídas possuem garantia. Trabalhamos com peças de marcas referência.</p>
             </div>
             <div class="diferencial-card">
-                <div class="diferencial-icon"><i class="fas fa-eye"></i></div>
-                <h3>Transparência Total</h3>
-                <p>Relatório detalhado do diagnóstico com fotos antes de qualquer aprovação de serviço. Sem surpresas no orçamento.</p>
+                <div class="diferencial-icon"><i class="fas fa-leaf"></i></div>
+                <h3>Emissões Controladas</h3>
+                <p>Diagnóstico com scanner de sonda lambda e O2 — garantimos que o veículo esteja dentro das normas de emissão.</p>
             </div>
             <div class="diferencial-card">
                 <div class="diferencial-icon"><i class="fas fa-user-tie"></i></div>
-                <h3>Equipe Especializada</h3>
-                <p>Técnicos certificados com constante reciclagem profissional para acompanhar a evolução tecnológica dos veículos modernos.</p>
+                <h3>Soldagem Especializada</h3>
+                <p>Nossa equipe domina soldagem TIG e MIG para reparos estruturais de escapamento sem necessidade de substituição total.</p>
             </div>
         </div>
     </div>
 </section>
 
-<!-- ════════════════════════════════════════════════════════
-     CTA BAND
-════════════════════════════════════════════════════════ -->
+<!-- CTA BAND -->
 <section id="cta-band">
     <div class="cta-band-inner reveal">
         <div class="cta-band-text">
             <div class="cta-band-tag">Agende Agora</div>
-            <div class="cta-band-title">Seu Motor Merece<br>o Melhor Cuidado</div>
+            <div class="cta-band-title">Escapamento<br>em Perfeito Estado</div>
             <p class="cta-band-sub">Av. Pacaembú, 1306 — Pacaembú, São Paulo · (11) 97641-0925</p>
         </div>
         <div class="cta-band-actions">
-            <a href="https://api.whatsapp.com/send?phone=5511976410925&text=Olá!%20Gostaria%20de%20agendar%20um%20serviço%20de%20motor."
+            <a href="https://api.whatsapp.com/send?phone=5511976410925&text=Olá!%20Gostaria%20de%20agendar%20um%20serviço%20de%20escapamento."
                target="_blank" class="btn-dark">
                 <i class="fab fa-whatsapp"></i> WhatsApp
             </a>
-            <a href="/contato" class="btn-wa-dark">
+            <a href="contato.html" class="btn-wa-dark">
                 <i class="fas fa-calendar-check"></i> Formulário de Agendamento
             </a>
         </div>
     </div>
 </section>
 
-<!-- ════════════════════════════════════════════════════════
-     SERVIÇOS RELACIONADOS
-════════════════════════════════════════════════════════ -->
+<!-- OUTROS SERVIÇOS -->
 <section id="related">
     <div class="related-inner">
         <div class="reveal">
@@ -1127,33 +1067,34 @@
             <h2 class="section-title">Outros <em>Serviços</em></h2>
         </div>
         <div class="related-grid reveal">
-            <a href="cambio.html" class="related-card">
-                <div class="related-icon"><i class="fas fa-car"></i></div>
-                <h3>Câmbio Automático</h3>
-                <p>Revisão, ATF e reparos em câmbios automáticos, CVT, DSG e PDK.</p>
+            <a href="index.html" class="related-card">
+                <div class="related-icon"><i class="fas fa-home"></i></div>
+                <h3>Home</h3>
+                <p>Conheça o Grupo Automotivo Prost e todos os nossos serviços.</p>
                 <i class="fas fa-arrow-right related-arrow"></i>
             </a>
-            <a href="suspensao.html" class="related-card">
-                <div class="related-icon"><i class="fas fa-circle-notch"></i></div>
-                <h3>Suspensão</h3>
-                <p>Geometria 3D, balanceamento e troca de amortecedores e componentes.</p>
+            <a href="motor.html" class="related-card">
+                <div class="related-icon"><i class="fas fa-cog"></i></div>
+                <h3>Motor</h3>
+                <p>Diagnóstico e reparos completos de motor — injeção e arrefecimento.</p>
                 <i class="fas fa-arrow-right related-arrow"></i>
             </a>
             <a href="freios.html" class="related-card">
                 <div class="related-icon"><i class="fas fa-stop-circle"></i></div>
                 <h3>Freios</h3>
-                <p>Pastilhas, discos, fluido e ABS. Segurança garantida em todas as marcas.</p>
+                <p>Revisão completa: pastilhas, discos, ABS e fluido de freio.</p>
                 <i class="fas fa-arrow-right related-arrow"></i>
             </a>
-            <a href="escapamento.html" class="related-card">
-                <div class="related-icon"><i class="fas fa-wind"></i></div>
-                <h3>Escapamento</h3>
-                <p>Diagnóstico, reparo e substituição: catalisador, silencioso e downpipe.</p>
+            <a href="suspensao.html" class="related-card">
+                <div class="related-icon"><i class="fas fa-circle-notch"></i></div>
+                <h3>Suspensão</h3>
+                <p>Geometria 3D, balanceamento e componentes de suspensão.</p>
                 <i class="fas fa-arrow-right related-arrow"></i>
             </a>
         </div>
     </div>
 </section>
+
 
 <!-- ════════════════════════════════════════════════════════
      FOOTER (componente reutilizável)
@@ -1161,7 +1102,7 @@
 <footer>
     <div class="footer-grid">
         <div class="footer-brand">
-            <img src="../../prost-logo-removebg-preview.png" alt="Grupo Automotivo Prost">
+            <img src="prost-logo-removebg-preview.png" alt="Grupo Automotivo Prost">
             <p>O Grupo Automotivo Prost é referência em serviços automotivos na cidade de São Paulo. Mecânica, funilaria e blindagem com qualidade e transparência.</p>
             <div class="social-row">
                 <a href="https://www.instagram.com/prost.autos/" target="_blank" class="social-link"><i class="fab fa-instagram"></i></a>
@@ -1193,7 +1134,7 @@
                 <a href="tel:+5511976410925">Mecânica: (11) 97641-0925</a>
                 <a href="tel:+5511977280908">Funilaria: (11) 97728-0908</a>
                 <a href="https://api.whatsapp.com/send?phone=5511943478100" target="_blank">WhatsApp</a>
-                <a href="/contato">Formulário de Contato</a>
+                <a href="contato.html">Formulário de Contato</a>
             </div>
         </div>
     </div>
@@ -1265,6 +1206,50 @@
     }, { threshold: 0.08 });
 
     reveals.forEach(r => revObserver.observe(r));
+</script>
+</body>
+</html>
+
+<a href="https://api.whatsapp.com/send?phone=5511976410925" target="_blank"
+   class="whatsapp-float" aria-label="WhatsApp Prost Mecânica">
+    <i class="fab fa-whatsapp"></i>
+</a>
+<button id="back-top" aria-label="Voltar ao topo"><i class="fas fa-chevron-up"></i></button>
+
+<script>
+    const header = document.getElementById('site-header');
+    window.addEventListener('scroll', () => {
+        header.classList.toggle('scrolled', window.scrollY > 60);
+        document.getElementById('back-top').classList.toggle('visible', window.scrollY > 400);
+    }, { passive: true });
+    document.getElementById('back-top').addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+    const mobileToggle = document.getElementById('mobile-toggle');
+    const mobileNav    = document.getElementById('mobile-nav');
+    mobileToggle.addEventListener('click', () => {
+        const open = mobileNav.classList.toggle('open');
+        mobileToggle.querySelector('i').className = open ? 'fas fa-times' : 'fas fa-bars';
+    });
+    mobileNav.querySelectorAll('a').forEach(a => {
+        a.addEventListener('click', () => {
+            mobileNav.classList.remove('open');
+            mobileToggle.querySelector('i').className = 'fas fa-bars';
+        });
+    });
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+        a.addEventListener('click', e => {
+            const target = document.querySelector(a.getAttribute('href'));
+            if (target) { e.preventDefault(); window.scrollTo({ top: target.offsetTop - 120, behavior: 'smooth' }); }
+        });
+    });
+    const revObserver = new IntersectionObserver((entries) => {
+        entries.forEach((entry, i) => {
+            if (entry.isIntersecting) {
+                setTimeout(() => entry.target.classList.add('visible'), i * 100);
+                revObserver.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.08 });
+    document.querySelectorAll('.reveal').forEach(r => revObserver.observe(r));
 </script>
 </body>
 </html>
