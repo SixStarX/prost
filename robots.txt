@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /*.docx$
+Disallow: /*.md$
+
+Sitemap: https://grupoprost.com.br/sitemap.xml

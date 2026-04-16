@@ -6,9 +6,9 @@
     <title>Suspensão Automotiva | Geometria e Alinhamento | Grupo Automotivo Prost</title>
     <meta name="description" content="Geometria, alinhamento, balanceamento e troca de amortecedores em São Paulo. Prost Mecânica no Pacaembú — segurança e conforto garantidos.">
     <meta name="robots" content="index, follow">
-    <link rel="canonical" href="https://www.grupoprost.com.br/mecanica/suspensao">
+    <link rel="canonical" href="https://grupoprost.com.br/mecanica/suspensao">
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://www.grupoprost.com.br/mecanica/suspensao">
+    <meta property="og:url" content="https://grupoprost.com.br/mecanica/suspensao">
     <meta property="og:title" content="Suspensão Automotiva | Grupo Automotivo Prost">
     <meta property="og:description" content="Geometria, alinhamento, balanceamento e troca de amortecedores em São Paulo. Prost Mecânica no Pacaembú — segurança e conforto garantidos.">
     <meta property="og:locale" content="pt_BR">
@@ -20,7 +20,7 @@
           "@type": "Service",
           "name": "Serviços de Suspensão Automotiva",
           "description": "Geometria, alinhamento, balanceamento, troca de amortecedores, molas e componentes de suspensão para todas as marcas.",
-          "provider": {"@type": "AutoRepair", "name": "Grupo Automotivo Prost – Mecânica", "url": "https://www.grupoprost.com.br"},
+          "provider": {"@type": "AutoRepair", "name": "Grupo Automotivo Prost – Mecânica", "url": "https://grupoprost.com.br"},
           "areaServed": {"@type": "City", "name": "São Paulo"},
           "serviceType": "Mecânica Automotiva"
         }
@@ -805,6 +805,181 @@
         .nav-dropdown-info { flex: 1; }
         .nav-dropdown-name { color: var(--white); font-size: 13px; font-weight: 700; }
         .nav-dropdown-loc { color: #555; font-size: 11px; font-weight: 400; letter-spacing: 0.05em; margin-top: 1px; text-transform: none; }
+
+        /* ═══ MELHORIAS DE LEGIBILIDADE — aplicadas globalmente ═══ */
+
+        /* Descrições de cards de serviço */
+        .service-card p,
+        .sub-service-content p,
+        .unit-desc,
+        .diferencial-card p,
+        .related-card p,
+        .equip-card p,
+        .nivel-items li,
+        .vaga-depto,
+        .trabalhe-intro,
+        .trabalhe-note,
+        .contato-info-intro,
+        .footer-brand p,
+        .about-text p,
+        .intro-right p,
+        .secforce-feature p,
+        .depo-text,
+        .testimonial-text {
+            color: #b8b8b8;
+            font-size: 14.5px;
+            line-height: 1.75;
+            font-weight: 400;
+        }
+
+        /* Sub-service items (listas de tópicos) */
+        .sub-service-items li {
+            color: #a0a0a0;
+            font-size: 14px;
+            line-height: 1.7;
+            font-weight: 400;
+        }
+
+        /* Endereços e valores de contato */
+        .contact-item-value,
+        .unit-address span,
+        .localizacao-item-value,
+        .mapa-card-addr {
+            color: #b0b0b0;
+            font-size: 14px;
+            line-height: 1.65;
+        }
+
+        /* Footer links */
+        .footer-links a {
+            color: #888888;
+            font-size: 13.5px;
+            line-height: 1.6;
+        }
+        .footer-links a:hover { color: var(--gold); }
+
+        .footer-brand p {
+            color: #777777;
+            font-size: 13px;
+            line-height: 1.75;
+        }
+
+        /* Labels do footer (títulos de coluna) */
+        .footer-col-title {
+            color: var(--gold);
+            letter-spacing: 0.22em;
+        }
+
+        /* Tags de seção */
+        .section-tag,
+        .unit-tag,
+        .sub-service-tag,
+        .unit-badge-top,
+        .cta-band-tag,
+        .page-hero-tag {
+            letter-spacing: 0.22em;
+        }
+
+        /* Nomes de autores e depoimentos */
+        .author-car,
+        .depo-veiculo,
+        .equipe-cargo {
+            color: #999999;
+            font-size: 12.5px;
+        }
+
+        /* Textos de contato */
+        .contact-item-value a {
+            color: #b0b0b0;
+        }
+        .contact-item-value a:hover { color: var(--gold); }
+
+        /* Números de fundo decorativos — levemente mais visíveis */
+        .service-number,
+        .sub-number,
+        .equip-num {
+            color: rgba(201,168,76,0.11);
+        }
+
+        /* Placeholder dos formulários */
+        input::placeholder,
+        textarea::placeholder,
+        select::placeholder {
+            color: #666666;
+        }
+
+        /* Stat labels */
+        .stat-label {
+            color: #b0b0b0;
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: 0.12em;
+        }
+
+        /* Textos do hero subtitle */
+        .hero-subtitle,
+        .page-hero-sub {
+            color: #c0c0c0;
+            font-size: 17px;
+            line-height: 1.75;
+        }
+
+        /* CTA band subtitle */
+        .cta-band-sub,
+        .cta-final-sub {
+            color: rgba(0,0,0,0.6);
+            font-size: 15px;
+        }
+
+        /* Intro badges */
+        .intro-badge {
+            color: var(--gold);
+            font-size: 12px;
+            letter-spacing: 0.12em;
+        }
+
+        /* Highlight items */
+        .highlight-item span {
+            color: #d0d0d0;
+            font-size: 15px;
+        }
+
+        /* Unidade phone — destaque */
+        .unit-phone {
+            font-size: 28px;
+            letter-spacing: 0.02em;
+        }
+
+        /* Nav dropdown loc */
+        .nav-dropdown-loc {
+            color: #777777;
+            font-size: 11.5px;
+        }
+
+        /* Vaga card descrição */
+        .vaga-depto {
+            font-size: 12.5px;
+            color: #888888;
+        }
+
+        /* Horário de funcionamento e similares */
+        .contact-item-value {
+            font-size: 14px;
+            line-height: 1.65;
+            color: #b0b0b0;
+        }
+
+        /* Mobile: manter legibilidade */
+        @media (max-width: 768px) {
+            .service-card p,
+            .unit-desc,
+            .sub-service-content p {
+                font-size: 14px;
+            }
+            .footer-links a { font-size: 13px; }
+            .unit-phone { font-size: 24px; }
+        }
+        /* ═══ FIM MELHORIAS DE LEGIBILIDADE ═══ */
     </style>
 </head>
 <body>
@@ -879,7 +1054,7 @@
         </h1>
         <p class="page-hero-sub">Geometria computadorizada, balanceamento dinâmico e troca de componentes. Segurança e conforto para o seu veículo no Pacaembú.</p>
         <div class="page-hero-actions">
-            <a href="https://api.whatsapp.com/send?phone=5511976410925&text=Olá!%20Gostaria%20de%20agendar%20um%20serviço%20de%20suspensão."
+            <a href="https://api.whatsapp.com/send?phone=5511992139135&text=Olá!%20Gostaria%20de%20agendar%20um%20serviço%20de%20suspensão."
                target="_blank" class="btn-whatsapp">
                 <i class="fab fa-whatsapp"></i> Agendar pelo WhatsApp
             </a>
@@ -1044,10 +1219,10 @@
         <div class="cta-band-text">
             <div class="cta-band-tag">Agende Agora</div>
             <div class="cta-band-title">Segurança Começa<br>pela Suspensão</div>
-            <p class="cta-band-sub">Av. Pacaembú, 1306 — Pacaembú, São Paulo · (11) 97641-0925</p>
+            <p class="cta-band-sub">Av. Pacaembú, 1306 — Pacaembú, São Paulo · (11) 99213-9135</p>
         </div>
         <div class="cta-band-actions">
-            <a href="https://api.whatsapp.com/send?phone=5511976410925&text=Olá!%20Gostaria%20de%20agendar%20um%20serviço%20de%20suspensão."
+            <a href="https://api.whatsapp.com/send?phone=5511992139135&text=Olá!%20Gostaria%20de%20agendar%20um%20serviço%20de%20suspensão."
                target="_blank" class="btn-dark">
                 <i class="fab fa-whatsapp"></i> WhatsApp
             </a>
@@ -1105,7 +1280,7 @@
             <p>O Grupo Automotivo Prost é referência em serviços automotivos na cidade de São Paulo. Mecânica, funilaria e blindagem com qualidade e transparência.</p>
             <div class="social-row">
                 <a href="https://www.instagram.com/prost.autos/" target="_blank" class="social-link"><i class="fab fa-instagram"></i></a>
-                <a href="https://api.whatsapp.com/send?phone=5511943478100" target="_blank" class="social-link"><i class="fab fa-whatsapp"></i></a>
+                <a href="https://api.whatsapp.com/send?phone=5511947477869" target="_blank" class="social-link"><i class="fab fa-whatsapp"></i></a>
                 <a href="#" class="social-link"><i class="fab fa-facebook"></i></a>
             </div>
         </div>
@@ -1129,10 +1304,10 @@
         <div>
             <div class="footer-col-title">Contato</div>
             <div class="footer-links">
-                <a href="tel:+5511943478100">Blindados: (11) 94347-8100</a>
-                <a href="tel:+5511976410925">Mecânica: (11) 97641-0925</a>
+                <a href="tel:+5511947477869">Blindados: (11) 94747-7869</a>
+                <a href="tel:+5511992139135">Mecânica: (11) 99213-9135</a>
                 <a href="tel:+5511977280908">Funilaria: (11) 97728-0908</a>
-                <a href="https://api.whatsapp.com/send?phone=5511943478100" target="_blank">WhatsApp</a>
+                <a href="https://api.whatsapp.com/send?phone=5511947477869" target="_blank">WhatsApp</a>
                 <a href="contato.html">Formulário de Contato</a>
             </div>
         </div>
@@ -1144,7 +1319,7 @@
 </footer>
 
 <!-- ── FLOAT BUTTONS ── -->
-<a href="https://api.whatsapp.com/send?phone=5511976410925" target="_blank"
+<a href="https://api.whatsapp.com/send?phone=5511992139135" target="_blank"
    class="whatsapp-float" aria-label="WhatsApp Mecânica Prost">
     <i class="fab fa-whatsapp"></i>
 </a>
@@ -1209,7 +1384,7 @@
 </body>
 </html>
 
-<a href="https://api.whatsapp.com/send?phone=5511976410925" target="_blank"
+<a href="https://api.whatsapp.com/send?phone=5511992139135" target="_blank"
    class="whatsapp-float" aria-label="WhatsApp Prost Mecânica">
     <i class="fab fa-whatsapp"></i>
 </a>

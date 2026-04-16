@@ -641,6 +641,181 @@
         .nav-dropdown-info { flex: 1; }
         .nav-dropdown-name { color: var(--white); font-size: 13px; font-weight: 700; }
         .nav-dropdown-loc { color: #555; font-size: 11px; font-weight: 400; letter-spacing: 0.05em; margin-top: 1px; text-transform: none; }
+
+        /* ═══ MELHORIAS DE LEGIBILIDADE — aplicadas globalmente ═══ */
+
+        /* Descrições de cards de serviço */
+        .service-card p,
+        .sub-service-content p,
+        .unit-desc,
+        .diferencial-card p,
+        .related-card p,
+        .equip-card p,
+        .nivel-items li,
+        .vaga-depto,
+        .trabalhe-intro,
+        .trabalhe-note,
+        .contato-info-intro,
+        .footer-brand p,
+        .about-text p,
+        .intro-right p,
+        .secforce-feature p,
+        .depo-text,
+        .testimonial-text {
+            color: #b8b8b8;
+            font-size: 14.5px;
+            line-height: 1.75;
+            font-weight: 400;
+        }
+
+        /* Sub-service items (listas de tópicos) */
+        .sub-service-items li {
+            color: #a0a0a0;
+            font-size: 14px;
+            line-height: 1.7;
+            font-weight: 400;
+        }
+
+        /* Endereços e valores de contato */
+        .contact-item-value,
+        .unit-address span,
+        .localizacao-item-value,
+        .mapa-card-addr {
+            color: #b0b0b0;
+            font-size: 14px;
+            line-height: 1.65;
+        }
+
+        /* Footer links */
+        .footer-links a {
+            color: #888888;
+            font-size: 13.5px;
+            line-height: 1.6;
+        }
+        .footer-links a:hover { color: var(--gold); }
+
+        .footer-brand p {
+            color: #777777;
+            font-size: 13px;
+            line-height: 1.75;
+        }
+
+        /* Labels do footer (títulos de coluna) */
+        .footer-col-title {
+            color: var(--gold);
+            letter-spacing: 0.22em;
+        }
+
+        /* Tags de seção */
+        .section-tag,
+        .unit-tag,
+        .sub-service-tag,
+        .unit-badge-top,
+        .cta-band-tag,
+        .page-hero-tag {
+            letter-spacing: 0.22em;
+        }
+
+        /* Nomes de autores e depoimentos */
+        .author-car,
+        .depo-veiculo,
+        .equipe-cargo {
+            color: #999999;
+            font-size: 12.5px;
+        }
+
+        /* Textos de contato */
+        .contact-item-value a {
+            color: #b0b0b0;
+        }
+        .contact-item-value a:hover { color: var(--gold); }
+
+        /* Números de fundo decorativos — levemente mais visíveis */
+        .service-number,
+        .sub-number,
+        .equip-num {
+            color: rgba(201,168,76,0.11);
+        }
+
+        /* Placeholder dos formulários */
+        input::placeholder,
+        textarea::placeholder,
+        select::placeholder {
+            color: #666666;
+        }
+
+        /* Stat labels */
+        .stat-label {
+            color: #b0b0b0;
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: 0.12em;
+        }
+
+        /* Textos do hero subtitle */
+        .hero-subtitle,
+        .page-hero-sub {
+            color: #c0c0c0;
+            font-size: 17px;
+            line-height: 1.75;
+        }
+
+        /* CTA band subtitle */
+        .cta-band-sub,
+        .cta-final-sub {
+            color: rgba(0,0,0,0.6);
+            font-size: 15px;
+        }
+
+        /* Intro badges */
+        .intro-badge {
+            color: var(--gold);
+            font-size: 12px;
+            letter-spacing: 0.12em;
+        }
+
+        /* Highlight items */
+        .highlight-item span {
+            color: #d0d0d0;
+            font-size: 15px;
+        }
+
+        /* Unidade phone — destaque */
+        .unit-phone {
+            font-size: 28px;
+            letter-spacing: 0.02em;
+        }
+
+        /* Nav dropdown loc */
+        .nav-dropdown-loc {
+            color: #777777;
+            font-size: 11.5px;
+        }
+
+        /* Vaga card descrição */
+        .vaga-depto {
+            font-size: 12.5px;
+            color: #888888;
+        }
+
+        /* Horário de funcionamento e similares */
+        .contact-item-value {
+            font-size: 14px;
+            line-height: 1.65;
+            color: #b0b0b0;
+        }
+
+        /* Mobile: manter legibilidade */
+        @media (max-width: 768px) {
+            .service-card p,
+            .unit-desc,
+            .sub-service-content p {
+                font-size: 14px;
+            }
+            .footer-links a { font-size: 13px; }
+            .unit-phone { font-size: 24px; }
+        }
+        /* ═══ FIM MELHORIAS DE LEGIBILIDADE ═══ */
     </style>
 </head>
 <body>
@@ -732,64 +907,61 @@
             <h2 class="section-title">Entre em<br><em>Contato</em></h2>
             <div class="gold-line"></div>
 
-            <form id="contact-form" onsubmit="handleContact(event)">
+            <form id="contact-form" novalidate onsubmit="handleContact(event)">
                 <div class="form-row">
                     <div class="form-group">
-                        <label>Nome Completo</label>
-                        <input type="text" placeholder="Seu nome" required>
+                        <label for="cc-nome">Nome Completo</label>
+                        <input id="cc-nome" name="nome" type="text" placeholder="Seu nome"
+                               required minlength="2" maxlength="80" autocomplete="name">
                     </div>
                     <div class="form-group">
-                        <label>Telefone / WhatsApp</label>
-                        <input type="tel" placeholder="(11) 99999-9999" required>
+                        <label for="cc-telefone">Telefone / WhatsApp</label>
+                        <input id="cc-telefone" name="telefone" type="tel" placeholder="(11) 99999-9999"
+                               required minlength="10" maxlength="20" autocomplete="tel"
+                               inputmode="numeric">
                     </div>
                 </div>
                 <div class="form-group">
-                    <label>E-mail</label>
-                    <input type="email" placeholder="seu@email.com" required>
+                    <label for="cc-email">E-mail</label>
+                    <input id="cc-email" name="email" type="email" placeholder="seu@email.com"
+                           maxlength="120" autocomplete="email">
                 </div>
                 <div class="form-group">
-                    <label>Unidade de Interesse</label>
-                    <select>
+                    <label for="cc-unidade">Unidade de Interesse</label>
+                    <select id="cc-unidade" name="unidade" required>
                         <option value="">Selecione a unidade</option>
-                        <option>Prost Blindados — Pinheiros</option>
-                        <option>Prost Mecânica — Pacaembú</option>
-                        <option>Prost Funilaria — Barra Funda</option>
+                        <option value="blindados">Prost Blindados — Pinheiros</option>
+                        <option value="mecanica">Prost Mecânica — Pacaembú</option>
+                        <option value="funilaria">Prost Funilaria — Barra Funda</option>
                     </select>
                 </div>
                 <div class="form-group">
-                    <label>Serviço Desejado</label>
-                    <select>
-                        <option value="">Selecione o serviço</option>
-                        <optgroup label="Mecânica">
-                            <option>Motor</option>
-                            <option>Câmbio Automático</option>
-                            <option>Suspensão</option>
-                            <option>Freios</option>
-                            <option>Escapamento</option>
-                        </optgroup>
-                        <optgroup label="Funilaria">
-                            <option>Funilaria e Pintura</option>
-                            <option>Restauração de Veículos</option>
-                            <option>Estética Automotiva</option>
-                        </optgroup>
-                        <optgroup label="Blindagem">
-                            <option>Blindagem Nível III-A</option>
-                            <option>Blindagem Nível III</option>
-                            <option>Blindagem Nível IV</option>
-                            <option>Blindagem VIP / Customizada</option>
-                        </optgroup>
-                        <option>Outro / Dúvida Geral</option>
+                    <label for="cc-servico">Serviço Desejado</label>
+                    <select id="cc-servico" name="servico" required>
+                        <option value="">Selecione a unidade primeiro</option>
                     </select>
                 </div>
                 <div class="form-group">
-                    <label>Mensagem</label>
-                    <textarea placeholder="Descreva o que você precisa..."></textarea>
+                    <label for="cc-mensagem">Mensagem</label>
+                    <textarea id="cc-mensagem" name="mensagem" maxlength="500"
+                              placeholder="Descreva o que você precisa..."></textarea>
                 </div>
-                <button type="submit" class="btn-gold-full">
-                    <i class="fas fa-paper-plane"></i> Enviar Mensagem
+
+                <!-- Honeypot anti-bot -->
+                <div aria-hidden="true"
+                     style="position:absolute;left:-9999px;top:-9999px;width:1px;height:1px;overflow:hidden;">
+                    <label>Website
+                        <input type="text" name="website" tabindex="-1" autocomplete="off">
+                    </label>
+                </div>
+
+                <button type="submit" id="cc-submit" class="btn-gold-full">
+                    <i class="fab fa-whatsapp"></i> <span>Enviar via WhatsApp</span>
                 </button>
+                <p id="contact-error" role="alert"
+                   style="display:none;color:#ff6b6b;margin-top:12px;font-size:14px;"></p>
                 <div class="form-success" id="contact-success">
-                    <i class="fas fa-check-circle"></i> Mensagem enviada com sucesso! Entraremos em contato em breve.
+                    <i class="fas fa-check-circle"></i> Abrindo WhatsApp... Se não abrir automaticamente, verifique o bloqueio de pop-ups.
                 </div>
             </form>
         </div>
@@ -822,7 +994,7 @@
                     <div class="contact-item-value">
                         Av. Pacaembú, 1306<br>
                         Pacaembú – SP · 01234-000<br>
-                        <a href="tel:+5511976410925">(11) 97641-0925</a>
+                        <a href="tel:+5511992139135">(11) 99213-9135</a>
                     </div>
                 </div>
             </div>
@@ -858,11 +1030,11 @@
                     </div>
                     <i class="fas fa-arrow-right unidade-wa-arrow"></i>
                 </a>
-                <a href="https://api.whatsapp.com/send?phone=5511976410925&text=Olá!%20Gostaria%20de%20falar%20com%20a%20Prost%20Mecânica." target="_blank" class="unidade-wa-btn">
+                <a href="https://api.whatsapp.com/send?phone=5511992139135&text=Olá!%20Gostaria%20de%20falar%20com%20a%20Prost%20Mecânica." target="_blank" class="unidade-wa-btn">
                     <div class="unidade-wa-icon"><i class="fab fa-whatsapp"></i></div>
                     <div class="unidade-wa-text">
                         <div class="unidade-wa-nome">Prost Mecânica</div>
-                        <div class="unidade-wa-num">(11) 97641-0925</div>
+                        <div class="unidade-wa-num">(11) 99213-9135</div>
                     </div>
                     <i class="fas fa-arrow-right unidade-wa-arrow"></i>
                 </a>
@@ -897,7 +1069,7 @@
                 <div class="mapa-card-tag">Mecânica Especializada</div>
                 <div class="mapa-card-nome">Pacaembú</div>
                 <div class="mapa-card-addr">Av. Pacaembú, 1306<br>São Paulo – SP · 01234-000</div>
-                <a href="tel:+5511976410925" class="mapa-card-tel"><i class="fab fa-whatsapp"></i>(11) 97641-0925</a>
+                <a href="tel:+5511992139135" class="mapa-card-tel"><i class="fab fa-whatsapp"></i>(11) 99213-9135</a>
             </div>
             <div class="mapa-card">
                 <div class="mapa-card-tag">Funilaria & Estética</div>
@@ -1067,7 +1239,7 @@
             <p>O Grupo Automotivo Prost é referência em serviços automotivos na cidade de São Paulo. Mecânica, funilaria e blindagem com qualidade e transparência.</p>
             <div class="social-row">
                 <a href="https://www.instagram.com/prost.autos/" target="_blank" class="social-link"><i class="fab fa-instagram"></i></a>
-                <a href="https://api.whatsapp.com/send?phone=5511943478100" target="_blank" class="social-link"><i class="fab fa-whatsapp"></i></a>
+                <a href="https://api.whatsapp.com/send?phone=5511947477869" target="_blank" class="social-link"><i class="fab fa-whatsapp"></i></a>
                 <a href="#" class="social-link"><i class="fab fa-facebook"></i></a>
             </div>
         </div>
@@ -1092,7 +1264,7 @@
             <div class="footer-col-title">Contato Rápido</div>
             <div class="footer-links">
                 <a href="tel:+5511947477869">Blindados: (11) 94747-7869</a>
-                <a href="tel:+5511976410925">Mecânica: (11) 97641-0925</a>
+                <a href="tel:+5511992139135">Mecânica: (11) 99213-9135</a>
                 <a href="tel:+5511977280908">Funilaria: (11) 97728-0908</a>
                 <a href="https://api.whatsapp.com/send?phone=5511947477869" target="_blank">WhatsApp</a>
             </div>
@@ -1180,11 +1352,179 @@
         }
     }
 
-    // Forms
+    // ═══════════════════════════════════════════════════════════════
+    // AGENDAMENTO VIA WHATSAPP (wa.me)
+    // Arquitetura: form → validação client-side → wa.me com texto pré-preenchido
+    // ═══════════════════════════════════════════════════════════════
+    const PROST_UNIDADES = {
+        blindados: {
+            nome: 'Prost Blindados — Pinheiros',
+            whatsapp: '5511947477869',
+            servicos: [
+                'Blindagem Nível III-A',
+                'Blindagem Nível III',
+                'Blindagem Nível IV',
+                'Blindagem VIP / Customizada',
+                'Manutenção de Blindagem',
+                'Outro / Dúvida Geral'
+            ]
+        },
+        mecanica: {
+            nome: 'Prost Mecânica — Pacaembú',
+            whatsapp: '5511992139135',
+            servicos: [
+                'Mecânica Geral',
+                'Motor',
+                'Câmbio Automático',
+                'Suspensão',
+                'Freios',
+                'Escapamento',
+                'Outro / Dúvida Geral'
+            ]
+        },
+        funilaria: {
+            nome: 'Prost Funilaria — Barra Funda',
+            whatsapp: '5511977280908',
+            servicos: [
+                'Funilaria e Pintura',
+                'Restauração de Veículos',
+                'Estética Automotiva',
+                'Polimento Técnico',
+                'Outro / Dúvida Geral'
+            ]
+        }
+    };
+
+    // Popula serviços conforme unidade
+    (function setupUnidadeServicoLink() {
+        const unidadeEl = document.getElementById('cc-unidade');
+        const servicoEl = document.getElementById('cc-servico');
+        if (!unidadeEl || !servicoEl) return;
+
+        unidadeEl.addEventListener('change', () => {
+            const u = PROST_UNIDADES[unidadeEl.value];
+            servicoEl.innerHTML = '';
+            if (!u) {
+                servicoEl.innerHTML = '<option value="">Selecione a unidade primeiro</option>';
+                return;
+            }
+            servicoEl.insertAdjacentHTML('beforeend', '<option value="">Selecione o serviço</option>');
+            u.servicos.forEach(s => {
+                const opt = document.createElement('option');
+                opt.value = s;
+                opt.textContent = s;
+                servicoEl.appendChild(opt);
+            });
+        });
+    })();
+
+    function __sanitizeText(v, max) {
+        return String(v || '').trim().replace(/[\u0000-\u001F\u007F]/g, '').slice(0, max);
+    }
+    function __normalizePhoneBR(v) {
+        const digits = String(v || '').replace(/\D/g, '');
+        if (digits.length < 10 || digits.length > 13) return null;
+        return digits;
+    }
+    function __isValidEmail(v) {
+        if (!v) return true;
+        return /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v) && v.length <= 120;
+    }
+    function __checkLocalRateLimit() {
+        const KEY = 'prost_last_submit';
+        const last = parseInt(sessionStorage.getItem(KEY) || '0', 10);
+        const now = Date.now();
+        if (now - last < 10000) return false;
+        sessionStorage.setItem(KEY, String(now));
+        return true;
+    }
+    function __showContactError(msg) {
+        const el = document.getElementById('contact-error');
+        if (!el) return;
+        el.textContent = msg;
+        el.style.display = 'block';
+        setTimeout(() => { el.style.display = 'none'; }, 6000);
+    }
+    function __buildWhatsAppMessage(data, unidadeNome) {
+        const lines = [
+            '*Novo contato — Site Grupo Prost*',
+            `*Unidade:* ${unidadeNome}`,
+            '',
+            `*Nome:* ${data.nome}`,
+            `*Telefone:* ${data.telefone}`,
+        ];
+        if (data.email) lines.push(`*Email:* ${data.email}`);
+        lines.push(`*Serviço:* ${data.servico}`);
+        if (data.mensagem) {
+            lines.push('');
+            lines.push('*Mensagem:*');
+            lines.push(data.mensagem);
+        }
+        return lines.join('\n');
+    }
+
     function handleContact(e) {
         e.preventDefault();
+        const form = e.target;
+        const btn = document.getElementById('cc-submit');
+
+        if (form.website && form.website.value) return; // honeypot
+        if (!__checkLocalRateLimit()) {
+            __showContactError('Aguarde alguns segundos antes de enviar novamente.');
+            return;
+        }
+
+        const raw = {
+            nome: __sanitizeText(form.nome.value, 80),
+            telefone: __sanitizeText(form.telefone.value, 20),
+            email: __sanitizeText(form.email.value, 120),
+            unidade: form.unidade.value,
+            servico: __sanitizeText(form.servico.value, 60),
+            mensagem: __sanitizeText(form.mensagem.value, 500)
+        };
+
+        if (raw.nome.length < 2) return __showContactError('Informe seu nome completo.');
+        const phone = __normalizePhoneBR(raw.telefone);
+        if (!phone) return __showContactError('Telefone inválido. Use DDD + número.');
+        if (!__isValidEmail(raw.email)) return __showContactError('E-mail inválido.');
+
+        const unidade = PROST_UNIDADES[raw.unidade];
+        if (!unidade) return __showContactError('Selecione uma unidade.');
+        if (!raw.servico || !unidade.servicos.includes(raw.servico)) {
+            return __showContactError('Selecione um serviço válido para a unidade escolhida.');
+        }
+
+        const data = {
+            nome: raw.nome,
+            telefone: phone,
+            email: raw.email,
+            servico: raw.servico,
+            mensagem: raw.mensagem
+        };
+        const msg = __buildWhatsAppMessage(data, unidade.nome);
+        const waUrl = `https://wa.me/${unidade.whatsapp}?text=${encodeURIComponent(msg)}`;
+
+        btn.disabled = true;
+        const btnSpan = btn.querySelector('span');
+        if (btnSpan) btnSpan.textContent = 'Abrindo WhatsApp...';
         document.getElementById('contact-success').style.display = 'block';
-        e.target.reset();
+
+        try {
+            if (typeof gtag === 'function') {
+                gtag('event', 'generate_lead', { unidade: raw.unidade, servico: raw.servico });
+            }
+            if (typeof fbq === 'function') fbq('track', 'Lead');
+        } catch (_) {}
+
+        window.open(waUrl, '_blank', 'noopener');
+
+        setTimeout(() => {
+            form.reset();
+            btn.disabled = false;
+            if (btnSpan) btnSpan.textContent = 'Enviar via WhatsApp';
+            document.getElementById('cc-servico').innerHTML =
+                '<option value="">Selecione a unidade primeiro</option>';
+        }, 2000);
     }
 
     function handleTrabalhe(e) {

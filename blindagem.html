@@ -7,10 +7,10 @@
     <title>Blindagem Automotiva | Tecnologia Secforce | Grupo Automotivo Prost</title>
     <meta name="description" content="Blindagem automotiva premium em São Paulo. Showroom exclusivo em Pinheiros, tecnologia Secforce, equipe altamente qualificada e equipamentos de última geração. Prost Blindados.">
     <meta name="robots" content="index, follow">
-    <link rel="canonical" href="https://www.grupoprost.com.br/blindagem">
+    <link rel="canonical" href="https://grupoprost.com.br/blindagem">
 
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://www.grupoprost.com.br/blindagem">
+    <meta property="og:url" content="https://grupoprost.com.br/blindagem">
     <meta property="og:title" content="Blindagem Automotiva Premium | Prost Blindados">
     <meta property="og:description" content="Showroom exclusivo, tecnologia Secforce e equipe especializada. Blindagem com acabamento original de fábrica em São Paulo.">
     <meta property="og:locale" content="pt_BR">
@@ -23,15 +23,15 @@
           "@type": "Service",
           "name": "Blindagem Automotiva Premium",
           "description": "Blindagem de veículos de passeio e utilitários com tecnologia Secforce. Níveis III-A e superiores com acabamento original de fábrica.",
-          "provider": { "@type": "AutoRepair", "name": "Grupo Automotivo Prost – Blindados", "url": "https://www.grupoprost.com.br" },
+          "provider": { "@type": "AutoRepair", "name": "Grupo Automotivo Prost – Blindados", "url": "https://grupoprost.com.br" },
           "areaServed": { "@type": "City", "name": "São Paulo" },
           "serviceType": "Blindagem Automotiva"
         },
         {
           "@type": "BreadcrumbList",
           "itemListElement": [
-            { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.grupoprost.com.br/" },
-            { "@type": "ListItem", "position": 2, "name": "Blindagem", "item": "https://www.grupoprost.com.br/blindagem" }
+            { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://grupoprost.com.br/" },
+            { "@type": "ListItem", "position": 2, "name": "Blindagem", "item": "https://grupoprost.com.br/blindagem" }
           ]
         }
       ]
@@ -965,6 +965,181 @@
         .nav-dropdown-info { flex: 1; }
         .nav-dropdown-name { color: var(--white); font-size: 13px; font-weight: 700; }
         .nav-dropdown-loc { color: #555; font-size: 11px; font-weight: 400; letter-spacing: 0.05em; margin-top: 1px; text-transform: none; }
+
+        /* ═══ MELHORIAS DE LEGIBILIDADE — aplicadas globalmente ═══ */
+
+        /* Descrições de cards de serviço */
+        .service-card p,
+        .sub-service-content p,
+        .unit-desc,
+        .diferencial-card p,
+        .related-card p,
+        .equip-card p,
+        .nivel-items li,
+        .vaga-depto,
+        .trabalhe-intro,
+        .trabalhe-note,
+        .contato-info-intro,
+        .footer-brand p,
+        .about-text p,
+        .intro-right p,
+        .secforce-feature p,
+        .depo-text,
+        .testimonial-text {
+            color: #b8b8b8;
+            font-size: 14.5px;
+            line-height: 1.75;
+            font-weight: 400;
+        }
+
+        /* Sub-service items (listas de tópicos) */
+        .sub-service-items li {
+            color: #a0a0a0;
+            font-size: 14px;
+            line-height: 1.7;
+            font-weight: 400;
+        }
+
+        /* Endereços e valores de contato */
+        .contact-item-value,
+        .unit-address span,
+        .localizacao-item-value,
+        .mapa-card-addr {
+            color: #b0b0b0;
+            font-size: 14px;
+            line-height: 1.65;
+        }
+
+        /* Footer links */
+        .footer-links a {
+            color: #888888;
+            font-size: 13.5px;
+            line-height: 1.6;
+        }
+        .footer-links a:hover { color: var(--gold); }
+
+        .footer-brand p {
+            color: #777777;
+            font-size: 13px;
+            line-height: 1.75;
+        }
+
+        /* Labels do footer (títulos de coluna) */
+        .footer-col-title {
+            color: var(--gold);
+            letter-spacing: 0.22em;
+        }
+
+        /* Tags de seção */
+        .section-tag,
+        .unit-tag,
+        .sub-service-tag,
+        .unit-badge-top,
+        .cta-band-tag,
+        .page-hero-tag {
+            letter-spacing: 0.22em;
+        }
+
+        /* Nomes de autores e depoimentos */
+        .author-car,
+        .depo-veiculo,
+        .equipe-cargo {
+            color: #999999;
+            font-size: 12.5px;
+        }
+
+        /* Textos de contato */
+        .contact-item-value a {
+            color: #b0b0b0;
+        }
+        .contact-item-value a:hover { color: var(--gold); }
+
+        /* Números de fundo decorativos — levemente mais visíveis */
+        .service-number,
+        .sub-number,
+        .equip-num {
+            color: rgba(201,168,76,0.11);
+        }
+
+        /* Placeholder dos formulários */
+        input::placeholder,
+        textarea::placeholder,
+        select::placeholder {
+            color: #666666;
+        }
+
+        /* Stat labels */
+        .stat-label {
+            color: #b0b0b0;
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: 0.12em;
+        }
+
+        /* Textos do hero subtitle */
+        .hero-subtitle,
+        .page-hero-sub {
+            color: #c0c0c0;
+            font-size: 17px;
+            line-height: 1.75;
+        }
+
+        /* CTA band subtitle */
+        .cta-band-sub,
+        .cta-final-sub {
+            color: rgba(0,0,0,0.6);
+            font-size: 15px;
+        }
+
+        /* Intro badges */
+        .intro-badge {
+            color: var(--gold);
+            font-size: 12px;
+            letter-spacing: 0.12em;
+        }
+
+        /* Highlight items */
+        .highlight-item span {
+            color: #d0d0d0;
+            font-size: 15px;
+        }
+
+        /* Unidade phone — destaque */
+        .unit-phone {
+            font-size: 28px;
+            letter-spacing: 0.02em;
+        }
+
+        /* Nav dropdown loc */
+        .nav-dropdown-loc {
+            color: #777777;
+            font-size: 11.5px;
+        }
+
+        /* Vaga card descrição */
+        .vaga-depto {
+            font-size: 12.5px;
+            color: #888888;
+        }
+
+        /* Horário de funcionamento e similares */
+        .contact-item-value {
+            font-size: 14px;
+            line-height: 1.65;
+            color: #b0b0b0;
+        }
+
+        /* Mobile: manter legibilidade */
+        @media (max-width: 768px) {
+            .service-card p,
+            .unit-desc,
+            .sub-service-content p {
+                font-size: 14px;
+            }
+            .footer-links a { font-size: 13px; }
+            .unit-phone { font-size: 24px; }
+        }
+        /* ═══ FIM MELHORIAS DE LEGIBILIDADE ═══ */
     </style>
 </head>
 <body>
@@ -1034,7 +1209,7 @@
             <strong>Showroom exclusivo da blindagem profissional</strong>, tecnologia Secforce de última geração, equipe altamente qualificada e localização privilegiada em Pinheiros — a combinação perfeita para manter seu veículo seguro com total conveniência e tranquilidade.
         </p>
         <div class="hero-actions">
-            <a href="https://api.whatsapp.com/send?phone=5511943478100&text=Olá!%20Gostaria%20de%20saber%20mais%20sobre%20a%20blindagem." target="_blank" class="btn-wa">
+            <a href="https://api.whatsapp.com/send?phone=5511947477869&text=Olá!%20Gostaria%20de%20saber%20mais%20sobre%20a%20blindagem." target="_blank" class="btn-wa">
                 <i class="fab fa-whatsapp"></i> Solicitar Orçamento
             </a>
             <a href="#showroom" class="btn-outline-gold">
@@ -1154,7 +1329,7 @@
             </div>
             <div>
                 <p>Nosso showroom em Pinheiros foi projetado para oferecer uma experiência única: conheça os materiais, veja blindagens em execução e entenda cada etapa do processo com total transparência — tudo em um ambiente premium e exclusivo.</p>
-                <a href="https://api.whatsapp.com/send?phone=5511943478100&text=Olá!%20Gostaria%20de%20agendar%20uma%20visita%20ao%20showroom." target="_blank" class="btn-outline-gold" style="margin-top:24px;display:inline-flex;">
+                <a href="https://api.whatsapp.com/send?phone=5511947477869&text=Olá!%20Gostaria%20de%20agendar%20uma%20visita%20ao%20showroom." target="_blank" class="btn-outline-gold" style="margin-top:24px;display:inline-flex;">
                     <i class="fas fa-calendar-check"></i> Agendar Visita ao Showroom
                 </a>
             </div>
@@ -1263,7 +1438,7 @@
         </div>
         <div class="equipe-grid reveal">
             <div class="equipe-card">
-                <img src="https://images.unsplash.com/photo-1556157382-97eda2d62296?auto=format&fit=crop&w=400&q=80" alt="Especialista em Blindagem" class="equipe-img">
+                <img src="/images/blindadora/profissional_prost.jpeg" alt="Especialista em Blindagem" class="equipe-img">
                 <div class="equipe-info">
                     <div class="equipe-nome">Eng. Técnico</div>
                     <div class="equipe-cargo">Especialista em Blindagem Balística</div>
@@ -1271,7 +1446,7 @@
                 </div>
             </div>
             <div class="equipe-card">
-                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=400&q=80" alt="Técnico de Instalação" class="equipe-img">
+                <img src="/images/blindadora/profissional_prost.jpeg" alt="Técnico de Instalação" class="equipe-img">
                 <div class="equipe-info">
                     <div class="equipe-nome">Técnico Sênior</div>
                     <div class="equipe-cargo">Instalação e Acabamento</div>
@@ -1279,7 +1454,7 @@
                 </div>
             </div>
             <div class="equipe-card">
-                <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=400&q=80" alt="Analista de Qualidade" class="equipe-img">
+                <img src="/images/blindadora/profissional_prost.jpeg" alt="Analista de Qualidade" class="equipe-img">
                 <div class="equipe-info">
                     <div class="equipe-nome">Analista QA</div>
                     <div class="equipe-cargo">Controle de Qualidade</div>
@@ -1287,7 +1462,7 @@
                 </div>
             </div>
             <div class="equipe-card">
-                <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=400&q=80" alt="Consultor Comercial" class="equipe-img">
+                <img src="/images/blindadora/profissional_prost.jpeg" alt="Consultor Comercial" class="equipe-img">
                 <div class="equipe-info">
                     <div class="equipe-nome">Consultor</div>
                     <div class="equipe-cargo">Atendimento VIP</div>
@@ -1375,7 +1550,7 @@
                     <div class="localizacao-item-icon"><i class="fab fa-whatsapp"></i></div>
                     <div>
                         <div class="localizacao-item-label">WhatsApp</div>
-                        <div class="localizacao-item-value"><a href="https://api.whatsapp.com/send?phone=5511943478100" target="_blank">(11) 94747-7869</a></div>
+                        <div class="localizacao-item-value"><a href="https://api.whatsapp.com/send?phone=5511947477869" target="_blank">(11) 94747-7869</a></div>
                     </div>
                 </div>
                 <div class="localizacao-item">
@@ -1393,7 +1568,7 @@
                     </div>
                 </div>
             </div>
-            <a href="https://api.whatsapp.com/send?phone=5511943478100&text=Olá!%20Gostaria%20de%20agendar%20uma%20visita%20ao%20showroom." target="_blank" class="btn-wa" style="margin-top:8px;">
+            <a href="https://api.whatsapp.com/send?phone=5511947477869&text=Olá!%20Gostaria%20de%20agendar%20uma%20visita%20ao%20showroom." target="_blank" class="btn-wa" style="margin-top:8px;">
                 <i class="fab fa-whatsapp"></i> Agendar Visita
             </a>
         </div>
@@ -1464,7 +1639,7 @@
             <p class="cta-final-sub">Rua Henrique Schaumann, 555 — Pinheiros · (11) 94747-7869</p>
         </div>
         <div class="cta-final-actions">
-            <a href="https://api.whatsapp.com/send?phone=5511943478100&text=Olá!%20Gostaria%20de%20solicitar%20um%20orçamento%20de%20blindagem." target="_blank" class="btn-black">
+            <a href="https://api.whatsapp.com/send?phone=5511947477869&text=Olá!%20Gostaria%20de%20solicitar%20um%20orçamento%20de%20blindagem." target="_blank" class="btn-black">
                 <i class="fab fa-whatsapp"></i> Solicitar Orçamento
             </a>
             <a href="index.html#contact" class="btn-border-black">
@@ -1543,7 +1718,7 @@
             <div class="footer-col-title">Contato Rápido</div>
             <div class="footer-links">
                 <a href="tel:+5511947477869">Blindados: (11) 94747-7869</a>
-                <a href="tel:+5511976410925">Mecânica: (11) 97641-0925</a>
+                <a href="tel:+5511992139135">Mecânica: (11) 99213-9135</a>
                 <a href="tel:+5511977280908">Funilaria: (11) 97728-0908</a>
                 <a href="https://api.whatsapp.com/send?phone=5511947477869" target="_blank">WhatsApp Blindados</a>
             </div>
