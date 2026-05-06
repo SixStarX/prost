@@ -1,16 +1,64 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- ================================================== -->
+    <!-- Google Tag Manager                                  -->
+    <!-- INSTRUÇÃO: substitua GTM-KQ3JKRLQ pelo seu ID real  -->
+    <!-- Obtenha em: tagmanager.google.com                   -->
+    <!-- ================================================== -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-KQ3JKRLQ');</script>
+    <!-- End Google Tag Manager -->
+
+    <!-- Google tag (gtag.js) - GA4 | ID: G-9W89EVEE5J | Fluxo: 14388183028 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-9W89EVEE5J"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-9W89EVEE5J');
+    </script>
+    <!-- Eventos customizados: WhatsApp + Telefone -->
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        document.querySelectorAll('a[href*="wa.me"], a[href*="whatsapp"]').forEach(function(link) {
+          link.addEventListener('click', function() {
+            var unit = 'desconhecida';
+            var href = this.href || '';
+            if (href.includes('94747')) unit = 'blindados';
+            else if (href.includes('99213')) unit = 'mecanica';
+            else if (href.includes('97728')) unit = 'funilaria';
+            gtag('event', 'whatsapp_click', {
+              'event_category': 'conversao',
+              'event_label': unit,
+              'value': 1
+            });
+          });
+        });
+        document.querySelectorAll('a[href^="tel:"]').forEach(function(link) {
+          link.addEventListener('click', function() {
+            gtag('event', 'phone_click', {
+              'event_category': 'conversao',
+              'event_label': this.href
+            });
+          });
+        });
+      });
+    </script>
+
 
     <title>Blindagem Automotiva | Tecnologia Secforce | Grupo Automotivo Prost</title>
     <meta name="description" content="Blindagem automotiva premium em São Paulo. Showroom exclusivo em Pinheiros, tecnologia Secforce, equipe altamente qualificada e equipamentos de última geração. Prost Blindados.">
     <meta name="robots" content="index, follow">
-    <link rel="canonical" href="https://grupoprost.com.br/blindagem">
+    <link rel="canonical" href="https://www.grupoprost.com.br/blindagem">
 
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://grupoprost.com.br/blindagem">
+    <meta property="og:url" content="https://www.grupoprost.com.br/blindagem">
     <meta property="og:title" content="Blindagem Automotiva Premium | Prost Blindados">
     <meta property="og:description" content="Showroom exclusivo, tecnologia Secforce e equipe especializada. Blindagem com acabamento original de fábrica em São Paulo.">
     <meta property="og:locale" content="pt_BR">
@@ -23,15 +71,15 @@
           "@type": "Service",
           "name": "Blindagem Automotiva Premium",
           "description": "Blindagem de veículos de passeio e utilitários com tecnologia Secforce. Níveis III-A e superiores com acabamento original de fábrica.",
-          "provider": { "@type": "AutoRepair", "name": "Grupo Automotivo Prost – Blindados", "url": "https://grupoprost.com.br" },
+          "provider": { "@type": "AutoRepair", "name": "Grupo Automotivo Prost – Blindados", "url": "https://www.grupoprost.com.br" },
           "areaServed": { "@type": "City", "name": "São Paulo" },
           "serviceType": "Blindagem Automotiva"
         },
         {
           "@type": "BreadcrumbList",
           "itemListElement": [
-            { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://grupoprost.com.br/" },
-            { "@type": "ListItem", "position": 2, "name": "Blindagem", "item": "https://grupoprost.com.br/blindagem" }
+            { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.grupoprost.com.br/" },
+            { "@type": "ListItem", "position": 2, "name": "Blindagem", "item": "https://www.grupoprost.com.br/blindagem" }
           ]
         }
       ]
@@ -139,7 +187,7 @@
             position: absolute; inset: 0;
             background:
                 linear-gradient(to right, rgba(5,5,5,0.92) 40%, rgba(5,5,5,0.4) 100%),
-                url('pexels-mikebirdy-898336.jpg') center/cover no-repeat;
+                url('images/blindadora/34_-_Blindagem_-_Entrada_bw.avif') center/cover no-repeat;
         }
 
         /* Linha dourada animada no hero */
@@ -1143,6 +1191,11 @@
     </style>
 </head>
 <body>
+    <!-- Google Tag Manager (noscript) -->
+    <!-- INSTRUÇÃO: substitua GTM-KQ3JKRLQ pelo seu ID real  -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KQ3JKRLQ"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
 
 <!-- ═══════════════════════ HEADER ═══════════════════════ -->
 <header id="site-header">
@@ -1272,7 +1325,7 @@
                 <span class="secforce-badge-name">SECFORCE</span>
             </div>
             <img
-                src="images/bmw/pexels-pixabay-207600.jpg"
+                src="images/blindadora/35_-_Blindagem_-_Secforce_bw.avif"
                 alt="Tecnologia Secforce de blindagem automotiva"
                 class="secforce-img"
             >
@@ -1348,7 +1401,7 @@
                 <div class="showroom-overlay"><span>Acabamento Premium</span></div>
             </div>
             <div class="showroom-item">
-                <img src="images/land rover/pexels-mikebirdy-116675.jpg" alt="Vidro blindado Secforce">
+                <img src="images/blindadora/35_-_Blindagem_-_Secforce_bw.avif" alt="Vidro blindado Secforce">
                 <div class="showroom-overlay"><span>Vidros Blindados</span></div>
             </div>
             <div class="showroom-item">
@@ -1425,6 +1478,76 @@
     </div>
 </section>
 
+
+<!-- ═══════════════════════ VEÍCULOS ATENDIDOS ═══════════════════════ -->
+<section id="veiculos" style="padding: 100px var(--pad-x); background: var(--dark2);">
+    <div style="max-width: var(--max-w); margin: 0 auto;">
+        <div class="reveal" style="text-align: center; margin-bottom: 60px;">
+            <div class="section-tag centered">Especialização por Modelo</div>
+            <h2 class="section-title centered">Veículos<br><em>Atendidos</em></h2>
+            <div class="gold-rule centered"></div>
+            <p style="font-size: 16px; font-weight: 300; color: #777; max-width: 580px; margin: 0 auto; line-height: 1.7;">
+                Blindagem sob medida para cada modelo. Trabalhamos com as principais marcas premium e de luxo do mercado — sem alterar estética, performance ou acabamento original.
+            </p>
+        </div>
+        <div class="reveal" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 16px; margin-bottom: 56px;">
+            <!-- BMW -->
+            <div style="border: 1px solid rgba(201,168,76,0.15); background: var(--dark3); padding: 28px 20px; text-align: center; transition: border-color 0.3s;" onmouseover="this.style.borderColor='rgba(201,168,76,0.5)'" onmouseout="this.style.borderColor='rgba(201,168,76,0.15)'">
+                <div style="font-family: 'Bebas Neue', sans-serif; font-size: 20px; color: var(--light); letter-spacing: 2px; margin-bottom: 6px;">BMW</div>
+                <div style="font-size: 12px; color: var(--gray); font-weight: 300;">Série 3, 5, 7 · X5 · X7</div>
+            </div>
+            <!-- Mercedes-Benz -->
+            <div style="border: 1px solid rgba(201,168,76,0.15); background: var(--dark3); padding: 28px 20px; text-align: center; transition: border-color 0.3s;" onmouseover="this.style.borderColor='rgba(201,168,76,0.5)'" onmouseout="this.style.borderColor='rgba(201,168,76,0.15)'">
+                <div style="font-family: 'Bebas Neue', sans-serif; font-size: 20px; color: var(--light); letter-spacing: 2px; margin-bottom: 6px;">Mercedes</div>
+                <div style="font-size: 12px; color: var(--gray); font-weight: 300;">Classe C, E, S · GLE · GLS</div>
+            </div>
+            <!-- Land Rover -->
+            <div style="border: 1px solid rgba(201,168,76,0.15); background: var(--dark3); padding: 28px 20px; text-align: center; transition: border-color 0.3s;" onmouseover="this.style.borderColor='rgba(201,168,76,0.5)'" onmouseout="this.style.borderColor='rgba(201,168,76,0.15)'">
+                <div style="font-family: 'Bebas Neue', sans-serif; font-size: 20px; color: var(--light); letter-spacing: 2px; margin-bottom: 6px;">Land Rover</div>
+                <div style="font-size: 12px; color: var(--gray); font-weight: 300;">Defender · Discovery · Range</div>
+            </div>
+            <!-- Range Rover -->
+            <div style="border: 1px solid rgba(201,168,76,0.15); background: var(--dark3); padding: 28px 20px; text-align: center; transition: border-color 0.3s;" onmouseover="this.style.borderColor='rgba(201,168,76,0.5)'" onmouseout="this.style.borderColor='rgba(201,168,76,0.15)'">
+                <div style="font-family: 'Bebas Neue', sans-serif; font-size: 20px; color: var(--light); letter-spacing: 2px; margin-bottom: 6px;">Range Rover</div>
+                <div style="font-size: 12px; color: var(--gray); font-weight: 300;">Sport · Vogue · Velar · Evoque</div>
+            </div>
+            <!-- Porsche -->
+            <div style="border: 1px solid rgba(201,168,76,0.15); background: var(--dark3); padding: 28px 20px; text-align: center; transition: border-color 0.3s;" onmouseover="this.style.borderColor='rgba(201,168,76,0.5)'" onmouseout="this.style.borderColor='rgba(201,168,76,0.15)'">
+                <div style="font-family: 'Bebas Neue', sans-serif; font-size: 20px; color: var(--light); letter-spacing: 2px; margin-bottom: 6px;">Porsche</div>
+                <div style="font-size: 12px; color: var(--gray); font-weight: 300;">Cayenne · Macan · Panamera</div>
+            </div>
+            <!-- Audi -->
+            <div style="border: 1px solid rgba(201,168,76,0.15); background: var(--dark3); padding: 28px 20px; text-align: center; transition: border-color 0.3s;" onmouseover="this.style.borderColor='rgba(201,168,76,0.5)'" onmouseout="this.style.borderColor='rgba(201,168,76,0.15)'">
+                <div style="font-family: 'Bebas Neue', sans-serif; font-size: 20px; color: var(--light); letter-spacing: 2px; margin-bottom: 6px;">Audi</div>
+                <div style="font-size: 12px; color: var(--gray); font-weight: 300;">A6 · A8 · Q7 · Q8</div>
+            </div>
+            <!-- Volvo -->
+            <div style="border: 1px solid rgba(201,168,76,0.15); background: var(--dark3); padding: 28px 20px; text-align: center; transition: border-color 0.3s;" onmouseover="this.style.borderColor='rgba(201,168,76,0.5)'" onmouseout="this.style.borderColor='rgba(201,168,76,0.15)'">
+                <div style="font-family: 'Bebas Neue', sans-serif; font-size: 20px; color: var(--light); letter-spacing: 2px; margin-bottom: 6px;">Volvo</div>
+                <div style="font-size: 12px; color: var(--gray); font-weight: 300;">XC60 · XC90 · S90</div>
+            </div>
+            <!-- Lexus -->
+            <div style="border: 1px solid rgba(201,168,76,0.15); background: var(--dark3); padding: 28px 20px; text-align: center; transition: border-color 0.3s;" onmouseover="this.style.borderColor='rgba(201,168,76,0.5)'" onmouseout="this.style.borderColor='rgba(201,168,76,0.15)'">
+                <div style="font-family: 'Bebas Neue', sans-serif; font-size: 20px; color: var(--light); letter-spacing: 2px; margin-bottom: 6px;">Lexus</div>
+                <div style="font-size: 12px; color: var(--gray); font-weight: 300;">LX · GX · LS · RX</div>
+            </div>
+        </div>
+        <!-- Nota final + CTA -->
+        <div class="reveal" style="text-align: center;">
+            <p style="font-size: 14px; color: var(--gray); margin-bottom: 32px;">
+                Não encontrou seu modelo? <span style="color: var(--gold);">Atendemos todos os veículos premium sob consulta.</span>
+            </p>
+            <a href="https://wa.me/5511947477869?text=Ol%C3%A1%2C%20gostaria%20de%20um%20or%C3%A7amento%20para%20blindagem%20do%20meu%20ve%C3%ADculo."
+               class="btn-gold"
+               target="_blank"
+               rel="noopener"
+               onclick="gtag && gtag('event', 'whatsapp_click', {'event_category': 'conversao', 'event_label': 'blindados'})">
+                Verificar Compatibilidade do Meu Veículo
+            </a>
+        </div>
+    </div>
+</section>
+
 <!-- ═══════════════════════ EQUIPE ═══════════════════════ -->
 <section id="equipe">
     <div class="equipe-inner">
@@ -1438,7 +1561,7 @@
         </div>
         <div class="equipe-grid reveal">
             <div class="equipe-card">
-                <img src="/images/blindadora/profissional_prost.jpeg" alt="Especialista em Blindagem" class="equipe-img">
+                <img src="/images/blindadora/profissional_prost.jfif" alt="Especialista em Blindagem" class="equipe-img">
                 <div class="equipe-info">
                     <div class="equipe-nome">Eng. Técnico</div>
                     <div class="equipe-cargo">Especialista em Blindagem Balística</div>
@@ -1446,7 +1569,7 @@
                 </div>
             </div>
             <div class="equipe-card">
-                <img src="/images/blindadora/profissional_prost.jpeg" alt="Técnico de Instalação" class="equipe-img">
+                <img src="/images/blindadora/profissional_prost.jfif" alt="Técnico de Instalação" class="equipe-img">
                 <div class="equipe-info">
                     <div class="equipe-nome">Técnico Sênior</div>
                     <div class="equipe-cargo">Instalação e Acabamento</div>
@@ -1454,7 +1577,7 @@
                 </div>
             </div>
             <div class="equipe-card">
-                <img src="/images/blindadora/profissional_prost.jpeg" alt="Analista de Qualidade" class="equipe-img">
+                <img src="/images/blindadora/profissional_prost.jfif" alt="Analista de Qualidade" class="equipe-img">
                 <div class="equipe-info">
                     <div class="equipe-nome">Analista QA</div>
                     <div class="equipe-cargo">Controle de Qualidade</div>
@@ -1462,7 +1585,7 @@
                 </div>
             </div>
             <div class="equipe-card">
-                <img src="/images/blindadora/profissional_prost.jpeg" alt="Consultor Comercial" class="equipe-img">
+                <img src="/images/blindadora/profissional_prost.jfif" alt="Consultor Comercial" class="equipe-img">
                 <div class="equipe-info">
                     <div class="equipe-nome">Consultor</div>
                     <div class="equipe-cargo">Atendimento VIP</div>
@@ -1718,7 +1841,7 @@
             <div class="footer-col-title">Contato Rápido</div>
             <div class="footer-links">
                 <a href="tel:+5511947477869">Blindados: (11) 94747-7869</a>
-                <a href="tel:+5511992139135">Mecânica: (11) 99213-9135</a>
+                <a href="tel:+5511976410925">Mecânica: (11) 97641-0925</a>
                 <a href="tel:+5511977280908">Funilaria: (11) 97728-0908</a>
                 <a href="https://api.whatsapp.com/send?phone=5511947477869" target="_blank">WhatsApp Blindados</a>
             </div>

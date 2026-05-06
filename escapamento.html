@@ -1,14 +1,62 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- ================================================== -->
+    <!-- Google Tag Manager                                  -->
+    <!-- INSTRUÇÃO: substitua GTM-KQ3JKRLQ pelo seu ID real  -->
+    <!-- Obtenha em: tagmanager.google.com                   -->
+    <!-- ================================================== -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-KQ3JKRLQ');</script>
+    <!-- End Google Tag Manager -->
+
+    <!-- Google tag (gtag.js) - GA4 | ID: G-9W89EVEE5J | Fluxo: 14388183028 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-9W89EVEE5J"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-9W89EVEE5J');
+    </script>
+    <!-- Eventos customizados: WhatsApp + Telefone -->
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        document.querySelectorAll('a[href*="wa.me"], a[href*="whatsapp"]').forEach(function(link) {
+          link.addEventListener('click', function() {
+            var unit = 'desconhecida';
+            var href = this.href || '';
+            if (href.includes('94747')) unit = 'blindados';
+            else if (href.includes('99213')) unit = 'mecanica';
+            else if (href.includes('97728')) unit = 'funilaria';
+            gtag('event', 'whatsapp_click', {
+              'event_category': 'conversao',
+              'event_label': unit,
+              'value': 1
+            });
+          });
+        });
+        document.querySelectorAll('a[href^="tel:"]').forEach(function(link) {
+          link.addEventListener('click', function() {
+            gtag('event', 'phone_click', {
+              'event_category': 'conversao',
+              'event_label': this.href
+            });
+          });
+        });
+      });
+    </script>
+
     <title>Escapamento | Reparo e Substituição | Grupo Automotivo Prost</title>
     <meta name="description" content="Reparo e substituição do sistema de escapamento em São Paulo: catalisador, silencioso e downpipe. Prost Mecânica no Pacaembú.">
     <meta name="robots" content="index, follow">
-    <link rel="canonical" href="https://grupoprost.com.br/mecanica/escapamento">
+    <link rel="canonical" href="https://www.grupoprost.com.br/mecanica/escapamento">
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://grupoprost.com.br/mecanica/escapamento">
+    <meta property="og:url" content="https://www.grupoprost.com.br/mecanica/escapamento">
     <meta property="og:title" content="Escapamento Automotivo | Grupo Automotivo Prost">
     <meta property="og:description" content="Reparo e substituição do sistema de escapamento em São Paulo: catalisador, silencioso e downpipe. Prost Mecânica no Pacaembú.">
     <meta property="og:locale" content="pt_BR">
@@ -20,7 +68,7 @@
           "@type": "Service",
           "name": "Serviços de Escapamento Automotivo",
           "description": "Diagnóstico, reparo e substituição completa do sistema de escapamento: coletor, catalisador, silencioso e downpipe para todas as marcas.",
-          "provider": {"@type": "AutoRepair", "name": "Grupo Automotivo Prost – Mecânica", "url": "https://grupoprost.com.br"},
+          "provider": {"@type": "AutoRepair", "name": "Grupo Automotivo Prost – Mecânica", "url": "https://www.grupoprost.com.br"},
           "areaServed": {"@type": "City", "name": "São Paulo"},
           "serviceType": "Mecânica Automotiva"
         }
@@ -983,6 +1031,12 @@
     </style>
 </head>
 <body>
+    <!-- Google Tag Manager (noscript) -->
+    <!-- INSTRUÇÃO: substitua GTM-KQ3JKRLQ pelo seu ID real  -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KQ3JKRLQ"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+
 <body>
 
 <!-- ════════════════════════════════════════════════════════
@@ -1045,7 +1099,7 @@
 <!-- PAGE HERO -->
 <section id="page-hero">
     <div class="page-hero-bg"></div>
-    <img src="images/volvo/pexels-ahammad-nihal-130702-7506654.jpg" alt="Volvo XC60 escapamento performance — Prost Mecânica" class="page-hero-img" loading="eager">
+    <img src="images/escapamento/24_-_Escapamento_-_Entrada_bw.avif" alt="Volvo XC60 escapamento performance — Prost Mecânica" class="page-hero-img" loading="eager">
     <div class="page-hero-content">
         <div class="page-hero-tag">Mecânica Especializada</div>
         <h1 class="page-hero-title">
@@ -1054,7 +1108,7 @@
         </h1>
         <p class="page-hero-sub">Diagnóstico, reparo e substituição do sistema de escapamento completo. Catalisador, silencioso e downpipe — no Pacaembú.</p>
         <div class="page-hero-actions">
-            <a href="https://api.whatsapp.com/send?phone=5511992139135&text=Olá!%20Gostaria%20de%20agendar%20um%20serviço%20de%20escapamento."
+            <a href="https://api.whatsapp.com/send?phone=5511976410925&text=Olá!%20Gostaria%20de%20agendar%20um%20serviço%20de%20escapamento."
                target="_blank" class="btn-whatsapp">
                 <i class="fab fa-whatsapp"></i> Agendar pelo WhatsApp
             </a>
@@ -1095,7 +1149,7 @@
         <!-- 01 Diagnóstico do Sistema -->
         <div class="sub-service reveal">
             <div class="sub-service-img">
-                <img src="images/mercedes/pexels-introspectivedsgn-4839268.jpg"
+                <img src="images/escapamento/25_-_Escapamento_-_Diagnostico_bw.avif"
                      alt="Inspeção sistema de escapamento — Prost Mecânica" loading="lazy">
                 <div class="sub-service-img-overlay"></div>
             </div>
@@ -1117,7 +1171,7 @@
         <!-- 02 Reparo e Troca de Silencioso -->
         <div class="sub-service reverse reveal">
             <div class="sub-service-img">
-                <img src="images/volvo/pexels-20hertz-6740129.jpg"
+                <img src="images/escapamento/26_-_Escapamento_-_Reparo_e_troca_bw.avif"
                      alt="Reparo de silencioso Land Rover — Prost" loading="lazy">
                 <div class="sub-service-img-overlay"></div>
             </div>
@@ -1139,7 +1193,7 @@
         <!-- 03 Catalisador e Sonda Lambda -->
         <div class="sub-service reveal">
             <div class="sub-service-img">
-                <img src="images/mercedes/pexels-pixabay-164634.jpg"
+                <img src="images/escapamento/27_-_Escapamento_-_Catalisador_bw.avif"
                      alt="Catalisador diagnóstico — Prost Mecânica" loading="lazy">
                 <div class="sub-service-img-overlay"></div>
             </div>
@@ -1161,7 +1215,7 @@
         <!-- 04 Coletor de Escapamento e Turbo -->
         <div class="sub-service reverse reveal">
             <div class="sub-service-img">
-                <img src="images/bmw/pexels-mikebirdy-7663122.jpg"
+                <img src="images/escapamento/28_-_Escapamento_-_Coletor_bw.avif"
                      alt="Coletor escapamento turbo BMW — Prost" loading="lazy">
                 <div class="sub-service-img-overlay"></div>
             </div>
@@ -1220,10 +1274,10 @@
         <div class="cta-band-text">
             <div class="cta-band-tag">Agende Agora</div>
             <div class="cta-band-title">Escapamento<br>em Perfeito Estado</div>
-            <p class="cta-band-sub">Av. Pacaembú, 1306 — Pacaembú, São Paulo · (11) 99213-9135</p>
+            <p class="cta-band-sub">Av. Pacaembú, 1306 — Pacaembú, São Paulo · (11) 97641-0925</p>
         </div>
         <div class="cta-band-actions">
-            <a href="https://api.whatsapp.com/send?phone=5511992139135&text=Olá!%20Gostaria%20de%20agendar%20um%20serviço%20de%20escapamento."
+            <a href="https://api.whatsapp.com/send?phone=5511976410925&text=Olá!%20Gostaria%20de%20agendar%20um%20serviço%20de%20escapamento."
                target="_blank" class="btn-dark">
                 <i class="fab fa-whatsapp"></i> WhatsApp
             </a>
@@ -1306,7 +1360,7 @@
             <div class="footer-col-title">Contato</div>
             <div class="footer-links">
                 <a href="tel:+5511947477869">Blindados: (11) 94747-7869</a>
-                <a href="tel:+5511992139135">Mecânica: (11) 99213-9135</a>
+                <a href="tel:+5511976410925">Mecânica: (11) 97641-0925</a>
                 <a href="tel:+5511977280908">Funilaria: (11) 97728-0908</a>
                 <a href="https://api.whatsapp.com/send?phone=5511947477869" target="_blank">WhatsApp</a>
                 <a href="contato.html">Formulário de Contato</a>
@@ -1320,7 +1374,7 @@
 </footer>
 
 <!-- ── FLOAT BUTTONS ── -->
-<a href="https://api.whatsapp.com/send?phone=5511992139135" target="_blank"
+<a href="https://api.whatsapp.com/send?phone=5511976410925" target="_blank"
    class="whatsapp-float" aria-label="WhatsApp Mecânica Prost">
     <i class="fab fa-whatsapp"></i>
 </a>
@@ -1385,7 +1439,7 @@
 </body>
 </html>
 
-<a href="https://api.whatsapp.com/send?phone=5511992139135" target="_blank"
+<a href="https://api.whatsapp.com/send?phone=5511976410925" target="_blank"
    class="whatsapp-float" aria-label="WhatsApp Prost Mecânica">
     <i class="fab fa-whatsapp"></i>
 </a>

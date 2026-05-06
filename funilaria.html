@@ -1,18 +1,66 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- ================================================== -->
+    <!-- Google Tag Manager                                  -->
+    <!-- INSTRUÇÃO: substitua GTM-KQ3JKRLQ pelo seu ID real  -->
+    <!-- Obtenha em: tagmanager.google.com                   -->
+    <!-- ================================================== -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-KQ3JKRLQ');</script>
+    <!-- End Google Tag Manager -->
+
+    <!-- Google tag (gtag.js) - GA4 | ID: G-9W89EVEE5J | Fluxo: 14388183028 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-9W89EVEE5J"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-9W89EVEE5J');
+    </script>
+    <!-- Eventos customizados: WhatsApp + Telefone -->
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        document.querySelectorAll('a[href*="wa.me"], a[href*="whatsapp"]').forEach(function(link) {
+          link.addEventListener('click', function() {
+            var unit = 'desconhecida';
+            var href = this.href || '';
+            if (href.includes('94747')) unit = 'blindados';
+            else if (href.includes('99213')) unit = 'mecanica';
+            else if (href.includes('97728')) unit = 'funilaria';
+            gtag('event', 'whatsapp_click', {
+              'event_category': 'conversao',
+              'event_label': unit,
+              'value': 1
+            });
+          });
+        });
+        document.querySelectorAll('a[href^="tel:"]').forEach(function(link) {
+          link.addEventListener('click', function() {
+            gtag('event', 'phone_click', {
+              'event_category': 'conversao',
+              'event_label': this.href
+            });
+          });
+        });
+      });
+    </script>
+
 
     <!-- ─── SEO ─── -->
     <title>Funilaria e Pintura | Grupo Automotivo Prost | São Paulo</title>
     <meta name="description" content="Funilaria e pintura de alta precisão em São Paulo. Reparos de lataria, cabine de pintura profissional, restauração e estética automotiva. Prost Funilaria no Barra Funda.">
     <meta name="robots" content="index, follow">
-    <link rel="canonical" href="https://grupoprost.com.br/funilaria">
+    <link rel="canonical" href="https://www.grupoprost.com.br/funilaria">
 
     <!-- ─── OPEN GRAPH ─── -->
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://grupoprost.com.br/funilaria">
+    <meta property="og:url" content="https://www.grupoprost.com.br/funilaria">
     <meta property="og:title" content="Funilaria e Pintura | Grupo Automotivo Prost">
     <meta property="og:description" content="Fidelidade às cores e precisão nas formas. Funilaria, pintura em cabine, restauração e estética automotiva em São Paulo.">
     <meta property="og:locale" content="pt_BR">
@@ -26,15 +74,15 @@
           "@type": "Service",
           "name": "Funilaria e Pintura Automotiva",
           "description": "Reparos de lataria, pintura em cabine profissional, restauração de veículos clássicos e estética automotiva.",
-          "provider": { "@type": "AutoRepair", "name": "Grupo Automotivo Prost – Funilaria", "url": "https://grupoprost.com.br" },
+          "provider": { "@type": "AutoRepair", "name": "Grupo Automotivo Prost – Funilaria", "url": "https://www.grupoprost.com.br" },
           "areaServed": { "@type": "City", "name": "São Paulo" },
           "serviceType": "Funilaria e Pintura Automotiva"
         },
         {
           "@type": "BreadcrumbList",
           "itemListElement": [
-            { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://grupoprost.com.br/" },
-            { "@type": "ListItem", "position": 2, "name": "Funilaria e Pintura", "item": "https://grupoprost.com.br/funilaria" }
+            { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.grupoprost.com.br/" },
+            { "@type": "ListItem", "position": 2, "name": "Funilaria e Pintura", "item": "https://www.grupoprost.com.br/funilaria" }
           ]
         }
       ]
@@ -904,6 +952,11 @@
     </style>
 </head>
 <body>
+    <!-- Google Tag Manager (noscript) -->
+    <!-- INSTRUÇÃO: substitua GTM-KQ3JKRLQ pelo seu ID real  -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KQ3JKRLQ"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
 
 <!-- ═══ HEADER ═══ -->
 <header id="site-header">
@@ -961,7 +1014,7 @@
 <section id="page-hero">
     <div class="page-hero-bg"></div>
     <img
-        src="images/mercedes/pexels-mikebirdy-4223875.jpg"
+        src="images/funilaria/29_-_Funilaria_-_Entrada_bw.avif"
         alt="Funilaria e Pintura Automotiva — Grupo Automotivo Prost"
         class="page-hero-img"
         loading="eager"
@@ -1021,7 +1074,7 @@
         <!-- 01 Funilaria e Pintura -->
         <div class="sub-service reveal">
             <div class="sub-service-img">
-                <img src="images/mercedes/pexels-pixabay-163774.jpg"
+                <img src="images/funilaria/30_-_Funilaria_-_Pintura_bw.avif"
                      alt="Funilaria e Pintura — Prost" loading="lazy">
                 <div class="sub-service-img-overlay"></div>
             </div>
@@ -1044,7 +1097,7 @@
         <!-- 02 Restauração -->
         <div class="sub-service reverse reveal">
             <div class="sub-service-img">
-                <img src="images/bmw/pexels-mikebirdy-7663122.jpg"
+                <img src="images/funilaria/30_-_Funilaria_-_Restauraçao_Completa_bw.avif"
                      alt="Restauração de veículos clássicos — Prost" loading="lazy">
                 <div class="sub-service-img-overlay"></div>
             </div>
@@ -1066,7 +1119,7 @@
         <!-- 03 Estética Automotiva -->
         <div class="sub-service reveal">
             <div class="sub-service-img">
-                <img src="images/volvo/pexels-matt-jerome-connor-1428905-14242298.jpg"
+                <img src="images/funilaria/32_-_Funilaria_-_Estetica_Automotiva_bw.avif"
                      alt="Estética automotiva e polimento — Prost" loading="lazy">
                 <div class="sub-service-img-overlay"></div>
             </div>
@@ -1088,7 +1141,7 @@
         <!-- 04 Cabine de Pintura -->
         <div class="sub-service reverse reveal">
             <div class="sub-service-img">
-                <img src="images/mercedes/pexels-jarne-aerts-3175149-5693662.jpg"
+                <img src="images/funilaria/33_-_Funilaria_-_Cabine_de_Pintura_bw.avif"
                      alt="Cabine de pintura profissional — Prost" loading="lazy">
                 <div class="sub-service-img-overlay"></div>
             </div>
@@ -1231,7 +1284,7 @@
             <div class="footer-col-title">Contato Rápido</div>
             <div class="footer-links">
                 <a href="tel:+5511947477869">Blindados: (11) 94747-7869</a>
-                <a href="tel:+5511992139135">Mecânica: (11) 99213-9135</a>
+                <a href="tel:+5511976410925">Mecânica: (11) 97641-0925</a>
                 <a href="tel:+5511977280908">Funilaria: (11) 97728-0908</a>
                 <a href="https://api.whatsapp.com/send?phone=5511977280908" target="_blank">WhatsApp Funilaria</a>
             </div>

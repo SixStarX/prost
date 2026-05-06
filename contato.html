@@ -1,6 +1,18 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
+    <!-- ================================================== -->
+    <!-- Google Tag Manager                                  -->
+    <!-- INSTRUÇÃO: substitua GTM-KQ3JKRLQ pelo seu ID real  -->
+    <!-- Obtenha em: tagmanager.google.com                   -->
+    <!-- ================================================== -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-KQ3JKRLQ');</script>
+    <!-- End Google Tag Manager -->
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contato & Trabalhe Conosco | Grupo Automotivo Prost</title>
@@ -11,6 +23,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:wght@300;400;500;600;700&family=Barlow+Condensed:wght@400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Anti-spam: honeypot + timestamp -->
 
     <style>
         :root {
@@ -816,9 +830,40 @@
             .unit-phone { font-size: 24px; }
         }
         /* ═══ FIM MELHORIAS DE LEGIBILIDADE ═══ */
+
+        /* ═══ ESTADOS DO FORMULÁRIO ═══ */
+        .form-error {
+            margin-top: 16px;
+            padding: 14px 20px;
+            background: rgba(239,68,68,0.08);
+            border: 1px solid rgba(239,68,68,0.25);
+            color: #ef4444;
+            font-size: 14px;
+            display: none;
+        }
+        .btn-gold-full:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+        }
+        .btn-gold-full .spinner {
+            display: inline-block;
+            width: 16px; height: 16px;
+            border: 2px solid transparent;
+            border-top-color: currentColor;
+            border-radius: 50%;
+            animation: spin 0.6s linear infinite;
+            margin-right: 8px;
+            vertical-align: middle;
+        }
+        @keyframes spin { to { transform: rotate(360deg); } }
     </style>
 </head>
 <body>
+    <!-- Google Tag Manager (noscript) -->
+    <!-- INSTRUÇÃO: substitua GTM-KQ3JKRLQ pelo seu ID real  -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KQ3JKRLQ"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
 
 <!-- ═══ HEADER ═══ -->
 <header id="site-header">
@@ -876,7 +921,7 @@
 <section id="page-hero">
     <div class="page-hero-bg"></div>
     <img
-        src="images/mercedes/pexels-pixabay-164634.jpg"
+        src="images/index/2_-_pexels-pixabay-164634.avif"
         alt="Grupo Automotivo Prost — Contato"
         class="page-hero-img"
         loading="eager"
@@ -907,61 +952,73 @@
             <h2 class="section-title">Entre em<br><em>Contato</em></h2>
             <div class="gold-line"></div>
 
-            <form id="contact-form" novalidate onsubmit="handleContact(event)">
+            <form id="contact-form" novalidate>
+                <!-- Honeypot anti-spam (invisível para humanos) -->
+                <div style="position:absolute;left:-9999px;top:-9999px;" aria-hidden="true">
+                    <input type="text" name="website" tabindex="-1" autocomplete="off">
+                </div>
+                <input type="hidden" name="_ts" value="">
                 <div class="form-row">
                     <div class="form-group">
-                        <label for="cc-nome">Nome Completo</label>
-                        <input id="cc-nome" name="nome" type="text" placeholder="Seu nome"
-                               required minlength="2" maxlength="80" autocomplete="name">
+                        <label>Nome Completo</label>
+                        <input type="text" name="nome" placeholder="Seu nome" required>
                     </div>
                     <div class="form-group">
-                        <label for="cc-telefone">Telefone / WhatsApp</label>
-                        <input id="cc-telefone" name="telefone" type="tel" placeholder="(11) 99999-9999"
-                               required minlength="10" maxlength="20" autocomplete="tel"
-                               inputmode="numeric">
+                        <label>Telefone / WhatsApp</label>
+                        <input type="tel" name="telefone" placeholder="(11) 99999-9999" required>
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="cc-email">E-mail</label>
-                    <input id="cc-email" name="email" type="email" placeholder="seu@email.com"
-                           maxlength="120" autocomplete="email">
+                    <label>E-mail</label>
+                    <input type="email" name="email" placeholder="seu@email.com" required>
                 </div>
                 <div class="form-group">
-                    <label for="cc-unidade">Unidade de Interesse</label>
-                    <select id="cc-unidade" name="unidade" required>
+                    <label>Unidade de Interesse</label>
+                    <select name="unidade" required>
                         <option value="">Selecione a unidade</option>
-                        <option value="blindados">Prost Blindados — Pinheiros</option>
-                        <option value="mecanica">Prost Mecânica — Pacaembú</option>
-                        <option value="funilaria">Prost Funilaria — Barra Funda</option>
+                        <option value="Prost Blindados — Pinheiros">Prost Blindados — Pinheiros</option>
+                        <option value="Prost Mecânica — Pacaembú">Prost Mecânica — Pacaembú</option>
+                        <option value="Prost Funilaria — Barra Funda">Prost Funilaria — Barra Funda</option>
+                        <option value="Sem preferência">Sem preferência</option>
                     </select>
                 </div>
                 <div class="form-group">
-                    <label for="cc-servico">Serviço Desejado</label>
-                    <select id="cc-servico" name="servico" required>
-                        <option value="">Selecione a unidade primeiro</option>
+                    <label>Serviço Desejado</label>
+                    <select name="servico" required>
+                        <option value="">Selecione o serviço</option>
+                        <optgroup label="Mecânica">
+                            <option value="Motor">Motor</option>
+                            <option value="Câmbio Automático">Câmbio Automático</option>
+                            <option value="Suspensão">Suspensão</option>
+                            <option value="Freios">Freios</option>
+                            <option value="Escapamento">Escapamento</option>
+                        </optgroup>
+                        <optgroup label="Funilaria">
+                            <option value="Funilaria e Pintura">Funilaria e Pintura</option>
+                            <option value="Restauração de Veículos">Restauração de Veículos</option>
+                            <option value="Estética Automotiva">Estética Automotiva</option>
+                        </optgroup>
+                        <optgroup label="Blindagem">
+                            <option value="Blindagem Nível III-A">Blindagem Nível III-A</option>
+                            <option value="Blindagem Nível III">Blindagem Nível III</option>
+                            <option value="Blindagem Nível IV">Blindagem Nível IV</option>
+                            <option value="Blindagem VIP / Customizada">Blindagem VIP / Customizada</option>
+                        </optgroup>
+                        <option value="Outro / Dúvida Geral">Outro / Dúvida Geral</option>
                     </select>
                 </div>
                 <div class="form-group">
-                    <label for="cc-mensagem">Mensagem</label>
-                    <textarea id="cc-mensagem" name="mensagem" maxlength="500"
-                              placeholder="Descreva o que você precisa..."></textarea>
+                    <label>Mensagem</label>
+                    <textarea name="mensagem" placeholder="Descreva o que você precisa..." required maxlength="5000"></textarea>
                 </div>
-
-                <!-- Honeypot anti-bot -->
-                <div aria-hidden="true"
-                     style="position:absolute;left:-9999px;top:-9999px;width:1px;height:1px;overflow:hidden;">
-                    <label>Website
-                        <input type="text" name="website" tabindex="-1" autocomplete="off">
-                    </label>
-                </div>
-
-                <button type="submit" id="cc-submit" class="btn-gold-full">
-                    <i class="fab fa-whatsapp"></i> <span>Enviar via WhatsApp</span>
+                <button type="submit" class="btn-gold-full" id="btn-contact">
+                    <i class="fas fa-paper-plane"></i> Enviar Mensagem
                 </button>
-                <p id="contact-error" role="alert"
-                   style="display:none;color:#ff6b6b;margin-top:12px;font-size:14px;"></p>
-                <div class="form-success" id="contact-success">
-                    <i class="fas fa-check-circle"></i> Abrindo WhatsApp... Se não abrir automaticamente, verifique o bloqueio de pop-ups.
+                <div class="form-success" id="contact-success" style="display:none;">
+                    <i class="fas fa-check-circle"></i> Mensagem enviada com sucesso! Entraremos em contato em breve.
+                </div>
+                <div class="form-error" id="contact-error" style="display:none;">
+                    <i class="fas fa-exclamation-circle"></i> <span id="contact-error-text"></span>
                 </div>
             </form>
         </div>
@@ -994,7 +1051,7 @@
                     <div class="contact-item-value">
                         Av. Pacaembú, 1306<br>
                         Pacaembú – SP · 01234-000<br>
-                        <a href="tel:+5511992139135">(11) 99213-9135</a>
+                        <a href="tel:+5511976410925">(11) 97641-0925</a>
                     </div>
                 </div>
             </div>
@@ -1030,11 +1087,11 @@
                     </div>
                     <i class="fas fa-arrow-right unidade-wa-arrow"></i>
                 </a>
-                <a href="https://api.whatsapp.com/send?phone=5511992139135&text=Olá!%20Gostaria%20de%20falar%20com%20a%20Prost%20Mecânica." target="_blank" class="unidade-wa-btn">
+                <a href="https://api.whatsapp.com/send?phone=5511976410925&text=Olá!%20Gostaria%20de%20falar%20com%20a%20Prost%20Mecânica." target="_blank" class="unidade-wa-btn">
                     <div class="unidade-wa-icon"><i class="fab fa-whatsapp"></i></div>
                     <div class="unidade-wa-text">
                         <div class="unidade-wa-nome">Prost Mecânica</div>
-                        <div class="unidade-wa-num">(11) 99213-9135</div>
+                        <div class="unidade-wa-num">(11) 97641-0925</div>
                     </div>
                     <i class="fas fa-arrow-right unidade-wa-arrow"></i>
                 </a>
@@ -1069,7 +1126,7 @@
                 <div class="mapa-card-tag">Mecânica Especializada</div>
                 <div class="mapa-card-nome">Pacaembú</div>
                 <div class="mapa-card-addr">Av. Pacaembú, 1306<br>São Paulo – SP · 01234-000</div>
-                <a href="tel:+5511992139135" class="mapa-card-tel"><i class="fab fa-whatsapp"></i>(11) 99213-9135</a>
+                <a href="tel:+5511976410925" class="mapa-card-tel"><i class="fab fa-whatsapp"></i>(11) 97641-0925</a>
             </div>
             <div class="mapa-card">
                 <div class="mapa-card-tag">Funilaria & Estética</div>
@@ -1155,45 +1212,51 @@
             <div class="trabalhe-form-title">Candidate-se Agora</div>
             <p class="trabalhe-form-sub">Preencha o formulário abaixo e nossa equipe de RH entrará em contato.</p>
 
-            <form id="trabalhe-form" onsubmit="handleTrabalhe(event)">
+            <form id="trabalhe-form" novalidate>
+                <!-- Honeypot anti-spam (invisível para humanos) -->
+                <div style="position:absolute;left:-9999px;top:-9999px;" aria-hidden="true">
+                    <input type="text" name="website" tabindex="-1" autocomplete="off">
+                </div>
+                <input type="hidden" name="_ts" value="">
                 <div class="form-row">
                     <div class="form-group">
                         <label>Nome Completo</label>
-                        <input type="text" placeholder="Seu nome" required>
+                        <input type="text" name="nome" placeholder="Seu nome" required>
                     </div>
                     <div class="form-group">
                         <label>Telefone</label>
-                        <input type="tel" placeholder="(11) 99999-9999" required>
+                        <input type="tel" name="telefone" placeholder="(11) 99999-9999" required>
                     </div>
                 </div>
                 <div class="form-group">
                     <label>E-mail</label>
-                    <input type="email" placeholder="seu@email.com" required>
+                    <input type="email" name="email" placeholder="seu@email.com" required>
                 </div>
                 <div class="form-group">
                     <label>Cargo de Interesse</label>
-                    <select required>
+                    <select name="cargo" required>
                         <option value="">Selecione o cargo</option>
-                        <option>Técnico em Blindagem</option>
-                        <option>Mecânico de Automóveis</option>
-                        <option>Funileiro / Pintor Automotivo</option>
-                        <option>Técnico em Diagnóstico Eletrônico</option>
-                        <option>Consultor de Atendimento</option>
-                        <option>Outro</option>
+                        <option value="Técnico em Blindagem">Técnico em Blindagem</option>
+                        <option value="Mecânico de Automóveis">Mecânico de Automóveis</option>
+                        <option value="Funileiro / Pintor Automotivo">Funileiro / Pintor Automotivo</option>
+                        <option value="Técnico em Diagnóstico Eletrônico">Técnico em Diagnóstico Eletrônico</option>
+                        <option value="Consultor de Atendimento">Consultor de Atendimento</option>
+                        <option value="Outro">Outro</option>
                     </select>
                 </div>
                 <div class="form-group">
                     <label>Unidade de Preferência</label>
-                    <select>
-                        <option value="">Sem preferência</option>
-                        <option>Prost Blindados — Pinheiros</option>
-                        <option>Prost Mecânica — Pacaembú</option>
-                        <option>Prost Funilaria — Barra Funda</option>
+                    <select name="unidade" required>
+                        <option value="">Selecione a unidade</option>
+                        <option value="Prost Blindados — Pinheiros">Prost Blindados — Pinheiros</option>
+                        <option value="Prost Mecânica — Pacaembú">Prost Mecânica — Pacaembú</option>
+                        <option value="Prost Funilaria — Barra Funda">Prost Funilaria — Barra Funda</option>
+                        <option value="Sem preferência">Sem preferência</option>
                     </select>
                 </div>
                 <div class="form-group">
                     <label>Experiência Profissional</label>
-                    <textarea placeholder="Descreva brevemente sua experiência na área automotiva..."></textarea>
+                    <textarea name="experiencia" placeholder="Descreva brevemente sua experiência na área automotiva..." required maxlength="5000"></textarea>
                 </div>
                 <div class="form-group file-upload-wrap">
                     <label>Currículo (PDF)</label>
@@ -1201,16 +1264,19 @@
                         <i class="fas fa-file-pdf"></i>
                         <div class="file-upload-text">
                             <div class="file-upload-main">Anexar Currículo</div>
-                            <div class="file-upload-sub">PDF, DOC ou DOCX · máx. 5MB</div>
+                            <div class="file-upload-sub">Apenas PDF · máx. 5MB</div>
                         </div>
-                        <input type="file" class="file-upload-input" id="cv-file" accept=".pdf,.doc,.docx" onchange="updateFileName(this)">
+                        <input type="file" class="file-upload-input" id="cv-file" name="cv" accept="application/pdf,.pdf" required onchange="updateFileName(this)">
                     </label>
                 </div>
-                <button type="submit" class="btn-gold-full">
+                <button type="submit" class="btn-gold-full" id="btn-submit">
                     <i class="fas fa-paper-plane"></i> Enviar Candidatura
                 </button>
-                <div class="form-success" id="trabalhe-success">
+                <div class="form-success" id="trabalhe-success" style="display:none;">
                     <i class="fas fa-check-circle"></i> Candidatura recebida! Entraremos em contato em breve.
+                </div>
+                <div class="form-error" id="trabalhe-error" style="display:none;">
+                    <i class="fas fa-exclamation-circle"></i> <span id="error-text"></span>
                 </div>
             </form>
         </div>
@@ -1264,7 +1330,7 @@
             <div class="footer-col-title">Contato Rápido</div>
             <div class="footer-links">
                 <a href="tel:+5511947477869">Blindados: (11) 94747-7869</a>
-                <a href="tel:+5511992139135">Mecânica: (11) 99213-9135</a>
+                <a href="tel:+5511976410925">Mecânica: (11) 97641-0925</a>
                 <a href="tel:+5511977280908">Funilaria: (11) 97728-0908</a>
                 <a href="https://api.whatsapp.com/send?phone=5511947477869" target="_blank">WhatsApp</a>
             </div>
@@ -1341,200 +1407,164 @@
     }, { threshold: 0.08 });
     document.querySelectorAll('.reveal').forEach(r => observer.observe(r));
 
-    // File upload label
+    // File upload label + validação
     function updateFileName(input) {
         const label = document.getElementById('file-label');
         const sub = label.querySelector('.file-upload-sub');
         const main = label.querySelector('.file-upload-main');
         if (input.files && input.files[0]) {
-            main.textContent = input.files[0].name;
-            sub.textContent = (input.files[0].size / 1024 / 1024).toFixed(2) + ' MB';
-        }
-    }
-
-    // ═══════════════════════════════════════════════════════════════
-    // AGENDAMENTO VIA WHATSAPP (wa.me)
-    // Arquitetura: form → validação client-side → wa.me com texto pré-preenchido
-    // ═══════════════════════════════════════════════════════════════
-    const PROST_UNIDADES = {
-        blindados: {
-            nome: 'Prost Blindados — Pinheiros',
-            whatsapp: '5511947477869',
-            servicos: [
-                'Blindagem Nível III-A',
-                'Blindagem Nível III',
-                'Blindagem Nível IV',
-                'Blindagem VIP / Customizada',
-                'Manutenção de Blindagem',
-                'Outro / Dúvida Geral'
-            ]
-        },
-        mecanica: {
-            nome: 'Prost Mecânica — Pacaembú',
-            whatsapp: '5511992139135',
-            servicos: [
-                'Mecânica Geral',
-                'Motor',
-                'Câmbio Automático',
-                'Suspensão',
-                'Freios',
-                'Escapamento',
-                'Outro / Dúvida Geral'
-            ]
-        },
-        funilaria: {
-            nome: 'Prost Funilaria — Barra Funda',
-            whatsapp: '5511977280908',
-            servicos: [
-                'Funilaria e Pintura',
-                'Restauração de Veículos',
-                'Estética Automotiva',
-                'Polimento Técnico',
-                'Outro / Dúvida Geral'
-            ]
-        }
-    };
-
-    // Popula serviços conforme unidade
-    (function setupUnidadeServicoLink() {
-        const unidadeEl = document.getElementById('cc-unidade');
-        const servicoEl = document.getElementById('cc-servico');
-        if (!unidadeEl || !servicoEl) return;
-
-        unidadeEl.addEventListener('change', () => {
-            const u = PROST_UNIDADES[unidadeEl.value];
-            servicoEl.innerHTML = '';
-            if (!u) {
-                servicoEl.innerHTML = '<option value="">Selecione a unidade primeiro</option>';
+            const file = input.files[0];
+            if (file.type !== 'application/pdf') {
+                main.textContent = 'Apenas PDF é aceito';
+                sub.textContent = 'Selecione outro arquivo';
+                input.value = '';
                 return;
             }
-            servicoEl.insertAdjacentHTML('beforeend', '<option value="">Selecione o serviço</option>');
-            u.servicos.forEach(s => {
-                const opt = document.createElement('option');
-                opt.value = s;
-                opt.textContent = s;
-                servicoEl.appendChild(opt);
-            });
-        });
-    })();
-
-    function __sanitizeText(v, max) {
-        return String(v || '').trim().replace(/[\u0000-\u001F\u007F]/g, '').slice(0, max);
-    }
-    function __normalizePhoneBR(v) {
-        const digits = String(v || '').replace(/\D/g, '');
-        if (digits.length < 10 || digits.length > 13) return null;
-        return digits;
-    }
-    function __isValidEmail(v) {
-        if (!v) return true;
-        return /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v) && v.length <= 120;
-    }
-    function __checkLocalRateLimit() {
-        const KEY = 'prost_last_submit';
-        const last = parseInt(sessionStorage.getItem(KEY) || '0', 10);
-        const now = Date.now();
-        if (now - last < 10000) return false;
-        sessionStorage.setItem(KEY, String(now));
-        return true;
-    }
-    function __showContactError(msg) {
-        const el = document.getElementById('contact-error');
-        if (!el) return;
-        el.textContent = msg;
-        el.style.display = 'block';
-        setTimeout(() => { el.style.display = 'none'; }, 6000);
-    }
-    function __buildWhatsAppMessage(data, unidadeNome) {
-        const lines = [
-            '*Novo contato — Site Grupo Prost*',
-            `*Unidade:* ${unidadeNome}`,
-            '',
-            `*Nome:* ${data.nome}`,
-            `*Telefone:* ${data.telefone}`,
-        ];
-        if (data.email) lines.push(`*Email:* ${data.email}`);
-        lines.push(`*Serviço:* ${data.servico}`);
-        if (data.mensagem) {
-            lines.push('');
-            lines.push('*Mensagem:*');
-            lines.push(data.mensagem);
+            if (file.size > 5 * 1024 * 1024) {
+                main.textContent = 'Arquivo muito grande';
+                sub.textContent = 'Máximo permitido: 5MB';
+                input.value = '';
+                return;
+            }
+            main.textContent = file.name;
+            sub.textContent = (file.size / 1024 / 1024).toFixed(2) + ' MB';
         }
-        return lines.join('\n');
     }
 
-    function handleContact(e) {
+    // ═══ CONTATO — ENVIO REAL ═══
+    document.getElementById('contact-form').addEventListener('submit', async function(e) {
         e.preventDefault();
-        const form = e.target;
-        const btn = document.getElementById('cc-submit');
 
-        if (form.website && form.website.value) return; // honeypot
-        if (!__checkLocalRateLimit()) {
-            __showContactError('Aguarde alguns segundos antes de enviar novamente.');
+        const form = this;
+        const btn = document.getElementById('btn-contact');
+        const successEl = document.getElementById('contact-success');
+        const errorEl = document.getElementById('contact-error');
+        const errorText = document.getElementById('contact-error-text');
+
+        successEl.style.display = 'none';
+        errorEl.style.display = 'none';
+
+        const nome = form.querySelector('[name="nome"]').value.trim();
+        const telefone = form.querySelector('[name="telefone"]').value.trim();
+        const email = form.querySelector('[name="email"]').value.trim();
+        const unidade = form.querySelector('[name="unidade"]').value;
+        const servico = form.querySelector('[name="servico"]').value;
+        const mensagem = form.querySelector('[name="mensagem"]').value.trim();
+
+        if (!nome || !telefone || !email || !unidade || !servico || !mensagem) {
+            showContactError('Preencha todos os campos obrigatórios.');
             return;
         }
 
-        const raw = {
-            nome: __sanitizeText(form.nome.value, 80),
-            telefone: __sanitizeText(form.telefone.value, 20),
-            email: __sanitizeText(form.email.value, 120),
-            unidade: form.unidade.value,
-            servico: __sanitizeText(form.servico.value, 60),
-            mensagem: __sanitizeText(form.mensagem.value, 500)
-        };
-
-        if (raw.nome.length < 2) return __showContactError('Informe seu nome completo.');
-        const phone = __normalizePhoneBR(raw.telefone);
-        if (!phone) return __showContactError('Telefone inválido. Use DDD + número.');
-        if (!__isValidEmail(raw.email)) return __showContactError('E-mail inválido.');
-
-        const unidade = PROST_UNIDADES[raw.unidade];
-        if (!unidade) return __showContactError('Selecione uma unidade.');
-        if (!raw.servico || !unidade.servicos.includes(raw.servico)) {
-            return __showContactError('Selecione um serviço válido para a unidade escolhida.');
-        }
-
-        const data = {
-            nome: raw.nome,
-            telefone: phone,
-            email: raw.email,
-            servico: raw.servico,
-            mensagem: raw.mensagem
-        };
-        const msg = __buildWhatsAppMessage(data, unidade.nome);
-        const waUrl = `https://wa.me/${unidade.whatsapp}?text=${encodeURIComponent(msg)}`;
-
         btn.disabled = true;
-        const btnSpan = btn.querySelector('span');
-        if (btnSpan) btnSpan.textContent = 'Abrindo WhatsApp...';
-        document.getElementById('contact-success').style.display = 'block';
+        btn.innerHTML = '<span class="spinner"></span> Enviando...';
 
         try {
-            if (typeof gtag === 'function') {
-                gtag('event', 'generate_lead', { unidade: raw.unidade, servico: raw.servico });
+            const formData = new FormData(form);
+            const response = await fetch('/api/send-contact.php', { method: 'POST', body: formData });
+            const result = await response.json();
+
+            if (result.success) {
+                successEl.style.display = 'block';
+                form.reset();
+                form.querySelector('[name="_ts"]').value = Date.now().toString();
+                successEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            } else {
+                showContactError(result.message || 'Erro ao enviar. Tente novamente.');
             }
-            if (typeof fbq === 'function') fbq('track', 'Lead');
-        } catch (_) {}
-
-        window.open(waUrl, '_blank', 'noopener');
-
-        setTimeout(() => {
-            form.reset();
+        } catch (err) {
+            console.error('Erro:', err);
+            showContactError('Falha na conexão. Verifique sua internet e tente novamente.');
+        } finally {
             btn.disabled = false;
-            if (btnSpan) btnSpan.textContent = 'Enviar via WhatsApp';
-            document.getElementById('cc-servico').innerHTML =
-                '<option value="">Selecione a unidade primeiro</option>';
-        }, 2000);
-    }
+            btn.innerHTML = '<i class="fas fa-paper-plane"></i> Enviar Mensagem';
+        }
 
-    function handleTrabalhe(e) {
+        function showContactError(msg) {
+            errorText.textContent = msg;
+            errorEl.style.display = 'block';
+            errorEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+    });
+
+    // ═══ TRABALHE CONOSCO — ENVIO REAL ═══
+    const API_ENDPOINT = '/api/send-cv.php';
+
+    document.getElementById('trabalhe-form').addEventListener('submit', async function(e) {
         e.preventDefault();
-        document.getElementById('trabalhe-success').style.display = 'block';
-        const label = document.getElementById('file-label');
-        label.querySelector('.file-upload-main').textContent = 'Anexar Currículo';
-        label.querySelector('.file-upload-sub').textContent = 'PDF, DOC ou DOCX · máx. 5MB';
-        e.target.reset();
-    }
+
+        const form = this;
+        const btn = document.getElementById('btn-submit');
+        const successEl = document.getElementById('trabalhe-success');
+        const errorEl = document.getElementById('trabalhe-error');
+        const errorText = document.getElementById('error-text');
+
+        successEl.style.display = 'none';
+        errorEl.style.display = 'none';
+
+        const fileInput = document.getElementById('cv-file');
+        if (!fileInput.files || !fileInput.files[0]) {
+            showError('Anexe seu currículo em PDF.');
+            return;
+        }
+        const file = fileInput.files[0];
+        if (file.type !== 'application/pdf') {
+            showError('Apenas arquivos PDF são aceitos.');
+            return;
+        }
+        if (file.size > 5 * 1024 * 1024) {
+            showError('Arquivo excede 5MB.');
+            return;
+        }
+
+        const nome = form.querySelector('[name="nome"]').value.trim();
+        const telefone = form.querySelector('[name="telefone"]').value.trim();
+        const email = form.querySelector('[name="email"]').value.trim();
+        const cargo = form.querySelector('[name="cargo"]').value;
+        const unidade = form.querySelector('[name="unidade"]').value;
+        const experiencia = form.querySelector('[name="experiencia"]').value.trim();
+
+        if (!nome || !telefone || !email || !cargo || !unidade || !experiencia) {
+            showError('Preencha todos os campos obrigatórios.');
+            return;
+        }
+
+        btn.disabled = true;
+        btn.innerHTML = '<span class="spinner"></span> Enviando...';
+
+        try {
+            const formData = new FormData(form);
+            const response = await fetch(API_ENDPOINT, { method: 'POST', body: formData });
+            const result = await response.json();
+
+            if (result.success) {
+                successEl.style.display = 'block';
+                form.reset();
+                const label = document.getElementById('file-label');
+                label.querySelector('.file-upload-main').textContent = 'Anexar Currículo';
+                label.querySelector('.file-upload-sub').textContent = 'Apenas PDF · máx. 5MB';
+                form.querySelector('[name="_ts"]').value = Date.now().toString();
+                successEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            } else {
+                showError(result.message || 'Erro ao enviar. Tente novamente.');
+            }
+        } catch (err) {
+            console.error('Erro:', err);
+            showError('Falha na conexão. Verifique sua internet e tente novamente.');
+        } finally {
+            btn.disabled = false;
+            btn.innerHTML = '<i class="fas fa-paper-plane"></i> Enviar Candidatura';
+        }
+
+        function showError(msg) {
+            errorText.textContent = msg;
+            errorEl.style.display = 'block';
+            errorEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+    });
+
+    // Setar timestamp nos forms ao carregar a página
+    document.querySelectorAll('[name="_ts"]').forEach(function(el) { el.value = Date.now().toString(); });
 
     function handleNewsletter(e) {
         e.preventDefault();

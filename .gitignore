@@ -1,0 +1,37 @@
+# ─── Configurações sensíveis ───────────────────────────────────────────────
+config.php
+.env
+.env.local
+
+# ─── Logs ───────────────────────────────────────────────────────────────────
+logs/
+*.log
+
+# ─── Arquivos de diagnóstico (remover antes do deploy) ──────────────────────
+diagnostico.php
+
+# ─── Backups e arquivos temporários ─────────────────────────────────────────
+.htaccess_1
+.htaccess_2
+*.bak
+*.tmp
+*.swp
+
+# ─── Documentação interna (cliente) ─────────────────────────────────────────
+documentação.docx
+*.docx
+
+# ─── Referências PHPMailer (não são arquivos de código ativos) ───────────────
+PHPMailer.php.txt
+SMTP.php.txt
+Exception.php.txt
+
+# ─── Ferramentas de desenvolvimento local ───────────────────────────────────
+.claude/
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# ─── Dependências (se usar Composer no futuro) ───────────────────────────────
+vendor/
+composer.lock

@@ -1,18 +1,66 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- ================================================== -->
+    <!-- Google Tag Manager                                  -->
+    <!-- INSTRUÇÃO: substitua GTM-KQ3JKRLQ pelo seu ID real  -->
+    <!-- Obtenha em: tagmanager.google.com                   -->
+    <!-- ================================================== -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-KQ3JKRLQ');</script>
+    <!-- End Google Tag Manager -->
+
+    <!-- Google tag (gtag.js) - GA4 | ID: G-9W89EVEE5J | Fluxo: 14388183028 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-9W89EVEE5J"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-9W89EVEE5J');
+    </script>
+    <!-- Eventos customizados: WhatsApp + Telefone -->
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        document.querySelectorAll('a[href*="wa.me"], a[href*="whatsapp"]').forEach(function(link) {
+          link.addEventListener('click', function() {
+            var unit = 'desconhecida';
+            var href = this.href || '';
+            if (href.includes('94747')) unit = 'blindados';
+            else if (href.includes('99213')) unit = 'mecanica';
+            else if (href.includes('97728')) unit = 'funilaria';
+            gtag('event', 'whatsapp_click', {
+              'event_category': 'conversao',
+              'event_label': unit,
+              'value': 1
+            });
+          });
+        });
+        document.querySelectorAll('a[href^="tel:"]').forEach(function(link) {
+          link.addEventListener('click', function() {
+            gtag('event', 'phone_click', {
+              'event_category': 'conversao',
+              'event_label': this.href
+            });
+          });
+        });
+      });
+    </script>
+
 
     <!-- ─── SEO ─── -->
     <title>Motor | Mecânica Especializada em Motores | Grupo Automotivo Prost</title>
     <meta name="description" content="Revisão, diagnóstico, troca de óleo e reparos de motor em São Paulo. Equipe especializada, equipamentos de última geração. Oficina Prost no Pacaembú.">
     <meta name="robots" content="index, follow">
-    <link rel="canonical" href="https://grupoprost.com.br/mecanica/motor">
+    <link rel="canonical" href="https://www.grupoprost.com.br/mecanica/motor">
 
     <!-- ─── OPEN GRAPH ─── -->
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://grupoprost.com.br/mecanica/motor">
+    <meta property="og:url" content="https://www.grupoprost.com.br/mecanica/motor">
     <meta property="og:title" content="Serviços de Motor | Grupo Automotivo Prost">
     <meta property="og:description" content="Revisão, diagnóstico eletrônico, troca de óleo e reparos completos de motor em São Paulo. 30+ anos de experiência.">
     <meta property="og:locale" content="pt_BR">
@@ -26,16 +74,16 @@
           "@type": "Service",
           "name": "Serviços de Motor Automotivo",
           "description": "Revisão de motor, troca de óleo e filtros, diagnóstico eletrônico, inspeção do sistema de arrefecimento e injeção eletrônica.",
-          "provider": { "@type": "AutoRepair", "name": "Grupo Automotivo Prost – Mecânica", "url": "https://grupoprost.com.br" },
+          "provider": { "@type": "AutoRepair", "name": "Grupo Automotivo Prost – Mecânica", "url": "https://www.grupoprost.com.br" },
           "areaServed": { "@type": "City", "name": "São Paulo" },
           "serviceType": "Mecânica Automotiva – Motor"
         },
         {
           "@type": "BreadcrumbList",
           "itemListElement": [
-            { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://grupoprost.com.br/" },
-            { "@type": "ListItem", "position": 2, "name": "Mecânica", "item": "https://grupoprost.com.br/mecanica" },
-            { "@type": "ListItem", "position": 3, "name": "Motor", "item": "https://grupoprost.com.br/mecanica/motor" }
+            { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.grupoprost.com.br/" },
+            { "@type": "ListItem", "position": 2, "name": "Mecânica", "item": "https://www.grupoprost.com.br/mecanica" },
+            { "@type": "ListItem", "position": 3, "name": "Motor", "item": "https://www.grupoprost.com.br/mecanica/motor" }
           ]
         }
       ]
@@ -999,6 +1047,11 @@
     </style>
 </head>
 <body>
+    <!-- Google Tag Manager (noscript) -->
+    <!-- INSTRUÇÃO: substitua GTM-KQ3JKRLQ pelo seu ID real  -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KQ3JKRLQ"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
 
 <!-- ════════════════════════════════════════════════════════
      HEADER (componente reutilizável)
@@ -1062,7 +1115,7 @@
 <section id="page-hero">
     <div class="page-hero-bg"></div>
     <img
-        src="images/bmw/pexels-leon-983434-6920503.jpg"
+        src="images/motor/3_-_Motor_-_Entrada_bw.avif"
         alt="Motor automotivo de alta performance"
         class="page-hero-img"
         loading="eager"
@@ -1077,7 +1130,7 @@
             Revisão, diagnóstico eletrônico, troca de óleo e reparos completos. Equipe especializada e equipamentos de última geração no Pacaembú.
         </p>
         <div class="page-hero-actions">
-            <a href="https://api.whatsapp.com/send?phone=5511992139135&text=Olá!%20Gostaria%20de%20agendar%20um%20serviço%20de%20motor."
+            <a href="https://api.whatsapp.com/send?phone=5511976410925&text=Olá!%20Gostaria%20de%20agendar%20um%20serviço%20de%20motor."
                target="_blank" class="btn-whatsapp">
                 <i class="fab fa-whatsapp"></i> Agendar pelo WhatsApp
             </a>
@@ -1126,7 +1179,7 @@
         <!-- 01 Revisão de Motor -->
         <div class="sub-service reveal">
             <div class="sub-service-img">
-                <img src="images/mercedes/pexels-pixabay-163774.jpg"
+                <img src="images/motor/4_-_Motor_-_Revisao_bw.avif"
                      alt="Revisão de motor — Mecânica Prost" loading="lazy">
                 <div class="sub-service-img-overlay"></div>
             </div>
@@ -1149,7 +1202,7 @@
         <!-- 02 Troca de Óleo -->
         <div class="sub-service reverse reveal">
             <div class="sub-service-img">
-                <img src="images/bmw/pexels-mikebirdy-100653.jpg"
+                <img src="images/motor/5_-_Motor_-_Troca_de_Oleo_bw.avif"
                      alt="Troca de óleo e filtros — Mecânica Prost" loading="lazy">
                 <div class="sub-service-img-overlay"></div>
             </div>
@@ -1170,7 +1223,7 @@
         <!-- 03 Diagnóstico Eletrônico -->
         <div class="sub-service reveal">
             <div class="sub-service-img">
-                <img src="images/mercedes/pexels-ishankulshrestha69-7662147.jpg"
+                <img src="images/motor/6_-_Motor_-_Diagnostico_e_Reparo_Eletronico_bw.avif"
                      alt="Diagnóstico eletrônico de motor — Mecânica Prost" loading="lazy">
                 <div class="sub-service-img-overlay"></div>
             </div>
@@ -1192,7 +1245,7 @@
         <!-- 04 Arrefecimento -->
         <div class="sub-service reverse reveal">
             <div class="sub-service-img">
-                <img src="images/volvo/pexels-mikebirdy-4259350.jpg"
+                <img src="images/motor/7_-_Motor_-_Sistema_de_Arrefecimento_bw.avif"
                      alt="Sistema de arrefecimento do motor — Mecânica Prost" loading="lazy">
                 <div class="sub-service-img-overlay"></div>
             </div>
@@ -1214,7 +1267,7 @@
         <!-- 05 Injeção Eletrônica -->
         <div class="sub-service reveal">
             <div class="sub-service-img">
-                <img src="images/bmw/pexels-mikebirdy-170811.jpg"
+                <img src="images/motor/8_-_Injecao_Eletronica_de_Combustivel_bw.avif"
                      alt="Regulagem de injeção eletrônica — Mecânica Prost" loading="lazy">
                 <div class="sub-service-img-overlay"></div>
             </div>
@@ -1278,10 +1331,10 @@
         <div class="cta-band-text">
             <div class="cta-band-tag">Agende Agora</div>
             <div class="cta-band-title">Seu Motor Merece<br>o Melhor Cuidado</div>
-            <p class="cta-band-sub">Av. Pacaembú, 1306 — Pacaembú, São Paulo · (11) 99213-9135</p>
+            <p class="cta-band-sub">Av. Pacaembú, 1306 — Pacaembú, São Paulo · (11) 97641-0925</p>
         </div>
         <div class="cta-band-actions">
-            <a href="https://api.whatsapp.com/send?phone=5511992139135&text=Olá!%20Gostaria%20de%20agendar%20um%20serviço%20de%20motor."
+            <a href="https://api.whatsapp.com/send?phone=5511976410925&text=Olá!%20Gostaria%20de%20agendar%20um%20serviço%20de%20motor."
                target="_blank" class="btn-dark">
                 <i class="fab fa-whatsapp"></i> WhatsApp
             </a>
@@ -1365,7 +1418,7 @@
             <div class="footer-col-title">Contato</div>
             <div class="footer-links">
                 <a href="tel:+5511947477869">Blindados: (11) 94747-7869</a>
-                <a href="tel:+5511992139135">Mecânica: (11) 99213-9135</a>
+                <a href="tel:+5511976410925">Mecânica: (11) 97641-0925</a>
                 <a href="tel:+5511977280908">Funilaria: (11) 97728-0908</a>
                 <a href="https://api.whatsapp.com/send?phone=5511947477869" target="_blank">WhatsApp</a>
                 <a href="/contato">Formulário de Contato</a>
@@ -1379,7 +1432,7 @@
 </footer>
 
 <!-- ── FLOAT BUTTONS ── -->
-<a href="https://api.whatsapp.com/send?phone=5511992139135" target="_blank"
+<a href="https://api.whatsapp.com/send?phone=5511976410925" target="_blank"
    class="whatsapp-float" aria-label="WhatsApp Mecânica Prost">
     <i class="fab fa-whatsapp"></i>
 </a>

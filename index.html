@@ -1,8 +1,56 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- ================================================== -->
+    <!-- Google Tag Manager                                  -->
+    <!-- INSTRUÇÃO: substitua GTM-KQ3JKRLQ pelo seu ID real  -->
+    <!-- Obtenha em: tagmanager.google.com                   -->
+    <!-- ================================================== -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-KQ3JKRLQ');</script>
+    <!-- End Google Tag Manager -->
+
+    <!-- Google tag (gtag.js) - GA4 | ID: G-9W89EVEE5J | Fluxo: 14388183028 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-9W89EVEE5J"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-9W89EVEE5J');
+    </script>
+    <!-- Eventos customizados: WhatsApp + Telefone -->
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        document.querySelectorAll('a[href*="wa.me"], a[href*="whatsapp"]').forEach(function(link) {
+          link.addEventListener('click', function() {
+            var unit = 'desconhecida';
+            var href = this.href || '';
+            if (href.includes('94747')) unit = 'blindados';
+            else if (href.includes('99213')) unit = 'mecanica';
+            else if (href.includes('97728')) unit = 'funilaria';
+            gtag('event', 'whatsapp_click', {
+              'event_category': 'conversao',
+              'event_label': unit,
+              'value': 1
+            });
+          });
+        });
+        document.querySelectorAll('a[href^="tel:"]').forEach(function(link) {
+          link.addEventListener('click', function() {
+            gtag('event', 'phone_click', {
+              'event_category': 'conversao',
+              'event_label': this.href
+            });
+          });
+        });
+      });
+    </script>
+
     <title>Grupo Automotivo Prost | Mecânica, Funilaria e Blindagem em São Paulo</title>
 
     <!-- ─── SEO BÁSICO ─── -->
@@ -75,7 +123,7 @@
           "@type": "AutoRepair",
           "@id": "https://www.grupoprost.com.br/#mecanica",
           "name": "Grupo Automotivo Prost – Mecânica",
-          "telephone": "+55-11-99213-9135",
+          "telephone": "+55-11-97641-0925",
           "address": {
             "@type": "PostalAddress",
             "streetAddress": "Av. Pacaembú, 1306",
@@ -1706,6 +1754,11 @@
     </style>
 </head>
 <body>
+    <!-- Google Tag Manager (noscript) -->
+    <!-- INSTRUÇÃO: substitua GTM-KQ3JKRLQ pelo seu ID real  -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KQ3JKRLQ"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
 
 <!-- ─── HEADER ─── -->
 <header id="site-header">
@@ -1762,7 +1815,7 @@
 <!-- ─── HERO ─── -->
 <section id="hero">
     <div class="hero-bg"></div>
-    <img src="images/bmw/pexels-mikebirdy-898336.jpg"
+    <img src="images/index/1_-_Index_-_Imagem_Entrada_bw.avif"
          alt="Carro Prost" class="hero-car-img">
     <div class="hero-content">
         <div class="hero-badge"><span></span> Grupo Automotivo Prost</div>
@@ -1804,7 +1857,7 @@
 <section id="about">
     <div class="about-grid">
         <div class="about-image-wrap reveal">
-            <img src="images/mercedes/pexels-pixabay-164634.jpg" alt="Oficina Prost">
+            <img src="images/index/2_-_pexels-pixabay-164634.avif" alt="Oficina Prost">
             <div class="about-badge-img">
                 <span>10</span>
                 <span>Anos</span>
@@ -1957,8 +2010,8 @@
                 <div class="unit-address">
                     <span><i class="fas fa-map-marker-alt"></i> Av. Pacaembú, 1306<br>Pacaembú, São Paulo – SP 01234-000</span>
                 </div>
-                <a href="tel:+5511992139135" class="unit-phone"><i class="fab fa-whatsapp"></i>(11) 99213-9135</a>
-                <a href="https://api.whatsapp.com/send?phone=5511992139135" target="_blank" class="btn-schedule">
+                <a href="tel:+5511976410925" class="unit-phone"><i class="fab fa-whatsapp"></i>(11) 97641-0925</a>
+                <a href="https://api.whatsapp.com/send?phone=5511976410925" target="_blank" class="btn-schedule">
                     <i class="fab fa-whatsapp"></i> Agendar via WhatsApp
                 </a>
             </div>
@@ -2092,61 +2145,53 @@
             <h2 class="section-title">Agendar<br><em>Serviço</em></h2>
             <div class="gold-line"></div>
 
-            <form id="contact-form" novalidate onsubmit="handleForm(event)">
+            <form id="contact-form" onsubmit="handleForm(event)">
                 <div class="form-row">
                     <div class="form-group">
-                        <label for="cf-nome">Nome</label>
-                        <input id="cf-nome" name="nome" type="text" placeholder="Seu nome completo"
-                               required minlength="2" maxlength="80" autocomplete="name">
+                        <label>Nome</label>
+                        <input id="cf-nome" type="text" placeholder="Seu nome completo" required>
                     </div>
                     <div class="form-group">
-                        <label for="cf-telefone">Telefone</label>
-                        <input id="cf-telefone" name="telefone" type="tel" placeholder="(11) 99999-9999"
-                               required minlength="10" maxlength="20" autocomplete="tel"
-                               inputmode="numeric">
+                        <label>Telefone</label>
+                        <input id="cf-telefone" type="tel" placeholder="(11) 99999-9999">
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="cf-email">E-mail</label>
-                    <input id="cf-email" name="email" type="email" placeholder="seu@email.com"
-                           maxlength="120" autocomplete="email">
+                    <label>E-mail</label>
+                    <input id="cf-email" type="email" placeholder="seu@email.com">
                 </div>
                 <div class="form-group">
-                    <label for="cf-unidade">Unidade</label>
-                    <select id="cf-unidade" name="unidade" required>
+                    <label>Unidade</label>
+                    <select id="cf-unidade" required>
                         <option value="">Selecione a unidade</option>
-                        <option value="blindados">Prost Blindados – Pinheiros</option>
-                        <option value="mecanica">Prost Mecânica – Pacaembú</option>
-                        <option value="funilaria">Prost Funilaria – Barra Funda</option>
+                        <option value="5511947477869|Prost Blindados – Pinheiros">Prost Blindados – Pinheiros</option>
+                        <option value="5511976410925|Prost Mecânica – Pacaembú">Prost Mecânica – Pacaembú</option>
+                        <option value="5511977280908|Prost Funilaria – Barra Funda">Prost Funilaria – Barra Funda</option>
                     </select>
                 </div>
                 <div class="form-group">
-                    <label for="cf-servico">Serviço Desejado</label>
-                    <select id="cf-servico" name="servico" required>
-                        <option value="">Selecione a unidade primeiro</option>
+                    <label>Serviço Desejado</label>
+                    <select id="cf-servico" required>
+                        <option value="">Selecione o serviço</option>
+                        <option>Mecânica Geral</option>
+                        <option>Motor</option>
+                        <option>Câmbio Automático</option>
+                        <option>Suspensão</option>
+                        <option>Freios</option>
+                        <option>Escapamento</option>
+                        <option>Funilaria e Pintura</option>
+                        <option>Restauração</option>
+                        <option>Estética Automotiva</option>
+                        <option>Blindagem</option>
                     </select>
                 </div>
                 <div class="form-group">
-                    <label for="cf-mensagem">Mensagem</label>
-                    <textarea id="cf-mensagem" name="mensagem" rows="4" maxlength="500"
-                              placeholder="Descreva o problema ou serviço desejado..."></textarea>
+                    <label>Mensagem</label>
+                    <textarea id="cf-mensagem" rows="4" placeholder="Descreva o problema ou serviço desejado..."></textarea>
                 </div>
-
-                <!-- Honeypot anti-bot: invisível para humanos -->
-                <div aria-hidden="true"
-                     style="position:absolute;left:-9999px;top:-9999px;width:1px;height:1px;overflow:hidden;">
-                    <label>Website
-                        <input type="text" name="website" tabindex="-1" autocomplete="off">
-                    </label>
-                </div>
-
-                <button type="submit" id="cf-submit" class="btn-primary" style="width:100%;justify-content:center;">
-                    <i class="fab fa-whatsapp"></i> <span>Enviar via WhatsApp</span>
+                <button type="submit" class="btn-primary" style="width:100%;justify-content:center;">
+                    <i class="fab fa-whatsapp"></i> Agendar via WhatsApp
                 </button>
-                <p id="form-error" role="alert" style="display:none;color:#ff6b6b;margin-top:12px;font-size:14px;"></p>
-                <p id="form-success" style="display:none;color:var(--gold);margin-top:12px;font-size:14px;">
-                    ✓ Abrindo WhatsApp... Se não abrir automaticamente, verifique o bloqueio de pop-ups.
-                </p>
             </form>
         </div>
 
@@ -2167,7 +2212,7 @@
                 <div class="contact-item-icon"><i class="fas fa-wrench"></i></div>
                 <div class="contact-item-text">
                     <div class="contact-item-label">Mecânica</div>
-                    <div class="contact-item-value">Av. Pacaembú, 1306<br>Pacaembú – SP 01234-000<br><a href="tel:+5511992139135">(11) 99213-9135</a></div>
+                    <div class="contact-item-value">Av. Pacaembú, 1306<br>Pacaembú – SP 01234-000<br><a href="tel:+5511976410925">(11) 97641-0925</a></div>
                 </div>
             </div>
             <div class="contact-item">
@@ -2248,7 +2293,7 @@
             <div class="footer-col-title">Contato Rápido</div>
             <div class="footer-links">
                 <a href="tel:+5511947477869">Blindados: (11) 94747-7869</a>
-                <a href="tel:+5511992139135">Mecânica: (11) 99213-9135</a>
+                <a href="tel:+5511976410925">Mecânica: (11) 97641-0925</a>
                 <a href="tel:+5511977280908">Funilaria: (11) 97728-0908</a>
                 <a href="https://api.whatsapp.com/send?phone=5511947477869" target="_blank">WhatsApp</a>
             </div>
@@ -2333,201 +2378,28 @@
     reveals.forEach(r => observer.observe(r));
 
     // ─── FORMULÁRIO DE CONTATO ───────────────────────────────────────────────
-    // PENDENTE: integração com Wix Forms.
-    // ═══════════════════════════════════════════════════════════════
-    // AGENDAMENTO VIA WHATSAPP (wa.me)
-    // Arquitetura: form → validação client-side → wa.me com texto pré-preenchido
-    // ═══════════════════════════════════════════════════════════════
-    const PROST_UNIDADES = {
-        blindados: {
-            nome: 'Prost Blindados — Pinheiros',
-            whatsapp: '5511947477869',
-            servicos: [
-                'Blindagem Nível III-A',
-                'Blindagem Nível III',
-                'Blindagem Nível IV',
-                'Blindagem VIP / Customizada',
-                'Manutenção de Blindagem',
-                'Outro / Dúvida Geral'
-            ]
-        },
-        mecanica: {
-            nome: 'Prost Mecânica — Pacaembú',
-            whatsapp: '5511992139135',
-            servicos: [
-                'Mecânica Geral',
-                'Motor',
-                'Câmbio Automático',
-                'Suspensão',
-                'Freios',
-                'Escapamento',
-                'Outro / Dúvida Geral'
-            ]
-        },
-        funilaria: {
-            nome: 'Prost Funilaria — Barra Funda',
-            whatsapp: '5511977280908',
-            servicos: [
-                'Funilaria e Pintura',
-                'Restauração de Veículos',
-                'Estética Automotiva',
-                'Polimento Técnico',
-                'Outro / Dúvida Geral'
-            ]
-        }
-    };
-
-    // Popula serviços conforme unidade selecionada
-    (function setupUnidadeServicoLink() {
-        const unidadeEl = document.getElementById('cf-unidade');
-        const servicoEl = document.getElementById('cf-servico');
-        if (!unidadeEl || !servicoEl) return;
-
-        unidadeEl.addEventListener('change', () => {
-            const u = PROST_UNIDADES[unidadeEl.value];
-            servicoEl.innerHTML = '';
-            if (!u) {
-                servicoEl.innerHTML = '<option value="">Selecione a unidade primeiro</option>';
-                return;
-            }
-            servicoEl.insertAdjacentHTML('beforeend', '<option value="">Selecione o serviço</option>');
-            u.servicos.forEach(s => {
-                const opt = document.createElement('option');
-                opt.value = s;
-                opt.textContent = s;
-                servicoEl.appendChild(opt);
-            });
-        });
-    })();
-
-    // Helpers
-    function sanitizeText(v, max) {
-        return String(v || '').trim().replace(/[\u0000-\u001F\u007F]/g, '').slice(0, max);
-    }
-    function normalizePhoneBR(v) {
-        const digits = String(v || '').replace(/\D/g, '');
-        // Aceita 10-13 dígitos (com ou sem DDI 55)
-        if (digits.length < 10 || digits.length > 13) return null;
-        return digits;
-    }
-    function isValidEmail(v) {
-        if (!v) return true; // opcional
-        return /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v) && v.length <= 120;
-    }
-
-    // Rate limit local (evita flood do mesmo navegador)
-    function checkLocalRateLimit() {
-        const KEY = 'prost_last_submit';
-        const last = parseInt(sessionStorage.getItem(KEY) || '0', 10);
-        const now = Date.now();
-        if (now - last < 10000) return false; // 10s entre envios
-        sessionStorage.setItem(KEY, String(now));
-        return true;
-    }
-
-    function showFormError(msg) {
-        const el = document.getElementById('form-error');
-        if (!el) return;
-        el.textContent = msg;
-        el.style.display = 'block';
-        setTimeout(() => { el.style.display = 'none'; }, 6000);
-    }
-
-    function buildWhatsAppMessage(data, unidadeNome) {
-        const lines = [
-            '*Novo contato — Site Grupo Prost*',
-            `*Unidade:* ${unidadeNome}`,
-            '',
-            `*Nome:* ${data.nome}`,
-            `*Telefone:* ${data.telefone}`,
-        ];
-        if (data.email) lines.push(`*Email:* ${data.email}`);
-        lines.push(`*Serviço:* ${data.servico}`);
-        if (data.mensagem) {
-            lines.push('');
-            lines.push(`*Mensagem:*`);
-            lines.push(data.mensagem);
-        }
-        return lines.join('\n');
-    }
-
     function handleForm(e) {
         e.preventDefault();
-        const form = e.target;
-        const btn = document.getElementById('cf-submit');
 
-        // 1. Honeypot
-        if (form.website && form.website.value) {
-            // bot detectado: simula sucesso sem fazer nada
-            return;
-        }
+        const unidadeVal = document.getElementById('cf-unidade').value;
+        const [phone, unidadeNome] = unidadeVal.split('|');
 
-        // 2. Rate limit local
-        if (!checkLocalRateLimit()) {
-            showFormError('Aguarde alguns segundos antes de enviar novamente.');
-            return;
-        }
+        const nome     = document.getElementById('cf-nome').value.trim();
+        const telefone = document.getElementById('cf-telefone').value.trim();
+        const email    = document.getElementById('cf-email').value.trim();
+        const servico  = document.getElementById('cf-servico').value;
+        const mensagem = document.getElementById('cf-mensagem').value.trim();
 
-        // 3. Coleta e sanitização
-        const raw = {
-            nome: sanitizeText(form.nome.value, 80),
-            telefone: sanitizeText(form.telefone.value, 20),
-            email: sanitizeText(form.email.value, 120),
-            unidade: form.unidade.value,
-            servico: sanitizeText(form.servico.value, 60),
-            mensagem: sanitizeText(form.mensagem.value, 500)
-        };
+        let texto = `Olá! Gostaria de agendar um serviço na *${unidadeNome}*.\n\n`;
+        texto += `*Nome:* ${nome}\n`;
+        if (telefone) texto += `*Telefone:* ${telefone}\n`;
+        if (email)    texto += `*E-mail:* ${email}\n`;
+        texto += `*Serviço:* ${servico}\n`;
+        if (mensagem) texto += `\n*Mensagem:* ${mensagem}`;
 
-        // 4. Validação
-        if (raw.nome.length < 2) return showFormError('Informe seu nome completo.');
-        const phone = normalizePhoneBR(raw.telefone);
-        if (!phone) return showFormError('Telefone inválido. Use DDD + número.');
-        if (!isValidEmail(raw.email)) return showFormError('E-mail inválido.');
-
-        const unidade = PROST_UNIDADES[raw.unidade];
-        if (!unidade) return showFormError('Selecione uma unidade.');
-        if (!raw.servico || !unidade.servicos.includes(raw.servico)) {
-            return showFormError('Selecione um serviço válido para a unidade escolhida.');
-        }
-
-        // 5. Monta mensagem e URL wa.me
-        const data = {
-            nome: raw.nome,
-            telefone: phone,
-            email: raw.email,
-            servico: raw.servico,
-            mensagem: raw.mensagem
-        };
-        const msg = buildWhatsAppMessage(data, unidade.nome);
-        const waUrl = `https://wa.me/${unidade.whatsapp}?text=${encodeURIComponent(msg)}`;
-
-        // 6. Feedback UX e redirecionamento
-        btn.disabled = true;
-        btn.querySelector('span').textContent = 'Abrindo WhatsApp...';
-        document.getElementById('form-success').style.display = 'block';
-
-        // Analytics (se GA/Meta Pixel estiverem presentes)
-        try {
-            if (typeof gtag === 'function') {
-                gtag('event', 'generate_lead', {
-                    unidade: raw.unidade,
-                    servico: raw.servico
-                });
-            }
-            if (typeof fbq === 'function') fbq('track', 'Lead');
-        } catch (_) {}
-
-        // Abre em nova aba para não perder o site
-        window.open(waUrl, '_blank', 'noopener');
-
-        // Reset após 2s
-        setTimeout(() => {
-            form.reset();
-            btn.disabled = false;
-            btn.querySelector('span').textContent = 'Enviar via WhatsApp';
-            document.getElementById('cf-servico').innerHTML =
-                '<option value="">Selecione a unidade primeiro</option>';
-        }, 2000);
+        const url = `https://api.whatsapp.com/send?phone=${phone}&text=${encodeURIComponent(texto)}`;
+        window.open(url, '_blank');
+        e.target.reset();
     }
 
     function handleNewsletter(e) {

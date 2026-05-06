@@ -1,14 +1,62 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- ================================================== -->
+    <!-- Google Tag Manager                                  -->
+    <!-- INSTRUÇÃO: substitua GTM-KQ3JKRLQ pelo seu ID real  -->
+    <!-- Obtenha em: tagmanager.google.com                   -->
+    <!-- ================================================== -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-KQ3JKRLQ');</script>
+    <!-- End Google Tag Manager -->
+
+    <!-- Google tag (gtag.js) - GA4 | ID: G-9W89EVEE5J | Fluxo: 14388183028 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-9W89EVEE5J"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-9W89EVEE5J');
+    </script>
+    <!-- Eventos customizados: WhatsApp + Telefone -->
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        document.querySelectorAll('a[href*="wa.me"], a[href*="whatsapp"]').forEach(function(link) {
+          link.addEventListener('click', function() {
+            var unit = 'desconhecida';
+            var href = this.href || '';
+            if (href.includes('94747')) unit = 'blindados';
+            else if (href.includes('99213')) unit = 'mecanica';
+            else if (href.includes('97728')) unit = 'funilaria';
+            gtag('event', 'whatsapp_click', {
+              'event_category': 'conversao',
+              'event_label': unit,
+              'value': 1
+            });
+          });
+        });
+        document.querySelectorAll('a[href^="tel:"]').forEach(function(link) {
+          link.addEventListener('click', function() {
+            gtag('event', 'phone_click', {
+              'event_category': 'conversao',
+              'event_label': this.href
+            });
+          });
+        });
+      });
+    </script>
+
     <title>Câmbio Automático | Especialistas em CVT e Automático | Grupo Automotivo Prost</title>
     <meta name="description" content="Revisão, troca de óleo e reparos em câmbios automáticos e CVT em São Paulo. Especialistas em todas as marcas. Prost Mecânica no Pacaembú.">
     <meta name="robots" content="index, follow">
-    <link rel="canonical" href="https://grupoprost.com.br/mecanica/cambio">
+    <link rel="canonical" href="https://www.grupoprost.com.br/mecanica/cambio">
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://grupoprost.com.br/mecanica/cambio">
+    <meta property="og:url" content="https://www.grupoprost.com.br/mecanica/cambio">
     <meta property="og:title" content="Câmbio Automático | Grupo Automotivo Prost">
     <meta property="og:description" content="Revisão, troca de óleo e reparos em câmbios automáticos e CVT em São Paulo. Especialistas em todas as marcas. Prost Mecânica no Pacaembú.">
     <meta property="og:locale" content="pt_BR">
@@ -20,7 +68,7 @@
           "@type": "Service",
           "name": "Serviços de Câmbio Automático",
           "description": "Revisão, diagnóstico eletrônico, troca de óleo ATF e reparos em câmbios automáticos e CVT para todas as marcas.",
-          "provider": {"@type": "AutoRepair", "name": "Grupo Automotivo Prost – Mecânica", "url": "https://grupoprost.com.br"},
+          "provider": {"@type": "AutoRepair", "name": "Grupo Automotivo Prost – Mecânica", "url": "https://www.grupoprost.com.br"},
           "areaServed": {"@type": "City", "name": "São Paulo"},
           "serviceType": "Mecânica Automotiva"
         }
@@ -983,11 +1031,17 @@
     </style>
 </head>
 <body>
+    <!-- Google Tag Manager (noscript) -->
+    <!-- INSTRUÇÃO: substitua GTM-KQ3JKRLQ pelo seu ID real  -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KQ3JKRLQ"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+
 <body>
 
 <!-- ════════════════════════════════════════════════════════
      HEADER (componente reutilizável)
-════════════════════════════════════════════════════════ -->
+═══════════════════════════════════════════════════════ -->
 <header id="site-header">
     <a href="index.html" class="logo-area">
         <img src="prost-logo-removebg-preview.png" alt="Grupo Automotivo Prost">
@@ -1045,7 +1099,7 @@
 <!-- PAGE HERO -->
 <section id="page-hero">
     <div class="page-hero-bg"></div>
-    <img src="images/bmw/pexels-pixabay-207600.jpg" alt="BMW Series automático — Câmbio especializado Prost" class="page-hero-img" loading="eager">
+    <img src="images/cambio/9_-_cambio_autmoatico_entrada_bw.avif" alt="BMW Series automático — Câmbio especializado Prost" class="page-hero-img" loading="eager">
     <div class="page-hero-content">
         <div class="page-hero-tag">Mecânica Especializada</div>
         <h1 class="page-hero-title">
@@ -1054,7 +1108,7 @@
         </h1>
         <p class="page-hero-sub">Diagnóstico eletrônico preciso, troca de óleo ATF e reparos em câmbios automáticos e CVT. Todas as marcas, no Pacaembú.</p>
         <div class="page-hero-actions">
-            <a href="https://api.whatsapp.com/send?phone=5511992139135&text=Olá!%20Gostaria%20de%20agendar%20um%20serviço%20de%20câmbio%20automático."
+            <a href="https://api.whatsapp.com/send?phone=5511976410925&text=Olá!%20Gostaria%20de%20agendar%20um%20serviço%20de%20câmbio%20automático."
                target="_blank" class="btn-whatsapp">
                 <i class="fab fa-whatsapp"></i> Agendar pelo WhatsApp
             </a>
@@ -1095,7 +1149,7 @@
         <!-- 01 Revisão do Câmbio Automático -->
         <div class="sub-service reveal">
             <div class="sub-service-img">
-                <img src="images/mercedes/pexels-mikebirdy-4223875.jpg"
+                <img src="images/cambio/10_-_Revisao_do_Cambio_bw.avif"
                      alt="Mercedes interior câmbio automático — Prost" loading="lazy">
                 <div class="sub-service-img-overlay"></div>
             </div>
@@ -1118,7 +1172,7 @@
         <!-- 02 Troca de Óleo ATF -->
         <div class="sub-service reverse reveal">
             <div class="sub-service-img">
-                <img src="images/volvo/pexels-matt-jerome-connor-1428905-14242298.jpg"
+                <img src="images/cambio/11_-_troca_oleo_cambio_bw.avif"
                      alt="Troca de óleo ATF câmbio automático — Prost Mecânica" loading="lazy">
                 <div class="sub-service-img-overlay"></div>
             </div>
@@ -1140,7 +1194,7 @@
         <!-- 03 Diagnóstico e Reparo Eletrônico -->
         <div class="sub-service reveal">
             <div class="sub-service-img">
-                <img src="images/bmw/pexels-mikebirdy-898336.jpg"
+                <img src="images/cambio/12_-_diagnostico_e_reparo_eletronico_bw.avif"
                      alt="Diagnóstico eletrônico câmbio BMW — Prost" loading="lazy">
                 <div class="sub-service-img-overlay"></div>
             </div>
@@ -1161,8 +1215,8 @@
         <!-- 04 CVT, DSG e PDK -->
         <div class="sub-service reverse reveal">
             <div class="sub-service-img">
-                <img src="images/volvo/pexels-ahammad-nihal-130702-7506654.jpg"
-                     alt="Volvo interior câmbio CVT — Prost Mecânica" loading="lazy">
+                <img src="images/cambio/13_-_Cambio_CVT__DSG_e_PDK_bw.avif"
+                     alt="Câmbio CVT, DSG e PDK — Prost Mecânica" loading="lazy">
                 <div class="sub-service-img-overlay"></div>
             </div>
             <div class="sub-service-content">
@@ -1219,10 +1273,10 @@
         <div class="cta-band-text">
             <div class="cta-band-tag">Agende Agora</div>
             <div class="cta-band-title">Seu Câmbio Merece<br>Cuidado Especializado</div>
-            <p class="cta-band-sub">Av. Pacaembú, 1306 — Pacaembú, São Paulo · (11) 99213-9135</p>
+            <p class="cta-band-sub">Av. Pacaembú, 1306 — Pacaembú, São Paulo · (11) 97641-0925</p>
         </div>
         <div class="cta-band-actions">
-            <a href="https://api.whatsapp.com/send?phone=5511992139135&text=Olá!%20Gostaria%20de%20agendar%20um%20serviço%20de%20câmbio%20automático."
+            <a href="https://api.whatsapp.com/send?phone=5511976410925&text=Olá!%20Gostaria%20de%20agendar%20um%20serviço%20de%20câmbio%20automático."
                target="_blank" class="btn-dark">
                 <i class="fab fa-whatsapp"></i> WhatsApp
             </a>
@@ -1305,7 +1359,7 @@
             <div class="footer-col-title">Contato</div>
             <div class="footer-links">
                 <a href="tel:+5511947477869">Blindados: (11) 94747-7869</a>
-                <a href="tel:+5511992139135">Mecânica: (11) 99213-9135</a>
+                <a href="tel:+5511976410925">Mecânica: (11) 97641-0925</a>
                 <a href="tel:+5511977280908">Funilaria: (11) 97728-0908</a>
                 <a href="https://api.whatsapp.com/send?phone=5511947477869" target="_blank">WhatsApp</a>
                 <a href="contato.html">Formulário de Contato</a>
@@ -1319,7 +1373,7 @@
 </footer>
 
 <!-- ── FLOAT BUTTONS ── -->
-<a href="https://api.whatsapp.com/send?phone=5511992139135" target="_blank"
+<a href="https://api.whatsapp.com/send?phone=5511976410925" target="_blank"
    class="whatsapp-float" aria-label="WhatsApp Mecânica Prost">
     <i class="fab fa-whatsapp"></i>
 </a>
@@ -1384,7 +1438,7 @@
 </body>
 </html>
 
-<a href="https://api.whatsapp.com/send?phone=5511992139135" target="_blank"
+<a href="https://api.whatsapp.com/send?phone=5511976410925" target="_blank"
    class="whatsapp-float" aria-label="WhatsApp Prost Mecânica">
     <i class="fab fa-whatsapp"></i>
 </a>
