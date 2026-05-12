@@ -24,6 +24,16 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:wght@300;400;500;600;700&family=Barlow+Condensed:wght@400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
+    <!-- Google Ads — Conversão Contato (AW-18130213564) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-18130213564"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'AW-18130213564');
+    </script>
+    <!-- End Google Ads -->
+
     <!-- Anti-spam: honeypot + timestamp -->
 
     <style>
@@ -1465,6 +1475,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             const result = await response.json();
 
             if (result.success) {
+                gtag('event', 'conversion', { 'send_to': 'AW-18130213564/bn3ECM-t-KscELy1lMVD' });
                 successEl.style.display = 'block';
                 form.reset();
                 form.querySelector('[name="_ts"]').value = Date.now().toString();
