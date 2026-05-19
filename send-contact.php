@@ -134,7 +134,7 @@ if (!in_array($data['unidade'], $unidadesValidas, true)) respond(422, 'Unidade i
 // ═══ MAPEAMENTO UNIDADE → WHATSAPP ═══
 $whatsappMap = [
     'Prost Blindados — Pinheiros'    => '5511947477869',
-    'Prost Mecânica — Pacaembú'      => '5511976410925',
+    'Prost Mecânica — Pacaembú'      => '5511949214860',
     'Prost Funilaria — Barra Funda'  => '5511977280908',
     'Sem preferência'                => '5511947477869',
 ];
